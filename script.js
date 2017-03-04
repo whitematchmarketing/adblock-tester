@@ -1,31 +1,52 @@
 NodeList.prototype.forEach = Array.prototype.forEach
 
-const lis = document.querySelectorAll('li')
-const successPercent = document.querySelector('.js-success-percent')
-const successCount = document.querySelector('.js-success')
+const REZULT_SELECTOR = '.js-result'
+const ADS_BLOCKS_SELECTOR = '.js-ads-block'
 const allCount = document.querySelector('.js-all')
+const successCount = document.querySelector('.js-success')
+const successPercent = document.querySelector('.js-success-percent')
 
 app()
-const interv = setInterval(app, 25)
-// window.onload = () => setTimeout(() => clearInterval(interv), 1000)
 
 function app() {
-    lis.forEach(li => {
-        const ads = li.querySelector('.js-block')
-        const rez = li.querySelector('.js-result')
-        if (!ads || !rez) return
+    checkBanners()
+    checkVariables()
+    showFinallCount(allCount, successCount, successPercent)
 
-        const adsLoaded = ads.clientWidth !== 0 && ads.clientHeight !== 0
+    setTimeout(app, 100)
+}
 
-        rez.innerHTML = adsLoaded ? 'загружен' : 'заблокирован'
-        rez.classList.remove(adsLoaded ? 'green' : 'red')
-        rez.classList.add(adsLoaded ? 'red' : 'green')
-    })
-
-    const all = document.querySelectorAll('.js-result').length
-    const success = document.querySelectorAll('.js-result.green').length
+function showFinallCount(allCount, successCount, successPercent) {
+    const all = document.querySelectorAll(REZULT_SELECTOR).length
+    const success = document.querySelectorAll(`${REZULT_SELECTOR}.green`).length
 
     allCount.innerHTML = all
     successCount.innerHTML = success
     successPercent.innerHTML = (success == 0 ? 0 : Math.round(success/all * 10000)/100) + '%'
+}
+
+function checkBanners() {
+    const $ads = document.querySelectorAll(ADS_BLOCKS_SELECTOR)
+
+    $ads.forEach($ad => {
+        const hasAds = $ad.clientWidth !== 0 && $ad.clientHeight !== 0
+        const $rez = $ad.parentElement.querySelector(REZULT_SELECTOR)
+        updateRez($rez, hasAds)
+    })
+}
+
+function checkVariables() {
+    const $checkVars = document.querySelectorAll('.js-variable-exist')
+    $checkVars.forEach($var => {
+        const loadedMetrica = !!window[$var.dataset.var]
+        console.log(`# loadedMetrica`, loadedMetrica)
+        const $rez = $var.parentElement.querySelector(REZULT_SELECTOR)
+        updateRez($rez, loadedMetrica)
+    })
+}
+
+function updateRez($rez, value) {
+    $rez.innerHTML = value ? 'загружен' : 'заблокирован'
+    $rez.classList.remove(value ? 'green' : 'red')
+    $rez.classList.add(value ? 'red' : 'green')
 }
