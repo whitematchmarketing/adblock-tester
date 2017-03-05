@@ -3,6 +3,7 @@
 <meta charset="utf-8">
 <title>Сайт с рекламой</title>
 <meta name="description" content="Сайт на котором вы можете проверить работает ли у вас блокировщик рекламы. AdBlock, AdGuard, Ghostery, uBlock, Disconnect и другие.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
@@ -27,12 +28,10 @@
 		<div class="place_block block js-ads-block">
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 			<!-- Auto size -->
-			<ins class="adsbygoogle"
-			     style="display:block"
-			     data-ad-client="ca-pub-6430039911615607"
-			     data-ad-slot="4852376176"
-			     data-ad-format="auto"></ins>
-			<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6430039911615607" data-ad-slot="4852376176" data-ad-format="auto"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
 		</div>
 	</li>
 </ul>
@@ -56,44 +55,48 @@
 		<span class="js-variable-exist" data-var="yaCounter43211979"></span>
 		<!-- Yandex.Metrika counter -->
 		<script type="text/javascript">
-		    (function (d, w, c) {
-		        (w[c] = w[c] || []).push(function() {
-		            try {
-		                w.yaCounter43211979 = new Ya.Metrika({
-		                    id:43211979,
-		                    clickmap:true,
-		                    trackLinks:true,
-		                    accurateTrackBounce:true
-		                });
-		            } catch(e) { }
-		        });
+			(function (d, w, c) {
+				(w[c] = w[c] || []).push(function () {
+					try {
+						w.yaCounter43211979 = new Ya.Metrika({
+							id: 43211979,
+							clickmap: true,
+							trackLinks: true,
+							accurateTrackBounce: true
+						});
+					} catch (e) { }
+				});
 
-		        var n = d.getElementsByTagName("script")[0],
-		            s = d.createElement("script"),
-		            f = function () { n.parentNode.insertBefore(s, n); };
-		        s.type = "text/javascript";
-		        s.async = true;
-		        s.src = "https://mc.yandex.ru/metrika/watch.js";
+				var n = d.getElementsByTagName("script")[0],
+					s = d.createElement("script"),
+					f = function () { n.parentNode.insertBefore(s, n); };
+				s.type = "text/javascript";
+				s.async = true;
+				s.src = "https://mc.yandex.ru/metrika/watch.js";
 
-		        if (w.opera == "[object Opera]") {
-		            d.addEventListener("DOMContentLoaded", f, false);
-		        } else { f(); }
-		    })(document, window, "yandex_metrika_callbacks");
+				if (w.opera == "[object Opera]") {
+					d.addEventListener("DOMContentLoaded", f, false);
+				} else { f(); }
+			})(document, window, "yandex_metrika_callbacks");
 		</script>
-		<noscript><div><img src="https://mc.yandex.ru/watch/43211979" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+		<noscript>
+			<div><img src="https://mc.yandex.ru/watch/43211979" style="position:absolute; left:-9999px;" alt="" /></div>
+		</noscript>
 		<!-- /Yandex.Metrika counter -->
 	</li>
 	<li>Гугл аналитика / Google Analytics — <b class="js-result"></b>
 		<span class="js-variable-exist" data-var="ga"></span>
 
 		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-		  ga('create', 'UA-20899801-9', 'auto');
-		  ga('send', 'pageview');
+			ga('create', 'UA-20899801-9', 'auto');
+			ga('send', 'pageview');
 		</script>
 	</li>
 </ul>
@@ -140,5 +143,8 @@
 	</small>
 </section>
 
-<script>document.write(`<script src=\".\/script.js?v=${Date.now()}\"><\/script>`)</script>
+<script>
+		  document.write(`<script src=\".\/script.js?v=${Date.now()}\"><\/script>`)
+</script>
+
 </html>
