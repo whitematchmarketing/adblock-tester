@@ -11,6 +11,7 @@ app()
 function app() {
     checkBanners()
     checkVariables()
+    checkGA()
     showFinallCount(allCount, successCount, successPercent)
 
     setTimeout(app, 100)
@@ -43,6 +44,13 @@ function checkVariables() {
         const $rez = $var.parentElement.querySelector(REZULT_SELECTOR)
         updateRez($rez, loadedMetrica)
     })
+}
+
+function checkGA() {
+    const $ga = document.querySelector('.js-ga')
+    const gaLoaded = ga.toString().indexOf('\n') !== -1
+
+    updateRez($ga, gaLoaded)
 }
 
 function updateRez($rez, value) {
