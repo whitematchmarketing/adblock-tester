@@ -48,7 +48,7 @@ function checkVariables() {
 
 function checkGA() {
     const $ga = document.querySelector('.js-ga')
-    const gaLoaded = ga.toString().indexOf('\n') !== -1
+    const gaLoaded = Object.keys(ga).length != 4
 
     updateRez($ga, gaLoaded)
 }
