@@ -41,3 +41,7 @@ a:link:hover,a:visited:hover {
 .place_block.block {
     display: block;
 }
+
+.place_block.w728 { width: 728px; }
+.place_block.w468 { width: 468px; }
+.place_block.w240 { width: 240px; }
