@@ -2,7 +2,7 @@
 
 var getMetrica = function getMetrica() {
     var metrica = null;
-    for (key in window) {
+    for (var key in window) {
         if (key.indexOf("yaCounter") === 0) {
             metrica = window[key];
             break;
