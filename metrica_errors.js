@@ -1,40 +1,35 @@
 "use strict";
 
-var getMetrica = function getMetrica() {
-    var metrica = null;
+function getMetrica() {
+    var m = null;
     for (var key in window) {
         if (key.indexOf("yaCounter") === 0) {
-            metrica = window[key];
+            m = window[key];
             break;
         }
     }
-    if (!metrica) throw new Error("Yandex Metrica not found!");
-    return metrica;
+    if (!m) throw new Error("Yandex Metrica not found!");
+    return m;
 };
 
-var sendMessage = function sendMessage(message) {
-    var metrica = getMetrica();
-    metrica.hit(location.pathname, message);
+function sendMessage(message) {
+    getMetrica().hit(location.pathname, message);
 };
 
-var browserErrorHandler = function browserErrorHandler(errorMsg, url, lineNumber, column, errorObj) {
-    var message = {
+function browserErrorHandler(errorMsg, url, lineNumber, column, errorObj) {
+    sendMessage({
         "JavaScript errors": {
             where: url + " " + lineNumber + ":" + column,
             stacktrace: errorObj
         }
-    };
-    sendMessage(message);
+    });
 };
 
-var browserRejectionHandler = function browserRejectionHandler(event) {
-    var message = {
-        "JavaScript unhandled rejection": event
-    };
-    sendMessage(message);
+function browserRejectionHandler(event) {
+    sendMessage({ "Unhandled rejection": event });
 };
 
-var listeners = function listeners() {
+function listeners() {
     if (window.addEventListener) {
         window.addEventListener("error", browserErrorHandler);
         window.addEventListener("unhandledrejection", browserRejectionHandler);
