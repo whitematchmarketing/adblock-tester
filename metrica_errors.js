@@ -5,6 +5,7 @@ var getMetrica = function getMetrica() {
     for (key in window) {
         if (key.indexOf("yaCounter") === 0) {
             metrica = window[key];
+            break;
         }
     }
     if (!metrica) throw new Error("Yandex Metrica not found!");

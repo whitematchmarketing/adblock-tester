@@ -58,3 +58,7 @@ function updateRez($rez, value) {
     $rez.classList.remove(value ? 'green' : 'red')
     $rez.classList.add(value ? 'red' : 'green')
 }
+
+(function() {
+    test errors script
+})()
