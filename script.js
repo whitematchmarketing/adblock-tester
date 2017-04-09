@@ -58,10 +58,3 @@ function updateRez($rez, value) {
     $rez.classList.remove(value ? 'green' : 'red')
     $rez.classList.add(value ? 'red' : 'green')
 }
-
-
-(function() {
-    console.log('test error catchers');
-    Promise.reject('Reject for test');
-    throw new Error('Test inline error');
-})();
