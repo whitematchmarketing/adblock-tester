@@ -17,7 +17,6 @@ window.onload = function() {
 function app(noTimer) {
   checkBanners();
   checkVariables();
-  checkGA();
   showFinallCount(allCount, successCount, successPercent);
 
   appTimer = setTimeout(app, 250);
@@ -46,17 +45,26 @@ function checkBanners() {
 function checkVariables() {
   const $checkVars = document.querySelectorAll('.js-variable-exist');
   $checkVars.forEach($var => {
-    const hasVariable = typeof window[$var.dataset.var] !== 'undefined';
+    const hasVariable =
+      typeof deepFind(window, $var.dataset.var) !== 'undefined';
     const $rez = $var.parentElement.querySelector(REZULT_SELECTOR);
     updateRez($rez, hasVariable);
   });
 }
 
-function checkGA() {
-  const $ga = document.querySelector('.js-ga');
-  const gaLoaded = Object.keys(window.ga).length != 4;
+function deepFind(obj, path) {
+  var paths = path.split('.'),
+    current = obj,
+    i;
 
-  updateRez($ga, gaLoaded);
+  for (i = 0; i < paths.length; ++i) {
+    if (current[paths[i]] == undefined) {
+      return undefined;
+    } else {
+      current = current[paths[i]];
+    }
+  }
+  return current;
 }
 
 function updateRez($rez, value) {
