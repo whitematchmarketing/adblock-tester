@@ -45,8 +45,8 @@ function checkBanners() {
 function checkVariables() {
   const $checkVars = document.querySelectorAll('.js-variable-exist');
   $checkVars.forEach($var => {
-    const hasVariable =
-      typeof deepFind(window, $var.dataset.var) !== 'undefined';
+    const variable = deepFind(window, $var.dataset.var);
+    const hasVariable = variable !== undefined;
     const $rez = $var.parentElement.querySelector(REZULT_SELECTOR);
     updateRez($rez, hasVariable);
   });
