@@ -24,7 +24,7 @@ function app(noTimer) {
 
 function showFinallCount(allCount, successCount, successPercent) {
   const all = document.querySelectorAll(REZULT_SELECTOR).length;
-  const success = document.querySelectorAll(`${REZULT_SELECTOR}.green`).length;
+  const success = document.querySelectorAll(REZULT_SELECTOR + '.green').length;
 
   allCount.innerHTML = all;
   successCount.innerHTML = success;
