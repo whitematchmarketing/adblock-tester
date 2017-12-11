@@ -35,7 +35,7 @@ function showFinallCount(allCount, successCount, successPercent) {
 function checkBanners() {
   const $ads = document.querySelectorAll(ADS_BLOCKS_SELECTOR);
 
-  $ads.forEach($ad => {
+  $ads.forEach(function($ad) {
     const hasAds = $ad.clientWidth !== 0 && $ad.clientHeight !== 0;
     const $rez = $ad.parentElement.querySelector(REZULT_SELECTOR);
     updateRez($rez, hasAds);
@@ -44,7 +44,7 @@ function checkBanners() {
 
 function checkVariables() {
   const $checkVars = document.querySelectorAll('.js-variable-exist');
-  $checkVars.forEach($var => {
+  $checkVars.forEach(function($var) {
     const variable = deepFind(window, $var.dataset.var);
     const hasVariable = variable !== undefined;
     const $rez = $var.parentElement.querySelector(REZULT_SELECTOR);
