@@ -1,11 +1,11 @@
 NodeList.prototype.forEach = Array.prototype.forEach;
 
-let appTimer = null;
-const REZULT_SELECTOR = '.js-result';
-const ADS_BLOCKS_SELECTOR = '.js-ads-block';
-const allCount = document.querySelector('.js-all');
-const successCount = document.querySelector('.js-success');
-const successPercent = document.querySelector('.js-success-percent');
+var appTimer = null;
+var REZULT_SELECTOR = '.js-result';
+var ADS_BLOCKS_SELECTOR = '.js-ads-block';
+var allCount = document.querySelector('.js-all');
+var successCount = document.querySelector('.js-success');
+var successPercent = document.querySelector('.js-success-percent');
 
 app();
 window.onload = function() {
@@ -23,8 +23,8 @@ function app(noTimer) {
 }
 
 function showFinallCount(allCount, successCount, successPercent) {
-  const all = document.querySelectorAll(REZULT_SELECTOR).length;
-  const success = document.querySelectorAll(REZULT_SELECTOR + '.green').length;
+  var all = document.querySelectorAll(REZULT_SELECTOR).length;
+  var success = document.querySelectorAll(REZULT_SELECTOR + '.green').length;
 
   allCount.innerHTML = all;
   successCount.innerHTML = success;
@@ -33,21 +33,21 @@ function showFinallCount(allCount, successCount, successPercent) {
 }
 
 function checkBanners() {
-  const $ads = document.querySelectorAll(ADS_BLOCKS_SELECTOR);
+  var $ads = document.querySelectorAll(ADS_BLOCKS_SELECTOR);
 
   $ads.forEach(function($ad) {
-    const hasAds = $ad.clientWidth !== 0 && $ad.clientHeight !== 0;
-    const $rez = $ad.parentElement.querySelector(REZULT_SELECTOR);
+    var hasAds = $ad.clientWidth !== 0 && $ad.clientHeight !== 0;
+    var $rez = $ad.parentElement.querySelector(REZULT_SELECTOR);
     updateRez($rez, hasAds);
   });
 }
 
 function checkVariables() {
-  const $checkVars = document.querySelectorAll('.js-variable-exist');
+  var $checkVars = document.querySelectorAll('.js-variable-exist');
   $checkVars.forEach(function($var) {
-    const variable = deepFind(window, $var.dataset.var);
-    const hasVariable = variable !== undefined;
-    const $rez = $var.parentElement.querySelector(REZULT_SELECTOR);
+    var variable = deepFind(window, $var.dataset.var);
+    var hasVariable = variable !== undefined;
+    var $rez = $var.parentElement.querySelector(REZULT_SELECTOR);
     updateRez($rez, hasVariable);
   });
 }
