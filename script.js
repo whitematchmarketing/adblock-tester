@@ -29,7 +29,7 @@ function showFinallCount(allCount, successCount, successPercent) {
   allCount.innerHTML = all;
   successCount.innerHTML = success;
   successPercent.innerHTML =
-    (success == 0 ? 0 : Math.round(success / all * 10000) / 100) + '%';
+    (success == 0 ? 0 : Math.round((success / all) * 10000) / 100) + '%';
 }
 
 function checkBanners() {
