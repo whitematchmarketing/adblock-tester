@@ -55,6 +55,7 @@ embed {
 .single-result {
   display: inline;
   padding-left: 1em;
+  white-space: nowrap;
   font-weight: bold;
 
   &.red {

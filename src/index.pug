@@ -7,7 +7,7 @@ script(src='./scripts/handleLoading.ts')
 .img_and_title
   img(src="./assets/stop.jpg" width="64" alt="")
   h1 Сайт с рекламой
-    sup: small: small #{' '}(версия&nbsp; %VERSION%)
+    sup: small: small #{' '}(версия&nbsp;%VERSION%)
 p
   | Выбираете блокировщик рекламы, но не знаете где его протестировать?
   br
@@ -19,45 +19,45 @@ p
 h2 💰 Контекстная реклама
 ol
   li
-    | Google AdSense (загрузка скрипта)
+    | Google AdSense (загрузка скрипта) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       script(async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" onload="handleLoad(this)" hidden)
   li
-    | Google AdSense (выполнение скрипта)
+    | Google AdSense (выполнение скрипта) #{' '}
     .single-result(data-blocked data-success-text="выполнен" data-failute-text="не выполнен")
     .ads_script_wrapper: .ads_container(data-check-eval="isArray(adsbygoogle)")
       include includes/ads_google.html
   li
-    | Google AdSense (видимость)
+    | Google AdSense (видимость) #{' '}
     .single-result(data-blocked data-success-text="невидим" data-failute-text="видим")
     .ads_wrapper: .ads_container(data-check-size)
       include includes/ads_google.html
   li
-    | Рекламная сеть Яндекса / Яндекс Директ (загрузка скрипта)
+    | Рекламная сеть Яндекса / Яндекс Директ (загрузка скрипта) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading data-check-variables="Ya.Context.AdvManager")
       script(async src="//an.yandex.ru/system/context.js" onload="handleLoad(this)")
   li
-    | Рекламная сеть Яндекса / Яндекс Директ (выполнение скрипта)
+    | Рекламная сеть Яндекса / Яндекс Директ (выполнение скрипта) #{' '}
     .single-result(data-blocked data-success-text="выполнен" data-failute-text="не выполнен")
     .ads_script_wrapper: .ads_container(data-check-variables="Ya.Context.AdvManager")
   li
-    | Рекламная сеть Яндекса / Яндекс Директ (видимость)
+    | Рекламная сеть Яндекса / Яндекс Директ (видимость) #{' '}
     .single-result(data-blocked data-success-text="невидим" data-failute-text="видим")
     .ads_wrapper: .ads_container(data-check-size )
       include includes/ads_yandex.html
   li
-    | Yandex AdFox (загрузка скрипта)
+    | Yandex AdFox (загрузка скрипта) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       script(async src="https://yastatic.net/pcode/adfox/loader.js" onload="handleLoad(this)" crossorigin="anonymous")
   li
-    | Yandex AdFox (выполнение скрипта)
+    | Yandex AdFox (выполнение скрипта) #{' '}
     .single-result(data-blocked data-success-text="выполнен" data-failute-text="не выполнен")
     .ads_script_wrapper: .ads_container(data-check-variables="Ya.adfoxCode.create")
   li
-    | Yandex AdFox (видимость)
+    | Yandex AdFox (видимость) #{' '}
     .single-result(data-blocked data-success-text="невидим" data-failute-text="видим")
     .ads_wrapper: .ads_container(data-check-size)
       include includes/ads_adfox.html
@@ -65,11 +65,11 @@ ol
 h2 🌆 Банеры
 ol
   li
-    | Adobe Flash Player (включен)
+    | Adobe Flash Player (включен) #{' '}
     .single-result(data-blocked data-success-text="включен" data-failute-text="выключен или неподдерживается")
     .ads_script_wrapper: .ads_container(data-check-eval="flashSupported")
   li
-    | Удаление Flash файла из кода страницы
+    | Удаление Flash файла из кода страницы #{' '}
     .single-result(data-blocked data-success-text="удален" data-failute-text="не удален")
     .ads_wrapper: .ads_container(data-check-size)
       object(
@@ -79,22 +79,22 @@ ol
       )
         param(name="movie" value="/banners/ads_flash.swf")
   li
-    | Статичная картинка (загрузка)
+    | Статичная картинка (загрузка) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       img(src="%HOST_URL%/banners/ads_png.png" alt="" onload="handleLoad(this)" hidden)
   li
-    | Статичная картинка (скрытие)
+    | Статичная картинка (скрытие) #{' '}
     .single-result(data-blocked data-success-text="невидим" data-failute-text="видим")
     .ads_wrapper: .ads_container(data-check-size)
       img(src="%HOST_URL%/banners/ads_png.png" alt="" onerror="imageError(this)")
   li
-    | Анимированный GIF-баннер (загрузка)
+    | Анимированный GIF-баннер (загрузка) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       img(src="%HOST_URL%/banners/ads_gif.gif" border="0" onload="handleLoad(this)" hidden)
   li
-    | Анимированный GIF-баннер (видимость)
+    | Анимированный GIF-баннер (видимость) #{' '}
     .single-result(data-blocked data-success-text="невидим" data-failute-text="видим")
     .ads_wrapper: .ads_container(data-check-size)
       img(src="%HOST_URL%/banners/ads_gif.gif" border="0" onerror="imageError(this)")
@@ -102,55 +102,54 @@ ol
 h2 📊 Аналитика и метрики
 ol
   li
-    | Яндекс-метрика
+    | Яндекс-метрика #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading, data-check-variables="yaCounter43211979._inited")
       script(async src="https://mc.yandex.ru/metrika/watch.js" onload="handleLoad(this)")
       include includes/yandex_metrica.html
   li
-    | Гугл аналитика / Google Analytics (загрузка скрипта)
+    | Гугл аналитика / Google Analytics (загрузка скрипта) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       script(async src="https://www.google-analytics.com/analytics.js" onload="handleLoad(this)")
   li
-    | Гугл аналитика / Google Analytics (выполнение скрипта)
+    | Гугл аналитика / Google Analytics (выполнение скрипта) #{' '}
     .single-result(data-blocked data-success-text="выполнен" data-failute-text="не выполнен")
     .ads_script_wrapper: .ads_container(data-check-variables="ga.answer")
       include includes/google_analytics.html
   li
-    | Mail.ru счетчик (загрузка скрипта)
+    | Mail.ru счетчик (загрузка скрипта) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       script(async id="topmailru-code" src="https://top-fwz1.mail.ru/js/code.js" onload="handleLoad(this)")
   li
-    | Mail.ru счетчик (выполнение скрипта)
+    | Mail.ru счетчик (выполнение скрипта) #{' '}
     .single-result(data-blocked data-success-text="выполнен" data-failute-text="не выполнен")
     .ads_script_wrapper: .ads_container(data-check-eval="isArray(_tmr)")
       include includes/mail_ru.html
   li
-    | Open Web Analytics (загрузка скрипта)
+    | Open Web Analytics (загрузка скрипта) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       script(async src="%HOST_URL%/js/owa/owa.tracker-combined-min.js" onload="handleLoad(this);initOwa()")
   li
-    | Open Web Analytics (выполнение скрипта)
+    | Open Web Analytics (выполнение скрипта) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-variables="OWA/OWATracker.active")
       include includes/open_web.html
 
 //-   li
-//-     | LiveInternet счетчик
-//-     .single-result(data-blocked)
+//-     | LiveInternet счетчик #{' '}
+//-     .single-result(data-blocked) #{' '}
 //-     include includes/live_internet.html
-//-   li
-//-     | Rambler TOP 100 счетчик
+//-   li #{' '}
+//-     | Rambler TOP 100 счетчик #{' '}
 //-     .single-result(data-blocked)
 //-     include includes/rambler_top100.html
 //-   li
-//-     | Pr-cy.ru счетчик
+//-     | Pr-cy.ru счетчик #{' '}
 //-     .single-result(data-blocked)
 //-     include includes/pr_cy.html
-
 //-   h2 Сервисы сбора ошибок
 //-   p
 //-     | Эти сервисы позволяют разработчикам сайта узнать если что-то пошло не так, обычно они не должны блокироваться (
@@ -158,11 +157,11 @@ ol
 //-     | ).
 //-   ol
 //-     li
-//-       | Sentry.io
+//-       | Sentry.io #{' '}
 //-       .single-result(data-blocked)
 //-       include includes/sentry.html
 //-     li
-//-       | Bugsnag
+//-       | Bugsnag #{' '}
 //-       .single-result(data-blocked)
 //-       include includes/bugsnag.html
 
