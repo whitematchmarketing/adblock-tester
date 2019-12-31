@@ -155,4 +155,4 @@ const appCycle = async (delay: number) => {
   setTimeout(() => appCycle(newDelay), newDelay);
 };
 
-window.onload = () => appCycle(500);
+appCycle(250);
