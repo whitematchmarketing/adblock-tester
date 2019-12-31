@@ -58,6 +58,11 @@ embed {
   white-space: nowrap;
   font-weight: bold;
 
+  @media (max-width: 624px) {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+
   &.red {
     color: #f41224;
   }
