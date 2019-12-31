@@ -18,7 +18,7 @@
   "scripts": {
     "start": "parcel ./src/index.pug --out-dir ./docs --no-cache",
     "dev": "parcel serve ./src/index.pug --out-dir ./docs --https --no-cache",
-    "build": "parcel build ./src/index.pug --out-dir ./docs --no-cache",
+    "build": "NODE_ENV=test parcel build ./src/index.pug --out-dir ./docs --no-cache",
     "prestart": "yarn clean_docs",
     "predev": "yarn clean_docs",
     "prebuild": "yarn clean_docs",
