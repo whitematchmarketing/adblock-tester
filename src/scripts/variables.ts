@@ -1,7 +1,6 @@
 export const CHECK_EVAL_ATTRIBUTE = "data-check-eval";
 export const CHECK_SIZE_ATTRIBUTE = "data-check-size";
 export const CHECK_LOADING_ATTRIBUTE = "data-check-loading";
-export const CHECK_FETCH_ATTRIBUTE = "data-check-fetch";
 export const CHECK_VAR_ATTRIBUTE = "data-check-variables";
 export const ITEM_BLOCKED = "data-blocked";
 export const ITEM_FINAL_BLOCKED = "data-final-blocked";
@@ -28,8 +27,5 @@ export const $checkSizes = [
 ];
 export const $checkEvals = [
   ...document.querySelectorAll(`[${CHECK_EVAL_ATTRIBUTE}]`)
-];
-export const $checkFetchs = [
-  ...document.querySelectorAll(`[${CHECK_FETCH_ATTRIBUTE}]`)
 ];
 export const $itemResults = [...document.querySelectorAll(`[${ITEM_BLOCKED}]`)];

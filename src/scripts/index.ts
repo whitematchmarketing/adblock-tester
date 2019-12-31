@@ -1,8 +1,3 @@
-// and/or
-// check variable
-// block size
-// loading status cover
-
 import {
   CHECK_LOADING_ATTRIBUTE,
   CHECK_VAR_ATTRIBUTE,
@@ -18,9 +13,7 @@ import {
   $checkLoadings,
   $checkVars,
   $itemResults,
-  $checkEvals,
-  $checkFetchs,
-  CHECK_FETCH_ATTRIBUTE
+  $checkEvals
 } from "./variables";
 import {
   updateResult,
@@ -31,24 +24,9 @@ import {
 
 const syncCheckSize = () => {
   $checkSizes.forEach($block => {
-    let hasUnsupportedFlashItem = false;
-    // if (!flashSupported) {
-    //   const children = [...$block.children];
-    //   hasUnsupportedFlashItem = children.reduce((acc, child) => {
-    //     if (child.tagName === "OBJECT" || child.tagName === "EMBED") {
-    //       return true;
-    //     }
-    //     return acc;
-    //   }, false);
-    // }
-
     const empty = $block.clientWidth === 0 || $block.clientHeight === 0;
     $block.parentElement.setAttribute("data-size", empty ? "empty" : "full");
-    // $block.parentElement.setAttribute(
-    //   "data-unsupported-flash",
-    //   hasUnsupportedFlashItem + ""
-    // );
-    updateResult($block, empty || hasUnsupportedFlashItem);
+    updateResult($block, empty);
   });
 };
 
@@ -87,18 +65,6 @@ const syncEvals = () => {
     const evalString = $el.getAttribute(CHECK_EVAL_ATTRIBUTE);
     const result = eval(evalString);
     updateResult($el, result);
-  });
-};
-
-const syncFetch = () => {
-  $checkFetchs.forEach(async $el => {
-    const url = $el.getAttribute(CHECK_FETCH_ATTRIBUTE);
-    try {
-      await fetch(url);
-      updateResult($el, false);
-    } catch (e) {
-      updateResult($el, true);
-    }
   });
 };
 
@@ -141,8 +107,7 @@ const syncFinalScore = () => {
 const clearResults = () =>
   $itemResults.forEach($el => $el.setAttribute(ITEM_BLOCKED, ""));
 
-const appCycle = async (delay: number) => {
-  await syncFetch();
+const appCycle = (delay: number) => {
   clearResults();
   syncCheckSize();
   syncLoading();
