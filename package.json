@@ -16,12 +16,8 @@
     "typescript": "^3.7.4"
   },
   "scripts": {
-    "start": "parcel ./src/index.pug --out-dir ./docs --no-cache",
-    "dev": "parcel serve ./src/index.pug --out-dir ./docs --https --no-cache",
-    "build": "NODE_ENV=test parcel build ./src/index.pug --out-dir ./docs --no-cache",
-    "prestart": "yarn clean_docs",
-    "predev": "yarn clean_docs",
-    "prebuild": "yarn clean_docs",
-    "clean_docs": "rm -rf ./docs/**"
+    "start": "yarn dev",
+    "dev": "rm -rf ./dev/**  && parcel serve ./src/index.pug --out-dir ./dev --https --no-cache",
+    "build": "rm -rf ./docs/**  && NODE_ENV=test parcel build ./src/index.pug --out-dir ./docs --no-cache"
   }
 }
