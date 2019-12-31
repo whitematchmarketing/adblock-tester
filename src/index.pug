@@ -66,8 +66,8 @@ h2 🌆 Банеры
 ol
   li
     | Adobe Flash Player (включен) #{' '}
-    .single-result(data-blocked data-success-text="включен" data-failute-text="выключен или неподдерживается")
-    .ads_script_wrapper: .ads_container(data-check-eval="flashSupported")
+    .single-result(data-blocked data-success-text="выключен или неподдерживается" data-failute-text="включен")
+    .ads_script_wrapper: .ads_container(data-check-eval="!flashSupported")
   li
     | Удаление Flash файла из кода страницы #{' '}
     .single-result(data-blocked data-success-text="удален" data-failute-text="не удален")
