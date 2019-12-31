@@ -19,13 +19,13 @@ p
 h2 💰 Контекстная реклама
 ol
   li
-    | Google AdSense (загрузка скрипта) #{' '}
+    | Google AdSense (загрузка) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       script(async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" onload="handleLoad(this)" hidden)
   li
-    | Google AdSense (выполнение скрипта) #{' '}
-    .single-result(data-blocked data-success-text="выполнен" data-failute-text="не выполнен")
+    | Google AdSense (выполнение) #{' '}
+    .single-result(data-blocked data-success-text="не выполнен" data-failute-text="выполнен")
     .ads_script_wrapper: .ads_container(data-check-eval="isArray(adsbygoogle)")
       include includes/ads_google.html
   li
@@ -34,13 +34,13 @@ ol
     .ads_wrapper: .ads_container(data-check-size)
       include includes/ads_google.html
   li
-    | Рекламная сеть Яндекса / Яндекс Директ (загрузка скрипта) #{' '}
+    | Рекламная сеть Яндекса / Яндекс Директ (загрузка) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading data-check-variables="Ya.Context.AdvManager")
       script(async src="//an.yandex.ru/system/context.js" onload="handleLoad(this)")
   li
-    | Рекламная сеть Яндекса / Яндекс Директ (выполнение скрипта) #{' '}
-    .single-result(data-blocked data-success-text="выполнен" data-failute-text="не выполнен")
+    | Рекламная сеть Яндекса / Яндекс Директ (выполнение) #{' '}
+    .single-result(data-blocked data-success-text="не выполнен" data-failute-text="выполнен")
     .ads_script_wrapper: .ads_container(data-check-variables="Ya.Context.AdvManager")
   li
     | Рекламная сеть Яндекса / Яндекс Директ (видимость) #{' '}
@@ -48,13 +48,13 @@ ol
     .ads_wrapper: .ads_container(data-check-size )
       include includes/ads_yandex.html
   li
-    | Yandex AdFox (загрузка скрипта) #{' '}
+    | Yandex AdFox (загрузка) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       script(async src="https://yastatic.net/pcode/adfox/loader.js" onload="handleLoad(this)" crossorigin="anonymous")
   li
-    | Yandex AdFox (выполнение скрипта) #{' '}
-    .single-result(data-blocked data-success-text="выполнен" data-failute-text="не выполнен")
+    | Yandex AdFox (выполнение) #{' '}
+    .single-result(data-blocked data-success-text="не выполнен" data-failute-text="выполнен")
     .ads_script_wrapper: .ads_container(data-check-variables="Ya.adfoxCode.create")
   li
     | Yandex AdFox (видимость) #{' '}
@@ -102,43 +102,43 @@ ol
 h2 📊 Аналитика и метрики
 ol
   li
-    | Яндекс-метрика (загрузка скрипта) #{' '}
+    | Яндекс-метрика (загрузка) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       script(async src="https://mc.yandex.ru/metrika/watch.js" onload="handleLoad(this)")
   li
-    | Яндекс-метрика (выполнение скрипта) #{' '}
-    .single-result(data-blocked)
+    | Яндекс-метрика (выполнение) #{' '}
+    .single-result(data-blocked data-success-text="не выполнен" data-failute-text="выполнен")
     .ads_script_wrapper: .ads_container(data-check-variables="yaCounter43211979._inited")
       include includes/yandex_metrica.html
   li
-    | Гугл аналитика / Google Analytics (загрузка скрипта) #{' '}
+    | Гугл аналитика / Google Analytics (загрузка) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       script(async src="https://www.google-analytics.com/analytics.js" onload="handleLoad(this)")
   li
-    | Гугл аналитика / Google Analytics (выполнение скрипта) #{' '}
-    .single-result(data-blocked data-success-text="выполнен" data-failute-text="не выполнен")
+    | Гугл аналитика / Google Analytics (выполнение) #{' '}
+    .single-result(data-blocked data-success-text="не выполнен" data-failute-text="выполнен")
     .ads_script_wrapper: .ads_container(data-check-variables="ga.answer")
       include includes/google_analytics.html
   li
-    | Mail.ru счетчик (загрузка скрипта) #{' '}
+    | Mail.ru счетчик (загрузка) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       script(async id="topmailru-code" src="https://top-fwz1.mail.ru/js/code.js" onload="handleLoad(this)")
   li
-    | Mail.ru счетчик (выполнение скрипта) #{' '}
-    .single-result(data-blocked data-success-text="выполнен" data-failute-text="не выполнен")
+    | Mail.ru счетчик (выполнение) #{' '}
+    .single-result(data-blocked data-success-text="не выполнен" data-failute-text="выполнен")
     .ads_script_wrapper: .ads_container(data-check-eval="isArray(_tmr)")
       include includes/mail_ru.html
   li
-    | Open Web Analytics (загрузка скрипта) #{' '}
+    | Open Web Analytics (загрузка) #{' '}
     .single-result(data-blocked)
     .ads_script_wrapper: .ads_container(data-check-loading)
       script(async src="%HOST_URL%/js/owa/owa.tracker-combined-min.js" onload="handleLoad(this);initOwa()")
   li
-    | Open Web Analytics (выполнение скрипта) #{' '}
-    .single-result(data-blocked)
+    | Open Web Analytics (выполнение) #{' '}
+    .single-result(data-blocked data-success-text="не выполнен" data-failute-text="выполнен")
     .ads_script_wrapper: .ads_container(data-check-variables="OWA/OWATracker.active")
       include includes/open_web.html
 
