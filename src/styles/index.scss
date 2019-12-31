@@ -1,0 +1,148 @@
+@import "bettertext.css";
+
+[hidden],
+input[type="checkbox"],
+input[type="radio"] {
+  position: absolute;
+  left: -9999px;
+  visibility: hidden;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+}
+
+img,
+object,
+embed {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.single-result,
+.final-score {
+  &:empty::before {
+    color: #ffae42;
+    content: "⌛ Идет проверка…";
+  }
+}
+
+.final-score {
+  display: inline-block;
+  padding: 0.1em 0.2em;
+  border-radius: 4px;
+  background: orange;
+}
+
+.final-score-cases {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.final-score-count,
+.final-score-success {
+  &:empty::before {
+    color: #ffae42;
+    content: "⌛";
+  }
+}
+
+.single-result.red ~ .ads_wrapper:not([data-size="empty"]),
+.ads_wrapper[data-unsupported-flash="true"] {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.single-result {
+  display: inline;
+  padding-left: 1em;
+  font-weight: bold;
+
+  &.red {
+    color: #f41224;
+  }
+
+  &.green {
+    color: green;
+  }
+}
+
+a:link {
+  border-bottom: 1px solid rgba(0, 137, 255, 0.3);
+  color: #0089ff;
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+a:visited {
+  border-color: rgba(180, 14, 180, 0.3);
+  color: #b40eb4;
+}
+
+a:link:hover,
+a:visited:hover {
+  border-color: rgba(244, 18, 36, 0.3);
+  color: #f41224;
+}
+
+.ads_script_wrapper,
+.ads_wrapper {
+  display: flex;
+}
+
+.ads_container {
+  display: inline-block;
+  border: 0;
+  background: rgba(0, 0, 0, 0.1);
+  background: -webkit-repeating-linear-gradient(
+    315deg,
+    #f3f3f3,
+    #f3f3f3 10px,
+    #ddd 10px,
+    #ddd 20px
+  );
+  background: repeating-linear-gradient(
+    135deg,
+    #f3f3f3,
+    #f3f3f3 10px,
+    #ddd 10px,
+    #ddd 20px
+  );
+  vertical-align: top;
+}
+
+.place_block a img {
+  padding: 0;
+}
+
+.single-results::after {
+  display: block;
+  content: "";
+}
+
+.place_block.w728 {
+  width: 728px;
+}
+.place_block.w468 {
+  width: 468px;
+}
+.place_block.w240 {
+  width: 240px;
+}
+
+.img_and_title {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  margin-bottom: 1.5em;
+}
+
+.img_and_title h1 {
+  margin: 0;
+}
+.img_and_title img {
+  margin-left: 1.5em;
+}

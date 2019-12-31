@@ -1,0 +1,14 @@
+<script type="text/javascript">
+  window.initOwa = function() {
+    try {
+      OWA.setSetting("baseUrl", "%HOST_URL%/js/owa");
+      console.info(`# [OWA]`, OWA);
+      console.info(`# [OWATracker]`, OWATracker);
+      OWATracker = new OWA.tracker();
+      OWATracker.setSiteId("your_site_id");
+      OWATracker.trackPageView();
+      OWATracker.trackClicks();
+      OWATracker.trackDomStream();
+    } catch (err) {}
+  };
+</script>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <meta charset="utf-8" />
+  <title>Сайт с рекламой</title>
+  <meta
+    name="description"
+    content="Сайт на котором вы можете проверить работает ли у вас блокировщик рекламы. AdBlock, AdGuard, Ghostery, uBlock, Disconnect и другие."
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <link rel="stylesheet" href="./normalize.css" />
+  <link rel="stylesheet" href="./bettertext.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <div class="img_and_title">
+    <h1>Сайт с рекламой</h1>
+    <img src="/stop.jpg" width="64" alt="" />
+  </div>
+
+  <p>
+    Выбираете блокировщик рекламы, но не знаете где его протестировать? Вы
+    попали куда нужно. На этом сайте тонна рекламы для проверки вашего
+    блокировщика. Не важно что вы выберите: AdBlock, AdBlock Plus, AdGuard,
+    uBlock Origin, Ghostery или Disconnect. Вы всегда можете проверить
+    эффективность вашего блокировщика здесь.
+  </p>
+
+  <h2>Контекстная реклама</h2>
+  <ol>
+    <li>
+        Гугл адсенс / Google AdSense —
+        <b class="single-results js-result"></b>
+      <div class="place_block block js-ads-block">
+        <script
+          async
+          src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <!-- Auto size -->
+        <ins
+          class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-6430039911615607"
+          data-ad-slot="4852376176"
+          data-ad-format="auto"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </li>
+    <li>
+        Рекламная сеть Яндекса / Яндекс Директ —
+        <b class="single-results js-result"></b>
+        <div class="place_block block js-ads-block js-variable-exist" data-var="Ya.Context.AdvManager">
+          <div id="yandex_rtb_R-A-491776-1"></div>
+        </div>
+        <script type="text/javascript">
+            (function(w, d, n, s, t) {
+                w[n] = w[n] || [];
+                w[n].push(function() {
+                    Ya.Context.AdvManager.render({
+                        blockId: "R-A-491776-1",
+                        renderTo: "yandex_rtb_R-A-491776-1",
+                        async: true
+                    });
+                });
+                t = d.getElementsByTagName("script")[0];
+                s = d.createElement("script");
+                s.type = "text/javascript";
+                s.src = "//an.yandex.ru/system/context.js";
+                s.async = true;
+                t.parentNode.insertBefore(s, t);
+            })(this, this.document, "yandexContextAsyncCallbacks");
+        </script>
+    </li>
+  </ol>
+
+  <h2>Банерная реклама</h2>
+  <ol>
+    <li>
+        Баннер-картинка —
+        <b class="single-results js-result"></b>
+        <div class="place_block block w468 js-ads-block">
+          <img
+            src="/banners/468x60.png"
+            onerror="this.parentElement.removeChild(this)"
+            alt=""
+          />
+        </div>
+    </li>
+    <li>
+        Флеш-баннер —
+        <b class="single-results js-result"></b>
+        <div class="place_block block w240 js-ads-block">
+          <object
+            type="application/x-shockwave-flash"
+            data="/banners/flash_banner1.swf"
+            width="240"
+            height="400"
+            onload="alert(1)"
+            onerror="this.parentElement.removeChild(this)"
+          >
+            <param name="movie" value="/banners/flash_banner1.swf" />
+          </object>
+        </div>
+    </li>
+    <li>
+        Анимированный GIF-баннер —
+        <b class="single-results js-result"></b>
+      <p class="place_block block w728 js-ads-block">
+        <img
+          src="/banners/gif1.gif"
+          width="728"
+          height="90"
+          border="0"
+          onerror="this.parentElement.removeChild(this)"
+        />
+      </p>
+    </li>
+  </ol>
+
+  <h2>Аналитика и метрики</h2>
+  <ol>
+    <li>
+      Яндекс-метрика —
+      <b class="single-results js-result"></b>
+      <span
+        class="js-variable-exist"
+        data-var="yaCounter43211979._inited"
+      ></span>
+      <!-- Yandex.Metrika counter -->
+      <script type="text/javascript">
+        (function(d, w, c) {
+          (w[c] = w[c] || []).push(function() {
+            try {
+              w.yaCounter43211979 = new Ya.Metrika({
+                id: 43211979,
+                clickmap: true,
+                trackLinks: true,
+                accurateTrackBounce: true,
+              });
+            } catch (e) {}
+          });
+
+          var n = d.getElementsByTagName('script')[0],
+            s = d.createElement('script'),
+            f = function() {
+              n.parentNode.insertBefore(s, n);
+            };
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = 'https://mc.yandex.ru/metrika/watch.js';
+
+          if (w.opera == '[object Opera]') {
+            d.addEventListener('DOMContentLoaded', f, false);
+          } else {
+            f();
+          }
+        })(document, window, 'yandex_metrika_callbacks');
+      </script>
+      <noscript>
+        <div>
+          <img
+            src="https://mc.yandex.ru/watch/43211979"
+            style="position:absolute; left:-9999px;"
+            alt=""
+          />
+        </div>
+      </noscript>
+      <!-- /Yandex.Metrika counter -->
+    </li>
+    <li>
+      Гугл аналитика / Google Analytics —
+      <b class="single-results js-result"></b>
+      <span class="js-variable-exist" data-var="ga.answer"></span>
+      <script>
+        (function(i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;
+          (i[r] =
+            i[r] ||
+            function() {
+              (i[r].q = i[r].q || []).push(arguments);
+            }),
+            (i[r].l = 1 * new Date());
+          (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m);
+        })(
+          window,
+          document,
+          'script',
+          'https://www.google-analytics.com/analytics.js',
+          'ga',
+        );
+
+        ga('create', 'UA-20899801-9', 'auto');
+        ga('send', 'pageview');
+      </script>
+    </li>
+    <li>
+      Mail.ru счетчик —
+      <b class="single-results js-result"></b>
+      <!-- <span class="js-variable-exist" data-var="_tmr.render"></span> -->
+      <script src="https://top-fwz1.mail.ru/js/code.js" data-check-loading="true"></script>
+
+      <!-- Rating Mail.ru counter -->
+      <script type="text/javascript">
+        var _tmr = window._tmr || (window._tmr = []);
+        _tmr.push({id: "3155631", type: "pageView", start: (new Date()).getTime()});
+        (function (d, w, id) {
+          if (d.getElementById(id)) return;
+          var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+          ts.src = "https://top-fwz1.mail.ru/js/code.js";
+          var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+          if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+        })(document, window, "topmailru-code");
+        </script>
+        <!-- //Rating Mail.ru counter -->
+    </li>
+    <li>
+      Open Web Analytics —
+      <b class="single-results js-result"></b>
+      <span class="js-variable-exist" data-var="OWATracker"></span>
+      <!-- Start Open Web Analytics Tracker -->
+      <script type="text/javascript" src="./owa.tracker-combined-min.js"></script>
+      <script type="text/javascript">
+      //<![CDATA[
+      // Set base URL
+      OWA.setSetting('baseUrl', '/');
+      // Create a tracker
+      OWATracker = new OWA.tracker();
+      // OWATracker.setSiteId('121');
+      // OWATracker.trackPageView();
+      // OWATracker.trackClicks();
+      // OWATracker.trackDomStream();
+      //]]>
+      </script>
+      <!-- End Open Web Analytics Code -->
+    </li>
+    <li>
+      LiveInternet счетчик —
+      <b class="single-results js-result"></b>
+      <div class="js-ads-block">
+        <!--LiveInternet counter-->
+        <script type="text/javascript">
+        document.write('<div class="place_block block">'+
+        '<img src="//counter.yadro.ru/hit?t27.6;r'+
+        escape(document.referrer)+((typeof(screen)=='undefined')?'':
+        ';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+        screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
+        ';h'+escape(document.title.substring(0,150))+';'+Math.random()+
+        '" alt="" title="LiveInternet: number of visitors and pageviews'+
+        ' is shown" '+
+        'border="0" width="88" height="120"><\/div>')
+        </script>
+        <!--/LiveInternet-->
+      </div>
+    </li>
+    <li>
+      Rambler TOP 100 счетчик —
+      <b class="single-results js-result"></b>
+      <div class="js-ads-block">
+        <span class="place_block block" id="top100_widget"></span>
+      </div>
+      <!-- Top100 (Kraken) Counter -->
+      <script>
+        (function (w, d, c) {
+          (w[c] = w[c] || []).push(function() {
+              var options = {
+                  project: 6925185,
+                  element: 'top100_widget',
+              };
+              try {
+                  w.top100Counter = new top100(options);
+              } catch(e) { }
+          });
+          var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+          s.type = "text/javascript";
+          s.async = true;
+          s.src =
+          (d.location.protocol == "https:" ? "https:" : "http:") +
+          "//st.top100.ru/top100/top100.js";
+
+          if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+      })(window, document, "_top100q");
+    </script>
+      <!-- END Top100 (Kraken) Counter -->
+    </li>
+    <li>
+      Pr-cy.ru счетчик —
+      <b class="single-results js-result"></b>
+      <div class="place_block block js-ads-block">
+        <div id="prcyru-sqi-counter"></div>
+      </div>
+      <script type="text/javascript">
+        !(function(e, t, r) {
+          (e.PrcyCounterObject = r),
+            (e[r] =
+              e[r] ||
+              function() {
+                (e[r].q = e[r].q || []).push(arguments);
+              });
+          var c = document.createElement("script");
+          (c.type = "text/javascript"), (c.async = 1), (c.src = t);
+          var n = document.getElementsByTagName("script")[0];
+          n.parentNode.insertBefore(c, n);
+        })(window, "//a.pr-cy.ru/assets/js/counter.sqi.min.js", "prcyCounter"),
+        prcyCounter("checkadblock.ru", "prcyru-sqi-counter", 0);
+        </script>
+    </li>
+
+
+
+  <h2>Сервисы сбора ошибок</h2>
+  <p>Эти сервисы позволяют разработчикам сайта узнать если что-то пошло не так, обычно они не должны блокироваться (<mark>Не учитываются в статистике</mark>).</p>
+  <ol>
+    <li>
+      Sentry.io —
+      <b class="single-results js-result"></b>
+      <span class="js-variable-exist" data-var="Sentry"></span>
+      <script src="https://browser.sentry-cdn.com/5.10.2/bundle.min.js" integrity="sha384-ssBfXiBvlVC7bdA/VX03S88B5MwXQWdnpJRbUYFPgswlOBwETwTp6F3SMUNpo9M9" crossorigin="anonymous">
+      </script>
+      <script>Sentry.init({ dsn: 'https://ffc72fc335374c8eb41a742afe0c2eec@sentry.io/1868260' });</script>
+    </li>
+    <li>
+      Bugsnag —
+      <b class="single-results js-result"></b>
+      <span class="js-variable-exist" data-var="bugsnagClient"></span>
+      <script src="//d2wy8f7a9ursnm.cloudfront.net/v4/bugsnag.min.js"></script>
+      <script>
+        window.bugsnagClient = bugsnag('8729db6e83788a8116b19bca4c594a13');
+      </script>
+    </li>
+  </ol>
+
+  <!--
+<h2>Комментарии <sup>(0/2)</sup></h2>
+<ul>
+	<li>Disqus</li>
+	<li>Wordpress</li>
+</ul>
+
+
+<h2>Кнопки социальных сетей <sup>(0/2)</sup></h2>
+<ul>
+	<li>Твитер / Twitter</li>
+	<li>Вконтакте / VK</li>
+	<li>Фейсбук / Facebook</li>
+</ul>
+
+
+
+<h2>Онлайн-чаты</h3>
+<ul>
+	<li>Твитер / Twitter</li>
+	<li>Вконтакте / VK</li>
+	<li>Фейсбук / Facebook</li>
+</ul>
+
+Виджеты обратного звонка
+
+
+
+
+-->
+
+  <h3>
+    Общий результат:
+    <mark>&nbsp; <b class="js-success-percent">?</b>&nbsp;</mark>
+  </h3>
+  <p>
+    Ваш блокировщик заблокировал: <b class="js-success"></b> из
+    <span class="js-all"></span> сервисов. <span class="single-results js-results-optional"><br></span>
+  </p>
+
+  <section>&nbsp;</section>
+
+  <section>
+    <small>
+      <p>
+        Проверьте работу блокировщиков рекламы: AdBlock, Adblock Plus, uBlock
+        Origin, Adguard, AdStop, Ad Muncher, Ghostery, Privacy Badger,
+        Disconnect, AdRemover, Simply Block Ads, SuperBlock, AdwCleaner, No
+        Script, PopupBlocker, AdFender, NoAds.
+      </p>
+
+      2017 ©
+      <a href="https://checkadblock.ru">Сайт с рекламой</a>, автор:
+      <a href="https://ymatuhin.ru">Юрий Матюхин</a>
+    </small>
+  </section>
+
+  <script src="./script.js?v=01.11.2017"></script>
+</html>
