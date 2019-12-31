@@ -102,10 +102,14 @@ ol
 h2 📊 Аналитика и метрики
 ol
   li
-    | Яндекс-метрика #{' '}
+    | Яндекс-метрика (загрузка скрипта) #{' '}
     .single-result(data-blocked)
-    .ads_script_wrapper: .ads_container(data-check-loading, data-check-variables="yaCounter43211979._inited")
+    .ads_script_wrapper: .ads_container(data-check-loading)
       script(async src="https://mc.yandex.ru/metrika/watch.js" onload="handleLoad(this)")
+  li
+    | Яндекс-метрика (выполнение скрипта) #{' '}
+    .single-result(data-blocked)
+    .ads_script_wrapper: .ads_container(data-check-variables="yaCounter43211979._inited")
       include includes/yandex_metrica.html
   li
     | Гугл аналитика / Google Analytics (загрузка скрипта) #{' '}
