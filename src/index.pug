@@ -69,9 +69,15 @@ ol
     .single-result(data-blocked data-success-text="включен" data-failute-text="выключен или неподдерживается")
     .ads_script_wrapper: .ads_container(data-check-eval="flashSupported")
   li
-    | Загрузка Flash файла
-    .single-result(data-blocked)
-    .ads_script_wrapper: .ads_container(data-check-fetch="%HOST_URL%/banners/ads_flash.swf")
+    | Удаление Flash файла из кода страницы
+    .single-result(data-blocked data-success-text="удален" data-failute-text="не удален")
+    .ads_wrapper: .ads_container(data-check-size)
+      object(
+        type="application/x-shockwave-flash"
+        data="%HOST_URL%/banners/ads_flash.swf"
+        height="60"
+      )
+        param(name="movie" value="/banners/ads_flash.swf")
   li
     | Статичная картинка (загрузка)
     .single-result(data-blocked)
