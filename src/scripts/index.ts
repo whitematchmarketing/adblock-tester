@@ -44,10 +44,10 @@ const syncCheckSize = () => {
 
     const empty = $block.clientWidth === 0 || $block.clientHeight === 0;
     $block.parentElement.setAttribute("data-size", empty ? "empty" : "full");
-    $block.parentElement.setAttribute(
-      "data-unsupported-flash",
-      hasUnsupportedFlashItem + ""
-    );
+    // $block.parentElement.setAttribute(
+    //   "data-unsupported-flash",
+    //   hasUnsupportedFlashItem + ""
+    // );
     updateResult($block, empty || hasUnsupportedFlashItem);
   });
 };

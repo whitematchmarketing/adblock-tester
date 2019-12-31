@@ -47,8 +47,7 @@ embed {
   }
 }
 
-.single-result.red ~ .ads_wrapper:not([data-size="empty"]),
-.ads_wrapper[data-unsupported-flash="true"] {
+.single-result.red ~ .ads_wrapper:not([data-size="empty"]) {
   margin-top: 10px;
   margin-bottom: 30px;
 }
