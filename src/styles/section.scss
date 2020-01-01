@@ -1,0 +1,61 @@
+.checkbox-heading {
+  position: absolute;
+  margin: 0;
+}
+.checkbox-holder {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  input[type="checkbox"] {
+    margin: 0;
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
+    transform: scale(2);
+    transform-origin: center right;
+  }
+}
+
+.section {
+  padding-left: 2em;
+
+  & > summary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    user-select: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    & > * {
+      display: inline-block;
+      margin: 0;
+      vertical-align: middle;
+    }
+  }
+}
+
+.section > summary:before {
+  padding: 0;
+  width: 2em;
+  height: 2em;
+  background: url("../assets/chevron.svg");
+  background-size: cover;
+  content: "";
+  opacity: 0.5;
+  transition: all;
+}
+.section > summary:hover:before {
+  opacity: 1;
+}
+
+.section[open] > summary:before {
+  content: "";
+  transform: rotate(-90deg);
+}

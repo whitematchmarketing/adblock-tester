@@ -4,17 +4,28 @@ html(lang='ru')
   link(href='./styles/index.scss', rel='stylesheet')
   script(src='./scripts/handleLoading.ts')
 
-  .img_and_title
-    img(src="./assets/stop.jpg" width="64" alt="")
-    h1 Сайт с рекламой
-      sup: small: small #{' '}(версия&nbsp;%VERSION%)
+  .title
+    include ./assets/logo.svg
+    h1
+      | Сайт с рекламой
+      span.title-version #{' '}(версия&nbsp;%VERSION%)
   p
     | Выбираете блокировщик рекламы, но не знаете где его протестировать?
     br
     | На этом сайте собраны различные рекламные сервисы и сервисы для сбора аналитики,
     | чтобы вы могли проверить на них эффективность вашего блокировщика.
     br
-    | AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate и другие
+    | AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate и другие.
+
+  //- h3.checkbox-heading: .checkbox-holder
+  //-     input(type="checkbox" title="учитывать в статистике")
+  //-     | &nbsp;
+
+  //-   details.section(open)
+  //-     summary: h3 Счетчики 🧮
+  //-     .section-content
+  //-       | Something small enough to escape casual notice.
+
 
   h3 💰 Контекстная реклама
   p

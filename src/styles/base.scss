@@ -1,3 +1,17 @@
+html {
+  background: #ecf0f1;
+  color: #34495e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #2c3e50;
+}
+
 [hidden] {
   display: none !important;
 }
@@ -28,19 +42,26 @@ a:visited:hover {
   color: #f41224;
 }
 
-.img_and_title {
-  display: -webkit-flex;
-  display: -ms-flexbox;
+.title {
   display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  -ms-flex-align: center;
-  margin-bottom: 1.5em;
+  align-items: flex-start;
+  margin-bottom: 0.5em;
+
+  @extend .h1-font;
+
+  h1 {
+    margin: 0;
+    font-size: 1em;
+  }
+}
+.title svg,
+.title img {
+  margin-top: -0.5em;
+  margin-right: 0.2;
+  height: 2em;
 }
 
-.img_and_title h1 {
-  margin: 0;
-}
-.img_and_title img {
-  margin-right: 1.5em;
+.title-version {
+  vertical-align: top;
+  font-size: 0.5em;
 }
