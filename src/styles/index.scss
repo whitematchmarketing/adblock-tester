@@ -12,14 +12,9 @@
   list-style-type: none;
 
   li {
-    display: flex;
-    align-items: center;
-    // margin-bottom: 0.5em;
     transform: translateX(0) !important;
 
     @media (max-width: 624px) {
-      align-items: flex-start;
-      flex-direction: column;
       margin-bottom: 0.5em;
     }
 
@@ -52,6 +47,13 @@
       font-weight: normal;
       font-family: monospace, monospace;
       opacity: 0.5;
+
+      @media (max-width: 624px) {
+        &::before {
+          display: block;
+          content: "";
+        }
+      }
 
       span {
         font-family: sans-serif;
