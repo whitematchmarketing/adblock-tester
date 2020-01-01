@@ -2,13 +2,13 @@
 
 if [[ "$#" == 2 ]];
 then
-  BUMP="npm version "$2" --force -m 'Major version %s' --no-git-tag-version";
+  BUMP="npm version "$2" --force -m 'Major version %s'";
   echo $BUMP;
   eval $BUMP;
   yarn build;
   git add .;
   git commit -m "New version: $1"
-  git push;
+  git push --follow-tags;
   exit 0;
 else
   echo "";
