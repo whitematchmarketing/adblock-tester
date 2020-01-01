@@ -9,6 +9,7 @@ then
   git add .;
   git commit -m "New version: $1"
   git push;
+  exit 0;
 else
   echo "";
   echo "You must pass version and type, example: \`./deploy.sh 2.0.3 patch\` or run \`yarn deploy patch\`";
