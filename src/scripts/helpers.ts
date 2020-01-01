@@ -1,6 +1,4 @@
-import { ITEM_BLOCKED } from "./variables";
-
-const checkFlash = () => {
+export const checkFlash = () => {
   var flashAvailable = false;
   try {
     var flash = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
@@ -15,8 +13,6 @@ const checkFlash = () => {
   return flashAvailable;
 };
 
-export const flashSupported = checkFlash();
-
 export const extendAttribute = (
   $el: Element,
   attrName: string,
@@ -27,21 +23,29 @@ export const extendAttribute = (
   $el.setAttribute(attrName, prevValue + optionalSlash + value);
 };
 
-export const updateResult = ($el: Element, blocked: boolean) => {
-  const $input = $el.closest("li").querySelector(`[${ITEM_BLOCKED}]`);
-  extendAttribute($input, ITEM_BLOCKED, blocked);
+export const loadScript = (url: string) => {
+  if (!url) throw "No url";
+
+  return new Promise((res, rej) => {
+    const $firstScript = document.getElementsByTagName("script")[0];
+    const $script = document.createElement("script");
+    $script.src = url;
+    $script.async = true;
+    $firstScript.parentNode.insertBefore($script, $firstScript);
+    $script.onload = res;
+    $script.onerror = rej;
+  });
 };
 
-export function deepFind(path: string, obj: object = window) {
-  var paths = path.split("."),
-    current = obj;
+export const loadImage = (url: string) => {
+  if (!url) throw "No url";
 
-  for (var i = 0; i < paths.length; ++i) {
-    if (current[paths[i]] == undefined) {
-      return undefined;
-    } else {
-      current = current[paths[i]];
-    }
-  }
-  return current;
-}
+  return new Promise((res, rej) => {
+    const $image = document.createElement("img");
+    $image.hidden = true;
+    $image.src = url;
+    $image.onload = res;
+    $image.onerror = rej;
+    document.body.appendChild($image);
+  });
+};

@@ -1,19 +1,31 @@
+<!--В head сайта один раз подключите библиотеку-->
+<script
+  src="https://yastatic.net/pcode/adfox/loader.js"
+  crossorigin="anonymous"
+></script>
+
 <!--AdFox START-->
 <!--yandex_ymatuhin-->
 <!--Площадка: checkadblock / * / *-->
 <!--Тип баннера: Rich Media-->
 <!--Расположение: <верх страницы>-->
-<div id="adfox_157767494736782288"></div>
+<div id="adfox_15778047945221956"></div>
 <script>
-  window.Ya &&
-    window.Ya.adfoxCode &&
-    window.Ya.adfoxCode.create({
+  window.Ya.adfoxCode.createAdaptive(
+    {
       ownerId: 295845,
-      containerId: "adfox_157767494736782288",
+      containerId: "adfox_15778047945221956",
       params: {
         pp: "g",
         ps: "duia",
         p2: "p"
       }
-    });
+    },
+    ["desktop", "tablet", "phone"],
+    {
+      tabletWidth: 830,
+      phoneWidth: 480,
+      isAutoReloads: false
+    }
+  );
 </script>

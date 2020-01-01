@@ -1,123 +1,161 @@
 import {
-  CHECK_LOADING_ATTRIBUTE,
-  CHECK_VAR_ATTRIBUTE,
+  CHECK_SCRIPT_LOADING_ATTRIBUTE,
   CHECK_EVAL_ATTRIBUTE,
-  ITEM_BLOCKED,
-  ITEM_FINAL_BLOCKED,
+  CHECK_SIZE_ATTRIBUTE,
+  ITEMS_RESULS_ATTRIBUTE,
   STATUS_LOADING_SUCCESS,
-  STATUS_LOADING_FAILURE,
   $finalScorePercent,
   $finalScoreSuccess,
   $finalScoreCount,
   $checkSizes,
-  $checkLoadings,
-  $checkVars,
-  $itemResults,
-  $checkEvals
+  $checkEvals,
+  getAllResults,
+  LOADING_URL_ATTRIBUTE,
+  STATUS_LOADING_FAILURE,
+  CHECK_SUCESS_ATTRIBUTE,
+  CHECK_FAILURE_ATTRIBUTE,
+  CHECK_SIZE_ID_ATTRIBUTE,
+  SIZE_ID_ATTRIBUTE,
+  $checkScriptLoadings,
+  $checkImageLoadings,
+  CHECK_IMAGE_LOADING_ATTRIBUTE
 } from "./variables";
-import {
-  updateResult,
-  deepFind,
-  extendAttribute,
-  flashSupported
-} from "./helpers";
+import { loadScript, loadImage } from "./helpers";
+
+const makeResult = (
+  $item: Element,
+  blocked: boolean,
+  successText = "",
+  failureText = "",
+  additionalInfo = ""
+) => {
+  const newText = blocked ? `✅ ${successText}` : `❌ ${failureText}`;
+  $item.innerHTML = `<b>${newText}</b>`;
+  $item.classList.remove(blocked ? "red" : "green");
+  $item.classList.add(blocked ? "green" : "red");
+  $item.setAttribute(ITEMS_RESULS_ATTRIBUTE, blocked + "");
+  if (additionalInfo) {
+    $item.innerHTML += ` <small>${additionalInfo}</small>`;
+  }
+};
 
 const syncCheckSize = () => {
-  $checkSizes.forEach($block => {
-    const empty = $block.clientWidth === 0 || $block.clientHeight === 0;
-    $block.parentElement.setAttribute("data-size", empty ? "empty" : "full");
-    updateResult($block, empty);
-  });
-};
-
-const syncLoading = () => {
-  $checkLoadings.forEach($el => {
-    const result = $el.getAttribute(CHECK_LOADING_ATTRIBUTE);
-
-    if (result === "") {
-      extendAttribute($el, CHECK_LOADING_ATTRIBUTE, STATUS_LOADING_FAILURE);
-      updateResult($el, true);
-    } else {
-      result
-        .split("/")
-        .forEach(res =>
-          updateResult($el, res === STATUS_LOADING_SUCCESS ? false : true)
-        );
+  $checkSizes.forEach($item => {
+    const sizeId = $item.getAttribute(CHECK_SIZE_ID_ATTRIBUTE);
+    // SIZE_ID_ATTRIBUTE
+    const $adsBlock = $item.parentElement
+      .closest("li")
+      .querySelector(
+        !sizeId
+          ? ".ads_container"
+          : `.ads_container[${SIZE_ID_ATTRIBUTE}="${sizeId}"]`
+      );
+    const empty = $adsBlock.clientHeight === 0;
+    $item.setAttribute(CHECK_SIZE_ATTRIBUTE, empty ? "empty" : "full");
+    if (!empty) {
+      $item.parentElement.closest("ul").classList.add("not-empty");
     }
-  });
-};
-
-const syncVariables = () => {
-  $checkVars.forEach($el => {
-    const variables = $el.getAttribute(CHECK_VAR_ATTRIBUTE).split("/");
-    const noVariable = variables.reduce((acc, variablePath) => {
-      if (deepFind(variablePath) === undefined) {
-        return true;
-      }
-      return acc;
-    }, false);
-    updateResult($el, noVariable);
+    const successText =
+      $item.getAttribute(CHECK_SUCESS_ATTRIBUTE) || "рекламный блок скрыт";
+    const failureText =
+      $item.getAttribute(CHECK_FAILURE_ATTRIBUTE) || "рекламный блок показан";
+    makeResult($item, empty, successText, failureText);
   });
 };
 
 const syncEvals = () => {
-  $checkEvals.forEach($el => {
-    const evalString = $el.getAttribute(CHECK_EVAL_ATTRIBUTE);
-    const result = eval(evalString);
-    updateResult($el, result);
+  $checkEvals.forEach($item => {
+    const evalString = $item.getAttribute(CHECK_EVAL_ATTRIBUTE);
+    let result = true;
+    try {
+      result = eval(evalString);
+    } catch (e) {}
+    const additionalInfo = `(<span>проверка:</span> <code>${evalString})</code>`;
+    const successText =
+      $item.getAttribute(CHECK_SUCESS_ATTRIBUTE) || "не работает";
+    const failureText =
+      $item.getAttribute(CHECK_FAILURE_ATTRIBUTE) || "работает";
+    makeResult($item, result, successText, failureText, additionalInfo);
   });
 };
 
-const syncItemResults = () => {
-  $itemResults.forEach($itemResult => {
-    const results = $itemResult.getAttribute(ITEM_BLOCKED).split("/");
-    const blocked = results
-      .map((item: string) => item === "true")
-      .reduce((acc, result) => (acc === false ? false : result));
+const preloadLoadingStuff = () => {
+  const factory = (
+    $items: Element[],
+    attribute: string,
+    loadingFunction: Function
+  ) => {
+    $items.forEach($item => {
+      const url = $item.getAttribute(LOADING_URL_ATTRIBUTE);
+      loadingFunction(url)
+        .then(() => $item.setAttribute(attribute, STATUS_LOADING_SUCCESS))
+        .catch(() => $item.setAttribute(attribute, STATUS_LOADING_FAILURE));
+    });
+  };
 
-    const successText =
-      $itemResult.getAttribute("data-success-text") || "заблокирован";
-    const failureText =
-      $itemResult.getAttribute("data-failute-text") || "загружен";
+  factory($checkScriptLoadings, CHECK_SCRIPT_LOADING_ATTRIBUTE, loadScript);
+  factory($checkImageLoadings, CHECK_IMAGE_LOADING_ATTRIBUTE, loadImage);
+};
 
-    $itemResult.setAttribute(ITEM_FINAL_BLOCKED, blocked + "");
-    $itemResult.textContent = blocked
-      ? `✅ ${successText}`
-      : `❌ ${failureText}`;
-    $itemResult.classList.remove(blocked ? "red" : "green");
-    $itemResult.classList.add(blocked ? "green" : "red");
-  });
+const syncLoading = () => {
+  const factory = ($items: Element[], attribute: string) => {
+    $items.forEach($item => {
+      const url = $item.getAttribute(LOADING_URL_ATTRIBUTE);
+      const status = $item.getAttribute(attribute) || "pending";
+      const blocked = status !== STATUS_LOADING_SUCCESS;
+      const successText =
+        $item.getAttribute(CHECK_SUCESS_ATTRIBUTE) || "файл не загружен";
+      const failureText =
+        $item.getAttribute(CHECK_FAILURE_ATTRIBUTE) || "файл загружен";
+
+      makeResult(
+        $item,
+        blocked,
+        successText,
+        failureText,
+        `(<span>адрес:</span> <code>${url}</code>)`
+      );
+    });
+  };
+  factory($checkScriptLoadings, CHECK_SCRIPT_LOADING_ATTRIBUTE);
+  factory($checkImageLoadings, CHECK_IMAGE_LOADING_ATTRIBUTE);
+};
+
+const countSuccesResults = results => {
+  return results.reduce((acc: number, $result: Element) => {
+    const blockedAsNumber =
+      $result.getAttribute(ITEMS_RESULS_ATTRIBUTE) === "true" ? 1 : 0;
+    return acc + blockedAsNumber;
+  }, 0);
 };
 
 const syncFinalScore = () => {
-  var successCount = $itemResults.reduce((acc, $result) => {
-    const blockedAsNumber =
-      $result.getAttribute(ITEM_FINAL_BLOCKED) === "true" ? 1 : 0;
-    return acc + blockedAsNumber;
-  }, 0);
+  const $allResults = getAllResults();
+  const successCount = countSuccesResults($allResults);
+  const allCount = $allResults.length;
 
   $finalScoreSuccess.textContent = "" + successCount;
-  $finalScoreCount.textContent = "" + $itemResults.length;
+  $finalScoreCount.textContent = "" + allCount;
   $finalScorePercent.textContent =
     (successCount == 0
       ? 0
-      : Math.round((successCount / $itemResults.length) * 10000) / 100) + "% ";
+      : Math.round((successCount / allCount) * 10000) / 100) + "% ";
 };
 
 const clearResults = () =>
-  $itemResults.forEach($el => $el.setAttribute(ITEM_BLOCKED, ""));
+  getAllResults().forEach($el => $el.removeAttribute(ITEMS_RESULS_ATTRIBUTE));
 
 const appCycle = (delay: number) => {
   clearResults();
   syncCheckSize();
-  syncLoading();
-  syncVariables();
   syncEvals();
-  syncItemResults();
+  syncLoading();
   syncFinalScore();
 
   const newDelay = delay + delay * 0.5;
   setTimeout(() => appCycle(newDelay), newDelay);
 };
 
-appCycle(250);
+preloadLoadingStuff();
+appCycle(50);
+// setTimeout(() => appCycle(250), 250);

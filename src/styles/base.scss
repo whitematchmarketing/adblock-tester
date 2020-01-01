@@ -1,0 +1,46 @@
+[hidden] {
+  display: none !important;
+}
+
+img,
+object,
+embed {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+a:link {
+  border-bottom: 1px solid rgba(0, 137, 255, 0.3);
+  color: #0089ff;
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+a:visited {
+  border-color: rgba(180, 14, 180, 0.3);
+  color: #b40eb4;
+}
+
+a:link:hover,
+a:visited:hover {
+  border-color: rgba(244, 18, 36, 0.3);
+  color: #f41224;
+}
+
+.img_and_title {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  margin-bottom: 1.5em;
+}
+
+.img_and_title h1 {
+  margin: 0;
+}
+.img_and_title img {
+  margin-right: 1.5em;
+}
