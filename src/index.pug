@@ -135,7 +135,9 @@ html(lang='ru')
         li(data-check-image-loading data-loading-url="https://counter.rambler.ru/top100.cnt?pid=6925185"
           data-check-success="альтернативный файл заблокирован"
           data-check-failure="альтернативный файл загружен")
-        li(data-check-size)
+        li(data-check-size
+          data-check-success="счетчик заблокирован"
+          data-check-failure="счетчик показан")
       .ads_wrapper: .ads_container: include includes/rambler_top100.html
 
   h3 🧮 Счетчики
