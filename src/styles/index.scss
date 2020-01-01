@@ -9,11 +9,10 @@
 
 .results-list {
   margin-top: 0.25em;
-  margin-left: 1em;
   padding-left: 0;
   list-style-type: none;
 
-  li {
+  & > li {
     transform: translateX(0) !important;
 
     @media (max-width: 768px) {
