@@ -17,7 +17,8 @@
   },
   "scripts": {
     "start": "yarn dev",
-    "dev": "rm -rf ./dev/**  && parcel serve ./src/index.pug --out-dir ./dev --https --no-cache",
-    "build": "rm -rf ./docs/**  && NODE_ENV=test parcel build ./src/index.pug --out-dir ./docs --no-cache"
+    "dev": "parcel serve ./src/index.pug --out-dir ./dev --https --no-cache --log-level 4",
+    "build": "NODE_ENV=test parcel build ./src/index.pug --out-dir ./docs --no-cache --detailed-report",
+    "prebuild": "rm -rf ./docs/**"
   }
 }
