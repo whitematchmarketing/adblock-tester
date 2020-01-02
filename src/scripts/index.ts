@@ -31,7 +31,7 @@ const makeResult = (
   additionalInfo = "",
 ) => {
   const newText = blocked ? `✅ ${successText}` : `❌ ${failureText}`;
-  $item.innerHTML = `<b>${newText}</b>`;
+  $item.innerHTML = `${newText}`;
   $item.classList.remove(blocked ? "red" : "green");
   $item.classList.add(blocked ? "green" : "red");
   $item.setAttribute(ITEMS_RESULS_ATTRIBUTE, blocked + "");

@@ -79,13 +79,8 @@
   color: var(--bg-color);
 
   &:empty::before {
-    color: var(--text-color);
+    color: var(--bg-color);
   }
-}
-
-.final-score-cases {
-  font-weight: normal;
-  font-size: 1rem;
 }
 
 .final-score-count,

@@ -43,7 +43,7 @@ html(lang='ru')
     | Также эти сервисы собирают данные о вас, чтобы подобрать вам подходящую рекламу.
   ol.check-list
     li
-      | Google AdSense
+      b Google AdSense
       ul.results-list
         li(data-check-script-loading
           data-loading-url="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
@@ -51,7 +51,7 @@ html(lang='ru')
         li(data-check-size)
       .ads_wrapper: .ads_container: include includes/ads_google.html
     li
-      | Рекламная сеть Яндекса / Яндекс Директ
+      b Рекламная сеть Яндекса / Яндекс Директ
       ul.results-list
         li(data-check-script-loading data-loading-url="https://an.yandex.ru/system/context.js")
         li(data-check-eval="isUndefined(Ya.Context.AdvManager)")
@@ -65,13 +65,13 @@ html(lang='ru')
     | поскольку трудно отличить рекламную картинку от обычной.
   ol.check-list
     li
-      | Adobe Flash Player
+      b Adobe Flash Player
       ul.results-list
         li(data-check-eval="noFlashSupport"
           data-check-success="заблокирован или не поддерживается"
           data-check-failure="включен")
     li
-      | Удаление Flash файла из кода страницы
+      b Удаление Flash файла из кода страницы
       ul.results-list
         li(data-check-size
           data-check-size-id="1"
@@ -93,13 +93,13 @@ html(lang='ru')
         src="%HOST_URL%/banners/ads_flash.swf"
         height="60")
     li
-      | Статичная картинка
+      b Статичная картинка
       ul.results-list
         li(data-check-image-loading data-loading-url="%HOST_URL%/banners/ads_png.png")
         li(data-check-size)
       .ads_wrapper: .ads_container: img(src="%HOST_URL%/banners/ads_png.png" alt="" )
     li
-      | Анимированный GIF-баннер
+      b Анимированный GIF-баннер
       ul.results-list
         li(data-check-image-loading data-loading-url="%HOST_URL%/banners/ads_gif.gif")
         li(data-check-size)
@@ -111,7 +111,7 @@ html(lang='ru')
     | поисковые фразы, тип устройства, пол, возраст, география, время на сайте и другие.
   ol.check-list
     li
-      | Яндекс-метрика
+      b Яндекс-метрика
       ul.results-list
         li(data-check-script-loading data-loading-url="https://mc.yandex.ru/metrika/tag.js" )
         li(data-check-image-loading data-loading-url="https://mc.yandex.ru/watch/43211979"
@@ -121,13 +121,13 @@ html(lang='ru')
         li(data-check-eval="!ym || yaCounter43211979._inited !== true")
       .ads_wrapper: .ads_container: include includes/yandex_metrica.html
     li
-      | Гугл аналитика / Google Analytics
+      b Гугл аналитика / Google Analytics
       ul.results-list
         li(data-check-script-loading data-loading-url="https://www.google-analytics.com/analytics.js")
         li(data-check-eval="isUndefined(ga.answer)")
       .ads_wrapper: .ads_container: include includes/google_analytics.html
     li
-      | Mail.ru счетчик
+      b Mail.ru счетчик
       ul.results-list
         li(data-check-script-loading data-loading-url="https://top-fwz1.mail.ru/js/code.js")
         li(data-check-image-loading data-loading-url="https://top-fwz1.mail.ru/counter?id=3155631;js=na"
@@ -136,13 +136,13 @@ html(lang='ru')
         li(data-check-eval="isArray(_tmr)")
       .ads_wrapper: .ads_container: include includes/mail_ru.html
     li
-      | Open Web Analytics
+      b Open Web Analytics
       ul.results-list
         li(data-check-script-loading data-loading-url="%HOST_URL%/js/owa/owa.tracker-combined-min.js")
         li(data-check-eval="!OWA || !OWATracker.active")
       .ads_wrapper: .ads_container: include includes/open_web.html
     li
-      | Rambler TOP 100
+      b Rambler TOP 100
       ul.results-list
         li(data-check-script-loading data-loading-url="https://st.top100.ru/top100/top100.js")
         li(data-check-image-loading data-loading-url="https://counter.rambler.ru/top100.cnt?pid=6925185"
@@ -156,7 +156,7 @@ html(lang='ru')
   h3 🧮 Счетчики
   ol.check-list
     li
-      | LiveInternet
+      b LiveInternet
       ul.results-list
         li(data-check-image-loading data-loading-url="https://counter.yadro.ru/hit")
         li(data-check-size
@@ -164,7 +164,7 @@ html(lang='ru')
           data-check-failure="счетчик показан")
       .ads_wrapper: .ads_container: include includes/live_internet.html
     li
-      | тИЦ и PR #{' '}
+      b тИЦ и PR #{' '}
       small: code (pr-cy.ru)
       ul.results-list
         li(data-check-image-loading data-loading-url="http://counter.pr-cy.ru/prcy/checkadblock.ru")
@@ -175,7 +175,7 @@ html(lang='ru')
         a(href="https://pr-cy.ru/a/checkadblock.ru" target="_blank")
           img(src="http://counter.pr-cy.ru/prcy/checkadblock.ru" alt="Счетчик тИЦ и PR")
     li
-      | Счетчик Яндекс ИКС#{' '}
+      b Счетчик Яндекс ИКС#{' '}
       small: code (pr-cy.ru)
       ul.results-list
         li(data-check-script-loading data-loading-url="https://a.pr-cy.ru/assets/js/counter.sqi.min.js")
@@ -195,27 +195,27 @@ html(lang='ru')
     | чтобы сообщение об ошибке было максимально полное.
   ol.check-list
     li
-      | Sentry.io
+      b Sentry.io
       ul.results-list
         li(data-check-script-loading data-loading-url="https://browser.sentry-cdn.com/5.10.2/bundle.min.js")
         li(data-check-eval="!Sentry.init")
       .ads_wrapper: .ads_container: include includes/sentry.html
     li
-      | Bugsnag
+      b Bugsnag
       ul.results-list
         li(data-check-script-loading data-loading-url="https://d2wy8f7a9ursnm.cloudfront.net/v4/bugsnag.min.js")
         li(data-check-eval="!bugsnag")
       .ads_wrapper: .ads_container: include includes/bugsnag.html
 
   h2
-    | Эффективность: #{' '}
+    | Заблокировано сценариев&nbsp;&nbsp; #{' '}
     b.final-score.js-final-score-percent
-    small.final-score-cases
-      | #{' '}(
+    small.small
+      | #{' '}&nbsp; (
       span.final-score-success.js-final-score-success
       |#{' '}из#{' '}
       span.final-score-count.js-final-score-count
-      | #{' '} сценариев)
+      | )
 
   section: p
     a(href="https://checkadblock.ru") Сайт с рекламой #{' '}

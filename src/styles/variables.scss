@@ -1,15 +1,17 @@
 // https://flatuicolors.com/palette/defo
 
 $darkModeSpeed: 0.15s;
-$darkBgColor: #2f3640;
+$darkBgColor: hsl(215, 15%, 18%);
 $lightBgColor: #f5f6fa;
+$lightTextColor: hsl(221, 15%, 15%);
+$darkTextColor: hsl(221, 15%, 85%);
 
 :root {
-  --bg-color: #f5f6fa;
-  --text-color: #353b48;
-  --heading-color: #2f3640;
-  --success-color: #44bd32;
-  --warning-color: #e1b12c;
+  --bg-color: #{$lightBgColor};
+  --text-color: #{$lightTextColor};
+  --heading-color: #{$darkBgColor};
+  --success-color: hsl(112, 58%, 40%);
+  --warning-color: hsl(44, 75%, 48%);
   --failure-color: #c23616;
   --link-color: #0097e6;
   --link-visited-color: #8c7ae6;
@@ -17,9 +19,9 @@ $lightBgColor: #f5f6fa;
 }
 
 :root[color-scheme="dark"] {
-  --bg-color: #2f3640;
-  --text-color: #dcdde1;
-  --heading-color: #fff;
+  --bg-color: #{$darkBgColor};
+  --text-color: #{$darkTextColor};
+  --heading-color: #{$lightBgColor};
   --success-color: #4cd137;
   --warning-color: #fbc531;
   --failure-color: #e84118;
