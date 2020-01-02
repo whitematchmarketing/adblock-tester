@@ -1,0 +1,101 @@
+@import "variables";
+
+$height: 1.5em;
+$width: $height * 1.8;
+$space: 3px;
+$bulletHeight: calc(#{$height} - #{$space * 2});
+
+.theme-switch-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.theme-switch {
+  position: relative;
+  z-index: 100;
+  display: inline-block;
+  margin: -2em;
+  width: $width;
+  height: $height;
+  border: 2em solid transparent;
+  vertical-align: top;
+  cursor: pointer;
+
+  user-select: none;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $darkBgColor;
+  transition: background-color $darkModeSpeed ease;
+}
+
+.slider:before {
+  position: absolute;
+  bottom: $space;
+  left: $space;
+  width: $bulletHeight;
+  height: $bulletHeight;
+  background-color: $lightBgColor;
+  content: "";
+  transition: background-color $darkModeSpeed ease, transform $darkModeSpeed ease;
+}
+
+input:checked + .slider {
+  background-color: var(--success-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX($bulletHeight);
+}
+
+.slider.round {
+  border-radius: $height;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.theme-switcher-animation {
+  position: fixed;
+  top: 0.3em;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  opacity: 0;
+  transform: translateY(-100%);
+
+  &.grow,
+  &.shrink {
+    transform: translateY(0);
+  }
+
+  &.grow {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  &.shrink {
+    opacity: 0;
+    transition: opacity $darkModeSpeed ease;
+  }
+}
+
+[color-scheme="light"] .theme-switcher-animation.grow,
+[color-scheme="dark"] .theme-switcher-animation.shrink {
+  background: $darkBgColor;
+}
+[color-scheme="light"] .theme-switcher-animation.shrink,
+[color-scheme="dark"] .theme-switcher-animation.grow {
+  background: $lightBgColor;
+}

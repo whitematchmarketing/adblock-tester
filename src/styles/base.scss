@@ -1,6 +1,14 @@
 html {
-  background: #ecf0f1;
-  color: #34495e;
+  border-top: 0.3em solid var(--failure-color);
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 18px;
+  transition: border-top $darkModeSpeed ease, background $darkModeSpeed ease,
+    color $darkModeSpeed ease;
+}
+
+body {
+  font-size: inherit;
 }
 
 h1,
@@ -9,7 +17,8 @@ h3,
 h4,
 h5,
 h6 {
-  color: #2c3e50;
+  color: var(--heading-color);
+  transition: color $darkModeSpeed ease;
 }
 
 [hidden] {
@@ -24,30 +33,36 @@ embed {
   padding: 0;
 }
 
-a:link {
-  border-bottom: 1px solid rgba(0, 137, 255, 0.3);
-  color: #0089ff;
-  text-decoration: none;
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
+a {
+  transition: color $darkModeSpeed ease;
 
-a:visited {
-  border-color: rgba(180, 14, 180, 0.3);
-  color: #b40eb4;
-}
+  &:link {
+    color: var(--link-color);
+    transition: color 0.3s ease;
 
-a:link:hover,
-a:visited:hover {
-  border-color: rgba(244, 18, 36, 0.3);
-  color: #f41224;
+    text-decoration-skip: ink;
+  }
+
+  &:visited {
+    color: var(--link-visited-color);
+  }
+
+  &:link:hover,
+  &:visited:hover {
+    color: var(--link-hover-color);
+  }
 }
 
 .title {
   display: flex;
   align-items: flex-start;
+  margin-top: 2em;
   margin-bottom: 0.5em;
 
   @extend .h1-font;
+  @media (min-width: 768px) {
+    margin-top: 1.5em;
+  }
 
   h1 {
     margin: 0;
@@ -57,11 +72,15 @@ a:visited:hover {
 .title svg,
 .title img {
   margin-top: -0.5em;
-  margin-right: 0.2;
+  margin-right: 0.2em;
   height: 2em;
 }
 
-.title-version {
-  vertical-align: top;
-  font-size: 0.5em;
+.small {
+  color: var(--text-color);
+  white-space: nowrap;
+  font-weight: normal;
+  font-size: 1rem;
+  opacity: 0.5;
+  transition: color $darkModeSpeed ease;
 }

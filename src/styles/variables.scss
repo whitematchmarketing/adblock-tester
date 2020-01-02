@@ -1,0 +1,27 @@
+$darkModeSpeed: 0.15s;
+$darkBgColor: #2f3640;
+$lightBgColor: #f5f6fa;
+
+:root {
+  --bg-color: #f5f6fa;
+  --text-color: #353b48;
+  --heading-color: #2f3640;
+  --success-color: #44bd32;
+  --warning-color: #e1b12c;
+  --failure-color: #c23616;
+  --link-color: #0097e6;
+  --link-visited-color: #8c7ae6;
+  --link-hover-color: var(--failure-color);
+}
+
+:root[color-scheme="dark"] {
+  --bg-color: #2f3640;
+  --text-color: #dcdde1;
+  --heading-color: #fff;
+  --success-color: #4cd137;
+  --warning-color: #fbc531;
+  --failure-color: #e84118;
+  --link-color: #00a8ff;
+  --link-visited-color: #9c88ff;
+  --link-hover-color: var(--failure-color);
+}

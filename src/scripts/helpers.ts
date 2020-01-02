@@ -13,16 +13,6 @@ export const checkFlash = () => {
   return flashAvailable;
 };
 
-export const extendAttribute = (
-  $el: Element,
-  attrName: string,
-  value: string | boolean
-) => {
-  const prevValue = $el.getAttribute(attrName);
-  const optionalSlash = prevValue ? "/" : "";
-  $el.setAttribute(attrName, prevValue + optionalSlash + value);
-};
-
 export const loadScript = (url: string) => {
   if (!url) throw "No url";
 

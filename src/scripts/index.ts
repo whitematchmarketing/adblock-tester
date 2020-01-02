@@ -18,16 +18,17 @@ import {
   SIZE_ID_ATTRIBUTE,
   $checkScriptLoadings,
   $checkImageLoadings,
-  CHECK_IMAGE_LOADING_ATTRIBUTE
+  CHECK_IMAGE_LOADING_ATTRIBUTE,
 } from "./variables";
 import { loadScript, loadImage } from "./helpers";
+import "./darkMode";
 
 const makeResult = (
   $item: Element,
   blocked: boolean,
   successText = "",
   failureText = "",
-  additionalInfo = ""
+  additionalInfo = "",
 ) => {
   const newText = blocked ? `✅ ${successText}` : `❌ ${failureText}`;
   $item.innerHTML = `<b>${newText}</b>`;
@@ -35,30 +36,25 @@ const makeResult = (
   $item.classList.add(blocked ? "green" : "red");
   $item.setAttribute(ITEMS_RESULS_ATTRIBUTE, blocked + "");
   if (additionalInfo) {
-    $item.innerHTML += ` <small>${additionalInfo}</small>`;
+    $item.innerHTML += ` <small class="small">${additionalInfo}</small>`;
   }
 };
 
 const syncCheckSize = () => {
   $checkSizes.forEach($item => {
     const sizeId = $item.getAttribute(CHECK_SIZE_ID_ATTRIBUTE);
-    // SIZE_ID_ATTRIBUTE
     const $adsBlock = $item.parentElement
       .closest("li")
       .querySelector(
-        !sizeId
-          ? ".ads_container"
-          : `.ads_container[${SIZE_ID_ATTRIBUTE}="${sizeId}"]`
+        !sizeId ? ".ads_container" : `.ads_container[${SIZE_ID_ATTRIBUTE}="${sizeId}"]`,
       );
     const empty = $adsBlock.clientHeight === 0;
     $item.setAttribute(CHECK_SIZE_ATTRIBUTE, empty ? "empty" : "full");
     if (!empty) {
       $item.parentElement.closest("ul").classList.add("not-empty");
     }
-    const successText =
-      $item.getAttribute(CHECK_SUCESS_ATTRIBUTE) || "рекламный блок скрыт";
-    const failureText =
-      $item.getAttribute(CHECK_FAILURE_ATTRIBUTE) || "рекламный блок показан";
+    const successText = $item.getAttribute(CHECK_SUCESS_ATTRIBUTE) || "рекламный блок скрыт";
+    const failureText = $item.getAttribute(CHECK_FAILURE_ATTRIBUTE) || "рекламный блок показан";
     makeResult($item, empty, successText, failureText);
   });
 };
@@ -71,20 +67,14 @@ const syncEvals = () => {
       result = eval(evalString);
     } catch (e) {}
     const additionalInfo = `(<span>проверка:</span> <code>${evalString})</code>`;
-    const successText =
-      $item.getAttribute(CHECK_SUCESS_ATTRIBUTE) || "не работает";
-    const failureText =
-      $item.getAttribute(CHECK_FAILURE_ATTRIBUTE) || "работает";
+    const successText = $item.getAttribute(CHECK_SUCESS_ATTRIBUTE) || "не работает";
+    const failureText = $item.getAttribute(CHECK_FAILURE_ATTRIBUTE) || "работает";
     makeResult($item, result, successText, failureText, additionalInfo);
   });
 };
 
 const preloadLoadingStuff = () => {
-  const factory = (
-    $items: Element[],
-    attribute: string,
-    loadingFunction: Function
-  ) => {
+  const factory = ($items: Element[], attribute: string, loadingFunction: Function) => {
     $items.forEach($item => {
       const url = $item.getAttribute(LOADING_URL_ATTRIBUTE);
       loadingFunction(url)
@@ -103,17 +93,15 @@ const syncLoading = () => {
       const url = $item.getAttribute(LOADING_URL_ATTRIBUTE);
       const status = $item.getAttribute(attribute) || "pending";
       const blocked = status !== STATUS_LOADING_SUCCESS;
-      const successText =
-        $item.getAttribute(CHECK_SUCESS_ATTRIBUTE) || "файл не загружен";
-      const failureText =
-        $item.getAttribute(CHECK_FAILURE_ATTRIBUTE) || "файл загружен";
+      const successText = $item.getAttribute(CHECK_SUCESS_ATTRIBUTE) || "файл не загружен";
+      const failureText = $item.getAttribute(CHECK_FAILURE_ATTRIBUTE) || "файл загружен";
 
       makeResult(
         $item,
         blocked,
         successText,
         failureText,
-        `(<span>адрес:</span> <code>${url}</code>)`
+        `(<span>адрес:</span> <code>${url}</code>)`,
       );
     });
   };
@@ -123,8 +111,7 @@ const syncLoading = () => {
 
 const countSuccesResults = results => {
   return results.reduce((acc: number, $result: Element) => {
-    const blockedAsNumber =
-      $result.getAttribute(ITEMS_RESULS_ATTRIBUTE) === "true" ? 1 : 0;
+    const blockedAsNumber = $result.getAttribute(ITEMS_RESULS_ATTRIBUTE) === "true" ? 1 : 0;
     return acc + blockedAsNumber;
   }, 0);
 };
@@ -137,9 +124,7 @@ const syncFinalScore = () => {
   $finalScoreSuccess.textContent = "" + successCount;
   $finalScoreCount.textContent = "" + allCount;
   $finalScorePercent.textContent =
-    (successCount == 0
-      ? 0
-      : Math.round((successCount / allCount) * 10000) / 100) + "% ";
+    (successCount == 0 ? 0 : Math.round((successCount / allCount) * 10000) / 100) + "% ";
 };
 
 const clearResults = () =>
@@ -158,4 +143,3 @@ const appCycle = (delay: number) => {
 
 preloadLoadingStuff();
 appCycle(50);
-// setTimeout(() => appCycle(250), 250);

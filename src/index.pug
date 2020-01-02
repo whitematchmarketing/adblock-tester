@@ -2,13 +2,14 @@ doctype html
 html(lang='ru')
   include includes/meta.html
   link(href='./styles/index.scss', rel='stylesheet')
-  script(src='./scripts/handleLoading.ts')
+  script(src='./scripts/windowHelpers.ts')
 
+  include includes/dark_mode_button.html
   .title
-    include ./assets/logo.svg
+    include assets/logo.svg
     h1
       | Сайт с рекламой
-      span.title-version #{' '}(версия&nbsp;%VERSION%)
+      span.small #{' '}(версия&nbsp;%VERSION%)
   p
     | Выбираете блокировщик рекламы, но не знаете где его протестировать?
     br
@@ -17,6 +18,13 @@ html(lang='ru')
     br
     | AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate и другие.
 
+  p.warning
+    span.warning-icon 🤖
+    | Одновременное использование нескольких блокировщиков рекламы
+    br
+    | может
+    b #{' '}негативно#{' '}
+    | сказаться на их работе.
   //- h3.checkbox-heading: .checkbox-holder
   //-     input(type="checkbox" title="учитывать в статистике")
   //-     | &nbsp;
@@ -199,7 +207,7 @@ html(lang='ru')
       .ads_wrapper: .ads_container: include includes/bugsnag.html
 
   h2
-    | Эффективность блокирования: #{' '}
+    | Эффективность: #{' '}
     b.final-score.js-final-score-percent
     small.final-score-cases
       | #{' '}(
