@@ -14,10 +14,10 @@ $bulletHeight: calc(#{$height} - #{$space * 2});
   position: relative;
   z-index: 100;
   display: inline-block;
-  margin: -2em;
+  margin: -1em;
   width: $width;
   height: $height;
-  border: 2em solid transparent;
+  border: 1em solid transparent;
   vertical-align: top;
   cursor: pointer;
 
