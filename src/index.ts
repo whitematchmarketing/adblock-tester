@@ -7,7 +7,8 @@ const app = new App({
   hydrate: true,
 });
 
-window.onerror = error => console.trace("window.onerror", error);
+window.onerror = error => console.trace("onerror", error);
+window.onunhandledrejection = event => console.error("onunhandledrejection", event.reason, event);
 window.alert = (...args) => console.warn("alert", ...args);
 
 export default app;
