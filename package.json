@@ -5,25 +5,49 @@
   "author": "ymatuhin <ym@ymatuhin.ru>",
   "license": "MIT",
   "devDependencies": {
+    "@types/debug": "^4.1.5",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^13.1.2",
     "autoprefixer": "^9.7.3",
-    "bettertext.css": "2.0.4",
     "http-server-ssl": "^0.0.7",
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.6.0",
+    "node-sass": "^4.13.0",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-interpolate-html": "^1.0.1",
+    "parcel-plugin-prerender": "^1.4.1",
     "parcel-plugin-static-files-copy": "^2.2.1",
+    "parcel-plugin-svelte": "^4.0.5",
+    "postcss-load-config": "^2.1.0",
     "postcss-modules": "^1.4.1",
-    "pug": "^2.0.4",
     "sass": "^1.24.0",
+    "svelte": "^3.16.7",
+    "svelte-preprocess": "^3.3.0",
     "typescript": "^3.7.4"
   },
   "scripts": {
     "start": "yarn dev",
-    "dev": "parcel serve ./src/index.pug --out-dir ./dev --https --no-cache --log-level 3",
-    "build": "NODE_ENV=test parcel build ./src/index.pug --out-dir ./docs --no-cache --detailed-report",
+    "dev": "NODE_ENV=development parcel serve ./src/index.html --out-dir ./dev --https --no-cache --log-level 3",
+    "build": "NODE_ENV=production parcel build ./src/index.html --out-dir ./docs --no-cache --detailed-report --no-source-maps",
     "predev": "rm -rf ./.cache/**",
     "prebuild": "rm -rf ./docs/**",
     "postversion": "sed \"s/VERSION=.*/VERSION=$npm_package_version/\" .env | tee .env",
-    "deploy": "./deploy.sh \"$npm_package_version\""
+    "deploy": "./deploy.sh \"$npm_package_version\"",
+    "fixsvelte": "npm i file:./parcel-plugin-force-babel"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "effector": "^20.9.1",
+    "flat": "^5.0.0",
+    "loadjs": "^4.2.0",
+    "normalizr": "^3.4.1",
+    "parcel-plugin-force-babel": "file:parcel-plugin-force-babel"
+  },
+  "prerender": {
+    "routes": [
+      "/"
+    ],
+    "rendererConfig": {}
   }
 }

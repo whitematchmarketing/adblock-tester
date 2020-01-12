@@ -1,4 +1,6 @@
 {
   "trailingComma": "all",
-  "printWidth": 100
+  "printWidth": 100,
+  "svelteSortOrder": "scripts-markup-styles",
+  "htmlWhitespaceSensitivity": "strict"
 }

@@ -1,86 +1,48 @@
 html {
-  border-top: 0.3em solid var(--failure-color);
-  background: var(--bg-color);
+  border-top: 0.3em solid var(--color-red);
+  background-color: var(--bg-color);
   color: var(--text-color);
-  font-size: 18px;
-  transition: border-top $darkModeSpeed ease, background $darkModeSpeed ease,
-    color $darkModeSpeed ease;
-}
-
-body {
-  font-size: inherit;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--heading-color);
-  transition: color $darkModeSpeed ease;
+  transition: border-top var(--speed-quick) ease, background var(--speed-quick) ease,
+    color var(--speed-quick) ease;
 }
 
 [hidden] {
   display: none !important;
 }
 
-img,
-object,
-embed {
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
 a {
-  transition: color $darkModeSpeed ease;
+  transition: color var(--speed-quick) ease;
 
   &:link {
-    color: var(--link-color);
+    color: var(--color-blue);
     transition: color 0.3s ease;
 
     text-decoration-skip: ink;
   }
 
   &:visited {
-    color: var(--link-visited-color);
+    color: var(--color-violet);
   }
 
   &:link:hover,
   &:visited:hover {
-    color: var(--link-hover-color);
+    color: var(--color-red);
   }
 }
 
-.title {
-  display: flex;
-  align-items: flex-start;
-  margin-top: 2em;
-  margin-bottom: 0.5em;
-
-  @extend .h1-font;
-  @media (min-width: 768px) {
-    margin-top: 1.5em;
-  }
-
-  h1 {
-    margin: 0;
-    font-size: 1em;
-  }
-}
-.title svg,
-.title img {
-  margin-top: -0.5em;
-  margin-right: 0.2em;
-  height: 2em;
-}
-
-.small {
-  color: var(--text-color);
-  white-space: nowrap;
+small,
+.text-small {
+  display: inline-block;
+  color: var(--app-text-color);
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
   opacity: 0.35;
-  transition: color $darkModeSpeed ease;
+  // transition: color var(--speed-quick) ease;
+}
+
+.visuallyHidden {
+  position: absolute !important;
+  top: 100%;
+  transform: scale(0);
 }

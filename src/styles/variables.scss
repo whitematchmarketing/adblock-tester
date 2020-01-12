@@ -1,31 +1,51 @@
-// https://flatuicolors.com/palette/defo
-
-$darkModeSpeed: 0.15s;
-$darkBgColor: hsl(215, 15%, 18%);
-$lightBgColor: #f5f6fa;
-$lightTextColor: hsl(221, 15%, 15%);
-$darkTextColor: hsl(221, 15%, 85%);
-
+// static variables
 :root {
-  --bg-color: #{$lightBgColor};
-  --text-color: #{$lightTextColor};
-  --heading-color: #{$darkBgColor};
-  --success-color: hsl(112, 58%, 40%);
-  --warning-color: hsl(44, 75%, 48%);
-  --failure-color: #c23616;
-  --link-color: #0097e6;
-  --link-visited-color: #8c7ae6;
-  --link-hover-color: var(--failure-color);
+  --speed-quick: 0.15s;
+  --light-text-color: hsl(221, 15%, 15%);
+  --dark-text-color: hsl(221, 15%, 85%);
+  --light-bg-color: hsl(228, 33%, 97%);
+  --dark-bg-color: hsl(215, 15%, 18%);
 }
 
-:root[color-scheme="dark"] {
-  --bg-color: #{$darkBgColor};
-  --text-color: #{$darkTextColor};
-  --heading-color: #{$lightBgColor};
-  --success-color: #4cd137;
-  --warning-color: #fbc531;
-  --failure-color: #e84118;
-  --link-color: #00a8ff;
-  --link-visited-color: #9c88ff;
-  --link-hover-color: var(--failure-color);
+// theme-based variables
+:root {
+  --bg-color: var(--light-bg-color);
+  --little-shadow: rgba(0, 0, 0, 0.15);
+  --text-color: var(--light-text-color);
+  --heading-color: var(--dark-bg-color);
+}
+:root.night-mode-on {
+  --bg-color: var(--dark-bg-color);
+  --little-shadow: rgba(255, 255, 255, 0.15);
+  --text-color: var(--dark-text-color);
+  --heading-color: var(--light-bg-color);
+}
+
+// colors
+:root {
+  --color-aquamarine: #16a085;
+  --color-green: #27ae60;
+  --color-blue: #2980b9;
+  --color-violet: #8e44ad;
+  --color-gray: #7f8c8d;
+  --color-dark-gray: #2c3e50;
+  --color-light-gray: #bdc3c7;
+  --color-orange: #f39c12;
+  --color-pumpkin: #d35400;
+  --color-red: #c0392b;
+  --color-text: var(--color-dark-gray);
+}
+
+:root.night-mode-on {
+  --color-aquamarine: #1abc9c;
+  --color-green: #2ecc71;
+  --color-blue: #3498db;
+  --color-violet: #9b59b6;
+  --color-gray: #95a5a6;
+  --color-dark-gray: #34495e;
+  --color-light-gray: #ecf0f1;
+  --color-orange: #f1c40f;
+  --color-pumpkin: #e67e22;
+  --color-red: #e74c3c;
+  --color-text: var(--color-light-gray);
 }
