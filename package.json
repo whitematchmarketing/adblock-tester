@@ -31,9 +31,9 @@
     "dev": "NODE_ENV=development LANG=ru parcel serve ./src/index.html --out-dir ./dev --https --no-cache --log-level 3",
     "build": "NODE_ENV=production LANG=ru parcel build ./src/index.html --out-dir ./docs --no-cache --detailed-report --no-source-maps",
     "predev": "rm -rf ./.cache/**",
-    "prebuild": "rm -rf ./docs/**",
+    "prebuild": "npm run updateSizes && rm -rf ./docs/**",
     "postversion": "sed \"s/VERSION=.*/VERSION=$npm_package_version/\" .env | tee .env",
-    "deploy": "./deploy.sh \"$npm_package_version\"",
+    "updateSizes": "node ./nodeFetchSizes.js",
     "fixsvelte": "npm i file:./parcel-plugin-force-babel"
   },
   "dependencies": {
