@@ -1,7 +1,5 @@
 <script>
   import { afterUpdate } from 'svelte';
-
-  import "./index.scss";
   import { t } from "./i18n";
   import { isProd } from "./utils";
   import NightMode from "./nightMode";
