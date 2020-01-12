@@ -1,14 +1,22 @@
 <script>
+  import { t } from './i18n';
   import { activeServicesCount, activeChecksCount, score } from './model';
+  let color = "";
+  $: {
+    if ($score >= 75) color = "green";
+    if ($score < 75) color = "orange";
+    if ($score < 50) color = "pumpkin";
+    if ($score < 25) color = "red";
+  }
 </script>
 
-<h3 class="final-score">
+<h3 class="final-score" data-color={color}>
   <div class="final-score-text">
     <b class="final-score-value">{$score}</b>
-    <span class="final-score-pre-value-text">баллов из 100</span>
+    <span class="final-score-pre-value-text">{t("score.points", $score, false)} из 100</span>
   </div>
   <span class="final-score-info">
-    ({$activeServicesCount} сервисов, {$activeChecksCount} проверок)
+    ({t("score.services", $activeServicesCount)}, {t("score.checks", $activeChecksCount)})
   </span>
 </h3>
 
@@ -59,8 +67,6 @@
   margin-right: 0.5rem;
   font-size: 0.8rem;
   font-size: 1rem;
-}
-.final-score-value {
 }
 .final-score-info {
   display: block;

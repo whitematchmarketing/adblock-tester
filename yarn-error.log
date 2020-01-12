@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js add parcel-plugin-force-babel -D
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js build
 
 PATH: 
-  /var/folders/j1/_fx598xs2m72fb7fjnf67zt40000gn/T/yarn--1578667428518-0.7370883670103152:/Users/ym/Projects/checkadblock/node_modules/.bin:/Users/ym/.config/yarn/link/node_modules/.bin:/usr/local/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/opt/X11/bin
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/opt/X11/bin
 
 Yarn version: 
   1.15.2
@@ -14,17 +14,12 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/parcel-plugin-force-babel: Not found
-      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:66058:18)
-      at Request.self.callback (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:129541:22)
-      at Request.emit (events.js:182:13)
-      at Request.<anonymous> (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:130513:10)
-      at Request.emit (events.js:182:13)
-      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:130435:12)
-      at Object.onceWrapper (events.js:273:13)
-      at IncomingMessage.emit (events.js:187:15)
-      at endReadableNT (_stream_readable.js:1081:12)
-      at process._tickCallback (internal/process/next_tick.js:63:19)
+  SyntaxError: /Users/ym/Projects/checkadblock/package.json: Unexpected token ] in JSON at position 1696
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:304:30)
+      at /usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:315:13
 
 npm manifest: 
   {
@@ -40,6 +35,7 @@ npm manifest:
       "autoprefixer": "^9.7.3",
       "http-server-ssl": "^0.0.7",
       "lodash": "^4.17.15",
+      "node-fetch": "^2.6.0",
       "node-sass": "^4.13.0",
       "npm-run-all": "^4.1.5",
       "parcel-bundler": "^1.12.4",
@@ -56,8 +52,8 @@ npm manifest:
     },
     "scripts": {
       "start": "yarn dev",
-      "dev": "NODE_ENV=development parcel serve ./src/index.html --out-dir ./dev --https --no-cache --log-level 3",
-      "build": "NODE_ENV=production parcel build ./src/index.html --out-dir ./docs --no-cache --detailed-report --no-source-maps",
+      "dev": "NODE_ENV=development LANG=ru parcel serve ./src/index.html --out-dir ./dev --https --no-cache --log-level 3",
+      "build": "NODE_ENV=production LANG=ru parcel build ./src/index.html --out-dir ./docs --no-cache --detailed-report --no-source-maps",
       "predev": "rm -rf ./.cache/**",
       "prebuild": "rm -rf ./docs/**",
       "postversion": "sed \"s/VERSION=.*/VERSION=$npm_package_version/\" .env | tee .env",
@@ -68,14 +64,18 @@ npm manifest:
       "debug": "^4.1.1",
       "effector": "^20.9.1",
       "flat": "^5.0.0",
+      "loadjs": "^4.2.0",
       "normalizr": "^3.4.1",
       "parcel-plugin-force-babel": "file:parcel-plugin-force-babel"
     },
     "prerender": {
       "routes": [
-        "/"
+        "/",
       ],
-      "rendererConfig": {}
+      "rendererConfig": {
+        "headless": false,
+        "renderAfterDocumentEvent": "prerender-trigger"
+      }
     }
   }
 
@@ -3715,6 +3715,11 @@ Lockfile:
       json5 "^0.5.0"
       object-assign "^4.0.1"
   
+  loadjs@^4.2.0:
+    version "4.2.0"
+    resolved "https://registry.yarnpkg.com/loadjs/-/loadjs-4.2.0.tgz#2a0336376397a6a43edf98c9ec3229ddd5abb6f6"
+    integrity sha512-AgQGZisAlTPbTEzrHPb6q+NYBMD+DP9uvGSIjSUM5uG+0jG15cb8axWpxuOIqrmQjn6scaaH8JwloiP27b2KXA==
+  
   locate-path@^3.0.0:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-3.0.0.tgz#dbec3b3ab759758071b58fe59fc41871af21400e"
@@ -4042,6 +4047,11 @@ Lockfile:
     version "1.7.1"
     resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-1.7.1.tgz#cf813cd69bb8d9100f6bdca6755fc268f54ac492"
     integrity sha512-2+DuKodWvwRTrCfKOeR24KIc5unKjOh8mz17NCzVnHWfjAdDqbfbjqh7gUT+BkXBRQM52+xCHciKWonJ3CbJMQ==
+  
+  node-fetch@^2.6.0:
+    version "2.6.0"
+    resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
+    integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
   
   node-forge@^0.7.1:
     version "0.7.6"

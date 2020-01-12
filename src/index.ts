@@ -3,11 +3,11 @@ import App from "./app.svelte";
 import "./model";
 
 const app = new App({
-  target: document.body,
-  // props: { name: "world" },
+  target: document.getElementById("app"),
+  hydrate: true,
 });
 
-window.onerror = (...args) => console.error(...args);
+window.onerror = error => console.trace("window.onerror", error);
 window.alert = (...args) => console.warn("alert", ...args);
 
 export default app;
