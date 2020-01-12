@@ -116,7 +116,7 @@ export const sections = [
           },
           {
             type: "eval",
-            evals: ["hjSiteSettings.site_id > 0", "hjSiteSettings.features.length === 2"],
+            evals: ["!hj", "hjSiteSettings.site_id > 0", "hjSiteSettings.features.length === 2"],
             depends: "loadingHootjarMetrica",
             status: "pending",
           },

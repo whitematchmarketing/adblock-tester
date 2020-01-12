@@ -31,6 +31,7 @@
     "dev": "NODE_ENV=development LANG=ru parcel serve ./src/index.html --out-dir ./dev --https --no-cache --log-level 3",
     "build": "NODE_ENV=production LANG=ru parcel build ./src/index.html --out-dir ./docs --no-cache --detailed-report --no-source-maps",
     "predev": "rm -rf ./.cache/**",
+    "postbuild": "grep -q 'https://localhost:1234' ./docs/index.html && exit 1 || echo 'builded with correct env'",
     "prebuild": "npm run updateSizes && rm -rf ./docs/**",
     "postversion": "sed \"s/VERSION=.*/VERSION=$npm_package_version/\" .env | tee .env",
     "updateSizes": "node ./nodeFetchSizes.js",

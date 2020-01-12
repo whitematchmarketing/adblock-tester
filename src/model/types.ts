@@ -1,10 +1,10 @@
 export type ICoords = [number, number?, number?];
 export enum EPriority {
   "critical" = 1,
-  "high" = 0.75,
-  "medium" = 0.5,
-  "low" = 0.25,
-  "trivial" = 0.1,
+  "high" = 0.8,
+  "medium" = 0.6,
+  "low" = 0.4,
+  "trivial" = 0.2,
 }
 
 export enum ECheckType {
@@ -27,13 +27,13 @@ export const statusWeights = {
   [EStatus.unknown]: 0,
   [EStatus.unblocked]: 0,
   [EStatus.blocked]: 1,
-  [EStatus.likelyBlocked]: 0.333,
-  [EStatus.likelyUnblocked]: 0.666,
+  [EStatus.likelyBlocked]: 1 / 3,
+  [EStatus.likelyUnblocked]: 2 / 3,
 };
 
 export const typeWeights = {
-  [ECheckType.script]: 0.25,
-  [ECheckType.eval]: 0.75,
+  [ECheckType.script]: 1 / 3,
+  [ECheckType.eval]: 2 / 3,
   [ECheckType.size]: 1,
 };
 
