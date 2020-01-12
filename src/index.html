@@ -25,7 +25,7 @@
     <script defer src="./index.ts"></script>
   </head>
   <body>
-    <div id="loader">
+    <div id="loader" style="display: none;">
       <div class="lds-ripple"><div></div><div></div></div>
       <div id="loader-text">
         <p>Cтраница загружается слишком долго. <br />Возможные причины:</p>
@@ -41,9 +41,11 @@
         </p>
       </div>
       <script>
+        var $loader = document.getElementById("loader");
+        $loader.style = "";
         setTimeout(function() {
-          var text = document.getElementById("loader-text");
-          if (text) text.className = "visible";
+          var $text = document.getElementById("loader-text");
+          if ($text) $text.className = "visible";
         }, 10000);
       </script>
     </div>
