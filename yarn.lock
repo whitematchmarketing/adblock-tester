@@ -4423,9 +4423,6 @@ parcel-bundler@^1.12.4:
     v8-compile-cache "^2.0.0"
     ws "^5.1.1"
 
-"parcel-plugin-force-babel@file:parcel-plugin-force-babel":
-  version "1.0.0"
-
 parcel-plugin-interpolate-html@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/parcel-plugin-interpolate-html/-/parcel-plugin-interpolate-html-1.0.1.tgz#467407ee886c5a773048e057839520debb12aec2"

@@ -35,6 +35,7 @@
     "prebuild": "npm run updateSizes && rm -rf ./docs/**",
     "postversion": "sed \"s/VERSION=.*/VERSION=$npm_package_version/\" .env | tee .env",
     "updateSizes": "node ./nodeFetchSizes.js",
+    "postinstall": "rm -rf ./.cache && node ./postinstall.js",
     "fixsvelte": "npm i file:./parcel-plugin-force-babel"
   },
   "dependencies": {
@@ -42,8 +43,7 @@
     "effector": "^20.9.1",
     "flat": "^5.0.0",
     "loadjs": "^4.2.0",
-    "normalizr": "^3.4.1",
-    "parcel-plugin-force-babel": "file:parcel-plugin-force-babel"
+    "normalizr": "^3.4.1"
   },
   "prerender": {
     "routes": [
