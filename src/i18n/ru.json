@@ -26,21 +26,21 @@
     "unblocked": "❌ прошла успешно",
     "script": {
       "pending": "⌛ загружаю…",
-      "blocked": "✅ заблокирована",
-      "likelyBlocked": "⚠️ вероятно заблокирована",
+      "blocked": "✅ прервана",
+      "likelyBlocked": "⚠️ вероятно прервана",
       "likelyUnblocked": "⚠️ вероятно прошла успешно",
       "unblocked": "❌ прошла успешно"
     },
     "localLoading": {
       "pending": "⌛ загружаю…",
-      "likelyBlocked": "⚠️ вероятно заблокирована",
-      "blocked": "✅ заблокирована",
+      "likelyBlocked": "⚠️ вероятно прервана",
+      "blocked": "✅ прервана",
       "unblocked": "❌ прошла успешно"
     },
     "size": {
-      "blocked": "✅ блок невидим",
-      "unblocked": "❌ блок виден",
-      "likelyUnblocked": "⚠️ блок виден"
+      "blocked": "✅ невидим",
+      "unblocked": "❌ виден",
+      "likelyUnblocked": "⚠️ занимает место"
     },
     "eval": {
       "pending": "⌛ ожидаю загрузки файла",
