@@ -2,12 +2,11 @@ import { merge } from "effector";
 
 import {
   fetchMediaFileSize,
+  isDefined,
   isFileSizeAcceptable,
   produce,
   safeEval,
   scriptLoader,
-  isUndefined,
-  isDefined,
 } from "../utils";
 import {
   changeSectionActive,
@@ -22,7 +21,12 @@ import {
 } from "./actions";
 import { saveActiveAndVisible } from "./storage";
 import { checks, sections, services } from "./store";
-import { EStatus, ISizeCheck } from "./types";
+import { EStatus, IEvalCheck, ISizeCheck } from "./types";
+
+const ifDependedCheckBlocked = (state: any, check: IEvalCheck | ISizeCheck) => {
+  if (state[check.depends]) return state[check.depends].status === EStatus.blocked;
+  return undefined;
+};
 
 const visibilityHandler = (state, { id, value }) =>
   produce(state, draftState => {
@@ -88,11 +92,9 @@ checks.on(checkSize, (state, { check, element }) => {
 
   const visible = element.clientHeight > 10 && element.clientWidth > 10;
   let status = EStatus.unknown;
-  if (withApproval) {
-    status = visible ? EStatus.likelyUnblocked : EStatus.blocked;
-  } else {
-    status = visible ? EStatus.unblocked : EStatus.blocked;
-  }
+
+  if (withApproval) status = visible ? EStatus.likelyUnblocked : EStatus.blocked;
+  else status = visible ? EStatus.unblocked : EStatus.blocked;
 
   return produce(state, draftState => {
     const draftCheck = draftState[id] as ISizeCheck;
@@ -105,8 +107,7 @@ checks.on(checkEval, (state, check) => {
   const results = check.evals.map(safeEval);
   const countTrues = results.filter(Boolean).length;
 
-  if (check.depends && state[check.depends] && state[check.depends].status === EStatus.blocked)
-    status = EStatus.blocked;
+  if (ifDependedCheckBlocked(state, check)) status = EStatus.blocked;
   else if (countTrues === 0) status = EStatus.blocked;
   else if (countTrues === results.length) status = EStatus.unblocked;
   else if (countTrues <= results.length / 2) status = EStatus.likelyBlocked;
