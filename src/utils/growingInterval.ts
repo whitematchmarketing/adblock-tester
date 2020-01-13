@@ -2,7 +2,7 @@ import { isDev } from "./env";
 
 export const growingInterval = (
   fn: Function,
-  startValue: number = 200,
+  startValue: number = 500,
   multiplier: number = 1.25,
 ) => {
   fn();
