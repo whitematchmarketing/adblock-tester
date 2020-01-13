@@ -1,3 +1,5 @@
+import "whatwg-fetch";
+import "@babel/polyfill";
 // @ts-ignore
 import App from "./app.svelte";
 import "./model";

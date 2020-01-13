@@ -6,11 +6,18 @@
 
   export let check;
   let includeElement;
+  // turned off temporary at least to check the google ads corrent way
+  let includeVisible = false;
   let statusText = ""
   let nameText = ""
   let infoText = ""
 
   $: {
+    includeVisible = check.include
+      && check.type === "size"
+      && check.status === EStatus.likelyBlocked
+      && check.status === EStatus.likelyUnblocked
+      && check.status === EStatus.unblocked;
     statusText = t(`statuses.${check.type}.${check.status}`) || t(`statuses.${check.status}`);
     nameText = t(`checkNames.${check.type}`);
     infoText = t(`statusInfo.${check.type}.${check.status}`) || t(`statusInfo.${check.status}`);
@@ -23,7 +30,6 @@
     if (check.type === "eval") growingInterval(() => checkEval(check));
   })
 </script>
-
 <li>
   <span class="result">
     <span class="name">{nameText}:&nbsp;</span>
@@ -45,7 +51,7 @@
         </div>
       {/if}
       <div></div>
-      <div class="includeWrapper" class:visuallyHidden={check.status === EStatus.blocked}>
+      <div class="includeWrapper">
         <div bind:this={includeElement} class="include">
           {@html check.include}
         </div>
@@ -57,9 +63,6 @@
 
 <style lang="scss">
 .includeWrapper {
-  display: inline-block;
-  vertical-align: top;
-  max-width: 100%;
   margin-top: 1rem;
   padding: 1rem;
   background: -webkit-repeating-linear-gradient(
@@ -78,7 +81,6 @@
   );
 }
 .include {
-  overflow: hidden;
 }
 .warning {
   margin-top: 1rem;

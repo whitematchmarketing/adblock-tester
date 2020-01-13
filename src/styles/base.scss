@@ -43,6 +43,8 @@ small,
 
 .visuallyHidden {
   position: absolute !important;
-  top: 100%;
-  transform: scale(0);
+  bottom: 100%;
+  opacity: 0;
+  opacity: 0.001;
+  pointer-events: none;
 }

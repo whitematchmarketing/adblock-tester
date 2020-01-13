@@ -1,16 +1,15 @@
-// @ts-nocheck
-import googleAds from "../includes/ads_google.html";
-import yandexAds from "../includes/ads_yandex.html";
-import bannerFlash from "../includes/banner_flash.html";
-import bannerImage from "../includes/banner_image.html";
-import bannerGif from "../includes/banner_gif.html";
-import metricaYandex from "../includes/metrica_yandex.html";
-import metricaGoogle from "../includes/metrica_google.html";
-import metricaHotjar from "../includes/metrica_hotjar.html";
-import metricaHotjar from "../includes/metrica_hotjar.html";
-import errorsSentry from "../includes/errors_sentry.html";
-import errorsBugsnag from "../includes/errors_bugsnag.html";
-// @ts-check
+import {
+  googleAds,
+  yandexAds,
+  bannerFlash,
+  bannerImage,
+  bannerGif,
+  metricaYandex,
+  metricaGoogle,
+  metricaHotjar,
+  errorsSentry,
+  errorsBugsnag,
+} from "../includes";
 
 const sizes = require("./sizes.json");
 const urls = require("./sizesUrls.js");
