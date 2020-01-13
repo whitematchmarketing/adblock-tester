@@ -9,6 +9,7 @@ export enum EPriority {
 
 export enum ECheckType {
   script = "script",
+  localLoading = "localLoading",
   size = "size",
   eval = "eval",
 }
@@ -27,13 +28,14 @@ export const statusWeights = {
   [EStatus.unknown]: 0,
   [EStatus.unblocked]: 0,
   [EStatus.blocked]: 1,
-  [EStatus.likelyBlocked]: 1 / 3,
-  [EStatus.likelyUnblocked]: 2 / 3,
+  [EStatus.likelyBlocked]: 0.75,
+  [EStatus.likelyUnblocked]: 0.25,
 };
 
 export const typeWeights = {
-  [ECheckType.script]: 1 / 3,
-  [ECheckType.eval]: 2 / 3,
+  [ECheckType.script]: 0.75,
+  [ECheckType.eval]: 0.75,
+  [ECheckType.localLoading]: 0.75,
   [ECheckType.size]: 1,
 };
 
@@ -73,7 +75,12 @@ export type IScriptCheck = ICommonsFromCheck & {
 export type IEvalCheck = ICommonsFromCheck & {
   type: ECheckType.eval;
   evals: string[];
-  depends: string;
+  depends?: string;
+};
+export type IFetchMediaSizeCheck = ICommonsFromCheck & {
+  type: ECheckType.localLoading;
+  url: string;
+  approxSize: number;
 };
 export type ISizeCheck = ICommonsFromCheck & {
   type: ECheckType.size;
@@ -81,5 +88,5 @@ export type ISizeCheck = ICommonsFromCheck & {
   visible: boolean;
   flash?: boolean;
   proved?: boolean;
-  external?: boolean;
+  withApproval?: boolean;
 };

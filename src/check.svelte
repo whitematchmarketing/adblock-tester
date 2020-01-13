@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { EStatus, loadScript, checkSize, checkEval, proveSize } from './model';
+  import { EStatus, loadScript, fetchMediaSize, checkSize, checkEval, proveSize } from './model';
   import { growingInterval } from './utils'
   import { t } from "./i18n";
 
@@ -15,11 +15,12 @@
     nameText = t(`checkNames.${check.type}`);
     infoText = t(`statusInfo.${check.type}.${check.status}`) || t(`statusInfo.${check.status}`);
   }
-  const proveSizeFactory = (proved) => () => proveSize({ id: check.id, element: includeElement, proved });
+  const proveSizeFactory = (proved) => () => proveSize({ check, proved, element: includeElement });
   onMount(() => {
-    if (check.type === "script") loadScript({ id: check.id });
-    if (check.type === "size") growingInterval(() => checkSize({ id: check.id, element: includeElement}));
-    if (check.type === "eval") growingInterval(() => checkEval({ id: check.id }));
+    if (check.type === "localLoading") fetchMediaSize(check);
+    if (check.type === "script") loadScript(check);
+    if (check.type === "size") growingInterval(() => checkSize({ check, element: includeElement}));
+    if (check.type === "eval") growingInterval(() => checkEval(check));
   })
 </script>
 
@@ -31,28 +32,26 @@
       <small class="infoText">({infoText})</small>
     {/if}
   </span>
-  {#if check.type === "script" && check.include}
-    {@html check.include}
-  {/if}
-  {#if check.html}
+  {#if check.include && check.type === "size"}
     {#if check.status === EStatus.likelyUnblocked}
-      <div class="warning">
-        Рекламный блок не пустой.
-        К сожалению, мы не можем определить показывается там реклама или это пустой блок от вашего блокировщика.
-        Для точного финального результата, пожалуйста, уточните что вы видите.
+        <div class="warning">
+          Рекламный блок не пустой.
+          К сожалению, мы не можем определить показывается там реклама или это пустой блок от вашего блокировщика.
+          Для точного финального результата, пожалуйста, уточните что вы видите.
+        </div>
+        <div class="buttons">
+          <button type="button" class="button accept" on:click={proveSizeFactory(true)}>Пустой блок</button>
+          <button type="button" class="button reject" on:click={proveSizeFactory(false)}>Рекламу</button>
+        </div>
+      {/if}
+      <div></div>
+      <div class="includeWrapper" class:visuallyHidden={check.status === EStatus.blocked}>
+        <div bind:this={includeElement} class="include">
+          {@html check.include}
+        </div>
       </div>
-      <div class="buttons">
-        <button type="button" class="button accept" on:click={proveSizeFactory(true)}>Пустой блок</button>
-        <button type="button" class="button reject" on:click={proveSizeFactory(false)}>Вижу рекламу</button>
-      </div>
-    {/if}
-
-    <div></div>
-    <div class="includeWrapper" class:visuallyHidden={check.status === EStatus.blocked}>
-      <div bind:this={includeElement} class="include">
-        {@html check.html}
-      </div>
-    </div>
+  {:else if check.include}
+    {@html check.include}
   {/if}
 </li>
 

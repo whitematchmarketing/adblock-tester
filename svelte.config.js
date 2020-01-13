@@ -2,7 +2,7 @@ const sveltePreprocess = require("svelte-preprocess");
 
 module.exports = {
   compiler: {
-    hydratable: true,
+    hydratable: process.env.NODE_ENV === "production",
   },
   preprocess: sveltePreprocess({
     scss: true,

@@ -16,7 +16,7 @@ const patch = staticPath => {
       delete packageFileData["browserslist"];
       fs.writeFileSync(browserListFilePath, nodeVersion);
       fs.writeFileSync(packageFilePath, JSON.stringify(packageFileData, null, 2));
-      // console.log(`Fixed browserlist in ${packageFilePath}`)
+      console.log(`Fixed browserlist in ${packageFilePath}`);
 
       // Patch to node_modules/*/node_modules/*
       let nestedModulePath = `${staticPath}/${folderName}/node_modules`;

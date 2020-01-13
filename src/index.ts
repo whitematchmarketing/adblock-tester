@@ -1,10 +1,11 @@
 // @ts-ignore
 import App from "./app.svelte";
 import "./model";
+import { isProd } from "./utils";
 
 const app = new App({
   target: document.getElementById("app"),
-  hydrate: true,
+  hydrate: isProd,
 });
 
 window.onerror = error => console.trace("onerror", error);

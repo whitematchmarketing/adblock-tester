@@ -6,5 +6,6 @@ export * from "./isFileSizeAcceptable";
 export * from "./growingInterval";
 export * from "./produce";
 export * from "./scriptLoader";
-export * from "./flashAvailable";
+export * from "./fetchMediaFileSize";
 export * from "./safeEval";
+export * from "./isType";
