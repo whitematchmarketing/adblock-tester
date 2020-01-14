@@ -1,7 +1,7 @@
 // should be imported to the body separetely
 // for quicker night-mode application
 
-import { getActiveTheme, saveTheme } from "./utils";
+import { getActiveTheme, saveTheme } from "./utils/nightModeStorage";
 
 window.onerror = error => console.trace("onerror", error);
 window.onunhandledrejection = event => console.error("onunhandledrejection", event.reason, event);

@@ -1,13 +1,12 @@
 <script>
   import { afterUpdate } from 'svelte';
   import { t } from "./i18n";
-  import { isProd } from "./utils";
   import NightMode from "./nightMode";
   import Footer from "./footer";
   import TitleAndDescription from "./titleAndDescription";
   import Sections from './sections';
 
-  if (isProd) {
+  if (process.env.NODE_ENV === "production") {
     afterUpdate(() => setTimeout(() => document.dispatchEvent(new Event("prerender-trigger")), 500));
   }
 </script>

@@ -1,4 +1,3 @@
-export * from "./env";
 export * from "./logger";
 export * from "./isPrimitive";
 export * from "./nightModeStorage";

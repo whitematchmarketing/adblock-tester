@@ -3,11 +3,10 @@ import "@babel/polyfill";
 // @ts-ignore
 import App from "./app.svelte";
 import "./model";
-import { isProd } from "./utils";
 
 const app = new App({
   target: document.getElementById("app"),
-  hydrate: isProd,
+  hydrate: process.env.NODE_ENV === "production",
 });
 
 const $loader = document.getElementById("loader");

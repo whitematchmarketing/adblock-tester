@@ -1,11 +1,11 @@
-import debug from "debug";
+let debug = (...args: any[]) => (...args: any[]) => {};
 
-import { isProd } from "./env";
-
-export const safeLogger = isProd ? () => () => {} : debug;
+if (process.env.NODE_ENV !== "production") {
+  debug = require("debug");
+}
 
 export const logger = (name1: string) => {
-  const log = safeLogger(name1);
+  const log = debug(name1);
   return (name2: string, ...args: any[]) => {
     const argsClone = JSON.parse(JSON.stringify(args.filter(arg => arg !== undefined)));
     log(`%c${name2}`, "font-weight: bold", ...argsClone);

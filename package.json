@@ -17,7 +17,6 @@
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-interpolate-html": "^1.0.1",
     "parcel-plugin-prerender": "^1.4.1",
-    "parcel-plugin-static-files-copy": "^2.2.1",
     "parcel-plugin-svelte": "^4.0.5",
     "postcss-load-config": "^2.1.0",
     "postcss-modules": "^1.4.1",
@@ -28,8 +27,9 @@
   },
   "scripts": {
     "start": "yarn dev ru",
-    "dev": "./dev",
+    "dev": "./dev.sh",
     "build": "./build.sh",
+    "clearDist": "rm -rf ./dist-ru/** && rm -rf ./dist-en/**",
     "postversion": "sed \"s/VERSION=.*/VERSION=$npm_package_version/\" .env | tee .env",
     "convertHtmls": "node ./transformHtmlIcludes.js",
     "postinstall": "node ./postinstall.js"
