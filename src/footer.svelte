@@ -9,7 +9,7 @@
     <a href={host}>{t('page.title')}</a>
     <small>({t('page.version')}&nbsp;{version})</small>
     <br />
-    Вопросы и замечания пишите на
+    {@html t("page.footerQuestion")}
     <a href="mailto:ym@ymatuhin.ru?subject=checkadblock">ym@ymatuhin.ru</a>
 </footer>
 

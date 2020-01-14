@@ -1,5 +1,129 @@
 {
   "meta": {
-    "title": "my awesome title"
+    "title": "Check AdBlocker: a lot of ads and services to test your AdBlock extensions",
+    "description": "Webite with ads, analytics trackers, metrics, error catchers. Check your blocker: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate…"
+  },
+  "page": {
+    "title": "Check AdBlocker",
+    "version": "version",
+    "nightMode": "Night mode",
+    "warning": "Using multiple ad blockers at the same time can <b> negatively </b> affect their work.",
+    "description": "Choose an ad blocker but don’t know where to test it? <br> This site contains various advertising services and services for collecting analytics so that you can check the effectiveness of your blocker on them. <br> AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate and others.",
+    "keywords": "Webite with ads, analytics trackers, metrics, error catchers. Check your blocker: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate…",
+    "footerQuestion": "Hey, I'm glad you've got so far. English isn't my first language, so I'll really appreciate if you let me know about any misspelling on site. Also I'm open for your ideas about new services.<br>"
+  },
+  "checkNames": {
+    "script": "Script loading",
+    "localLoading": "File loading",
+    "size": "Block visibility",
+    "eval": "Script execution"
+  },
+  "statuses": {
+    "pending": "⌛ checking…",
+    "unknown": "🏳️ failed to check",
+    "likelyBlocked": "🏳️ probably blocked",
+    "blocked": "✅ blocked",
+    "likelyUnblocked": "⚠️ probably successful",
+    "unblocked": "❌ was successful",
+    "script": {
+      "pending": "⌛ loading…",
+      "blocked": "✅ interrupted",
+      "likelyBlocked": "⚠️ probably interrupted",
+      "likelyUnblocked": "⚠️ probably successful",
+      "unblocked": "❌ was successful"
+    },
+    "localLoading": {
+      "pending": "⌛ loading…",
+      "likelyBlocked": "⚠️ probably interrupted",
+      "blocked": "✅ interrupted",
+      "unblocked": "❌ was successful"
+    },
+    "size": {
+      "blocked": "✅ invisible",
+      "unblocked": "❌ visible",
+      "likelyUnblocked": "⚠️ take place"
+    },
+    "eval": {
+      "pending": "⌛ waiting for script loading…",
+      "blocked": "✅ execution failed",
+      "likelyBlocked": "⚠️ probably execution failed",
+      "likelyUnblocked": "⚠️ probably executed",
+      "unblocked": "❌ executed"
+    }
+  },
+  "statusInfo": {
+    "script": {
+      "unknown": "possibly due to service security settings",
+      "likelyBlocked": "file size does not match the original or takes a long time to load",
+      "likelyUnblocked": "file size is within the normal range, it is more likely that the file is original"
+    },
+    "localLoading": {
+      "likelyBlocked": "file size does not match the original or takes a long time to load"
+    },
+    "eval": {
+      "likelyBlocked": "not all checks were successful",
+      "likelyUnblocked": "not all checks were successful"
+    }
+  },
+  "priorities": {
+    "critical": "critical",
+    "high": "high",
+    "medium": "medium",
+    "low": "low",
+    "trivial": "trivial"
+  },
+  "actions": {
+    "open": "open",
+    "close": "close"
+  },
+  "sections": {
+    "context": {
+      "title": "Contextual advertising",
+      "description": "This is the main and most common form of advertising on sites. It’s easy to set up and don’t have to look for advertisers yourself. These services also collect data about you in order to find the right advertisement for you."
+    },
+    "banners": {
+      "title": "Banner advertising",
+      "description": "This type of advertising is often used on large sites that sell ad space. It is most difficult to block, because it is difficult to distinguish an advertising image from a regular one. Often the rules are written for each site separately, so this check is not entirely honest. It checks only the presence of keywords in the file path or the availability of flash.",
+      "flash": "Flash banners",
+      "staticImage": "Static image",
+      "gifImage": "Gif image"
+    },
+    "analytics": {
+      "title": "Analytics Tools",
+      "description": "These services monitor your actions on the site and collect information about you. They are needed only by the owner of the site, for the user it is only unnecessary requests and the code that needs to be executed. Unfortunately, blocking them sometimes can completely break the site.",
+      "google": "Google Analytics",
+      "hotjar": "Hotjar"
+    },
+    "errorCatchers": {
+      "title": "Error Monitoring",
+      "description": "Unlike analytics Tools, developers use these services to find out about it in case of an error on the site. Services monitor almost all user actions so that the error message is as complete as possible. Most often, if you turn them off nothing will break.",
+      "bugsnag": "Bugsnag",
+      "sentry": "Sentry"
+    }
+  },
+  "services": {
+    "adsense": {
+      "title": "Google AdSense"
+    }
+  },
+  "score": {
+    "outOf": "out of",
+    "points": [
+      "point",
+      "points"
+    ],
+    "services": [
+      "service",
+      "services"
+    ],
+    "checks": [
+      "check",
+      "checks"
+    ]
+  },
+  "sizeQuestion": {
+    "description": "Ad unit is not empty. Unfortunately, we can’t determine whether an ad is showing there or is it an empty block from your blocker. For an accurate final result, please specify what you see.",
+    "approve": "Empty block",
+    "reject": "Ads"
   }
 }

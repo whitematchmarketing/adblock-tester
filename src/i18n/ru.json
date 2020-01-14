@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Сайт с рекламой для проверки блокировщиков рекламы: AdBlock, AdBlock Plus, AdGuard, Ghostery…",
-    "description": "Сайт с рекламой, сервисами аналитики, метрики и сбора ошибок, счетчиками посещений. Проверьте ваш блокировщик: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate…"
+    "description": "Сайт с рекламой, сервисами аналитики, метрики и сбора ошибок. Проверьте ваш блокировщик: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate…"
   },
   "page": {
     "title": "Сайт с рекламой",
@@ -9,7 +9,8 @@
     "nightMode": "Ночной режим",
     "warning": "Одновременное использование нескольких блокировщиков рекламы может <b>негативно</b> сказаться на их работе.",
     "description": "Выбираете блокировщик рекламы, но не знаете где его протестировать? <br> На этом сайте собраны различные рекламные сервисы и сервисы для сбора аналитики, чтобы вы могли проверить на них эффективность вашего блокировщика. <br> AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate и другие.",
-    "keywords": "Сайт с рекламой для проверки блокировщиков: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate AdBlock, Adblock Plus, AdGuard AdBlocker, Fair AdBlocker, Windscribe, Ghostery – Privacy Ad Blocker, AdBlocker Ultimate, uBlock Plus Adblocker, uBlock Origin…"
+    "keywords": "Сайт с рекламой для проверки блокировщиков: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate AdBlock, Adblock Plus, AdGuard AdBlocker, Fair AdBlocker, Windscribe, Ghostery – Privacy Ad Blocker, AdBlocker Ultimate, uBlock Plus Adblocker, uBlock Origin…",
+    "footerQuestion": "Вопросы и замечания пишите на"
   },
   "checkNames": {
     "script": "Загрузка скрипта",
@@ -65,11 +66,11 @@
     }
   },
   "priorities": {
-    "critical": "очень высокий приоритет",
-    "high": "высокий приоритет",
-    "medium": "средний приоритет",
-    "low": "низкий приоритет",
-    "trivial": "очень низкий приоритет"
+    "critical": "очень высокий",
+    "high": "высокий",
+    "medium": "средний",
+    "low": "низкий",
+    "trivial": "очень низкий"
   },
   "actions": {
     "open": "развернуть",
@@ -110,6 +111,7 @@
     }
   },
   "score": {
+    "outOf": "из",
     "points": [
       "балл",
       "балла",
@@ -125,5 +127,10 @@
       "проверки",
       "проверок"
     ]
+  },
+  "sizeQuestion": {
+    "description": "Рекламный блок не пустой. К сожалению, мы не можем определить показывается там реклама или это пустой блок от вашего блокировщика. Для точного финального результата, пожалуйста, уточните что вы видите.",
+    "approve": "Пустой блок",
+    "reject": "Рекламу"
   }
 }

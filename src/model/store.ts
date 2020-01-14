@@ -3,7 +3,7 @@ import flatten from "lodash/flatten";
 
 import { syncActiveAndVisible } from "./storage";
 import { logger } from "../utils";
-import { checksHash, sectionsHash, servicesHash } from "./normalized";
+import { checksHash, sectionsHash, servicesHash } from "./data";
 import {
   EPriority,
   EStatus,

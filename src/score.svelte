@@ -13,7 +13,7 @@
 <h3 class="final-score" data-color={color}>
   <div class="final-score-text">
     <b class="final-score-value">{$score}</b>
-    <span class="final-score-pre-value-text">{t("score.points", $score, false)} из 100</span>
+    <span class="final-score-pre-value-text">{t("score.points", $score, false)} {t("score.outOf")} 100</span>
   </div>
   <span class="final-score-info">
     ({t("score.services", $activeServicesCount)}, {t("score.checks", $activeChecksCount)})

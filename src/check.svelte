@@ -41,13 +41,15 @@
   {#if check.include && check.type === "size"}
     {#if check.status === EStatus.likelyUnblocked}
         <div class="warning">
-          Рекламный блок не пустой.
-          К сожалению, мы не можем определить показывается там реклама или это пустой блок от вашего блокировщика.
-          Для точного финального результата, пожалуйста, уточните что вы видите.
+          {t("sizeQuestion.description")}
         </div>
         <div class="buttons">
-          <button type="button" class="button accept" on:click={proveSizeFactory(true)}>Пустой блок</button>
-          <button type="button" class="button reject" on:click={proveSizeFactory(false)}>Рекламу</button>
+          <button type="button" class="button accept" on:click={proveSizeFactory(true)}>
+            {t("sizeQuestion.approve")}
+          </button>
+          <button type="button" class="button reject" on:click={proveSizeFactory(false)}>
+            {t("sizeQuestion.reject")}
+          </button>
         </div>
       {/if}
       <div></div>
