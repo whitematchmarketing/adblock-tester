@@ -27,19 +27,12 @@
     "typescript": "^3.7.4"
   },
   "scripts": {
-    "start": "yarn dev",
-    "dev": "NODE_ENV=development LANG=ru parcel serve ./src/index.html --out-dir ./dev --https --no-cache --log-level 3",
-    "build:attempt": "NODE_ENV=production LANG=ru parcel build ./src/index.html --out-dir ./docs --no-cache --detailed-report --no-source-maps",
-    "build": "npm run build:attempt || npm run build:attempt",
-    "predev": "npm run clearCache",
-    "postbuild:attempt": "grep -q 'https://localhost:1234' ./docs/index.html && exit 1 || echo 'builded with correct env'",
-    "prebuild": "npm run updateSizes && npm run clearCache && rm -rf ./docs/**",
+    "start": "yarn dev ru",
+    "dev": "./dev",
+    "build": "./build.sh",
     "postversion": "sed \"s/VERSION=.*/VERSION=$npm_package_version/\" .env | tee .env",
-    "updateSizes": "node ./nodeFetchSizes.js",
     "convertHtmls": "node ./transformHtmlIcludes.js",
-    "postinstall": "npm run clearCache && node ./postinstall.js",
-    "clearCache": "rm -rf ./.cache",
-    "fixsvelte": "npm i file:./parcel-plugin-force-babel"
+    "postinstall": "node ./postinstall.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.0",
