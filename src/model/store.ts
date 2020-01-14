@@ -69,5 +69,5 @@ export const score = activeChecksArr.map(checks => {
 
   log("score", { score, maxScore });
   const result = Math.round((score / maxScore) * 100);
-  return isNaN(result) ? "Error" : result;
+  return isNaN(result) ? "👾" : result;
 });

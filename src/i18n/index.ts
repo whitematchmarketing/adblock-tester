@@ -1,14 +1,18 @@
 import get from "lodash/get";
-import { pluralize } from "./pluralize";
 
+let store, pluralize;
 if (process.env.LANG === "ru") {
-  var store = require("./ru.json");
+  store = require("./ru.json");
+  pluralize = require("./pluralize-ru").pluralizeRu;
 } else {
-  var store = require("./en.json");
+  store = require("./en.json");
+  pluralize = require("./pluralize-en").pluralizeEn;
 }
 
 export const t = (path: string, count?: number, withCount: boolean = true) => {
   const translation = get(store, path, "");
-  return typeof count === "number" ? pluralize(count, translation, withCount) : translation;
+  const safeTranslation = typeof translation === "string" ? translation : "";
+  return typeof count === "number" ? pluralize(count, translation, withCount) : safeTranslation;
 };
+
 export default t;
