@@ -30,7 +30,7 @@
     "start": "yarn dev ru",
     "dev": "./dev.sh",
     "build": "./build.sh",
-    "clearDist": "rm -rf ./dist && rm -rf ./dist-ru && rm -rf ./dist-en",
+    "deploy": "./deploy.sh",
     "convertHtmls": "node ./transformHtmlIcludes.js",
     "postinstall": "node ./postinstall.js"
   },
@@ -58,11 +58,11 @@
         "staticPath": "static"
       },
       {
-        "outDirPattern": "**/dist-ru",
+        "outDirPattern": "**/checkadblock.ru",
         "staticPath": "static-ru"
       },
       {
-        "outDirPattern": "**/dist-en",
+        "outDirPattern": "**/adblock-tester.com",
         "staticPath": "static-en"
       }
     ]

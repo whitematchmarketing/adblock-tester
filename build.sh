@@ -4,17 +4,17 @@ echo "Fetch lib sizes"
 node ./nodeFetchSizes.js
 
 echo "Clear dist folders"
-rm -rf ./dist-ru/**
-rm -rf ./dist-en/**
+rm -rf ./checkadblock.ru/**
+rm -rf ./adblock-tester.com/**
 
 echo "Build ru"
-NODE_ENV=production LANG=ru $PARCEL build ./src/index.html --out-dir ./dist-ru --no-cache --detailed-report
+NODE_ENV=production LANG=ru $PARCEL build ./src/index.html --out-dir ./checkadblock.ru --no-cache --detailed-report
 echo "Build en"
-NODE_ENV=production LANG=en $PARCEL build ./src/index.html --out-dir ./dist-en --no-cache --detailed-report
+NODE_ENV=production LANG=en $PARCEL build ./src/index.html --out-dir ./adblock-tester.com --no-cache --detailed-report
 
 echo "Check env cached in build"
-ENGREP=$(grep -q 'localhost:1234' ./dist-en/index.html)
-RUGREP=$(grep -q 'localhost:1234' ./dist-ru/index.html)
+RUGREP=$(grep -q 'localhost:1234' ./checkadblock.ru/index.html)
+ENGREP=$(grep -q 'localhost:1234' ./adblock-tester.com/index.html)
 
 if [ "$ENGREP" != "" ] | [ "$RUGREP" != "" ]
 then
