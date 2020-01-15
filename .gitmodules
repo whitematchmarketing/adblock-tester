@@ -1,0 +1,6 @@
+[submodule "adblock-tester.com"]
+	path = adblock-tester.com
+	url = git@github.com:ymatuhin/adblock-tester.com.git
+[submodule "checkadblock.ru"]
+	path = checkadblock.ru
+	url = git@github.com:ymatuhin/checkadblock.ru.git
