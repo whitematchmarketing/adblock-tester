@@ -7,7 +7,7 @@
   import Meta from './meta';
 
   if (process.env.NODE_ENV === "production") {
-    afterUpdate(() => setTimeout(() => document.dispatchEvent(new Event("prerender-trigger")), 500));
+    afterUpdate(() => setTimeout(() => document.dispatchEvent(new Event("prerender-trigger")), 250));
   }
 </script>
 

@@ -1,7 +1,6 @@
 <script>
   import { t } from "./i18n";
-
-  let hostUrl = `https://checkadblocker.${process.env.LANG}`;
+  import { hostUrl } from "./utils";
 </script>
 
 <svelte:head>
