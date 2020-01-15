@@ -17,6 +17,7 @@
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-interpolate-html": "^1.0.1",
     "parcel-plugin-prerender": "^1.4.1",
+    "parcel-plugin-static-files-copy": "^2.2.1",
     "parcel-plugin-svelte": "^4.0.5",
     "postcss-load-config": "^2.1.0",
     "postcss-modules": "^1.4.1",
@@ -29,8 +30,7 @@
     "start": "yarn dev ru",
     "dev": "./dev.sh",
     "build": "./build.sh",
-    "clearDist": "rm -rf ./dist-ru/** && rm -rf ./dist-en/**",
-    "postversion": "sed \"s/VERSION=.*/VERSION=$npm_package_version/\" .env | tee .env",
+    "clearDist": "rm -rf ./dist && rm -rf ./dist-ru && rm -rf ./dist-en",
     "convertHtmls": "node ./transformHtmlIcludes.js",
     "postinstall": "node ./postinstall.js"
   },
@@ -50,5 +50,21 @@
     "rendererConfig": {
       "renderAfterDocumentEvent": "prerender-trigger"
     }
+  },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "outDirPattern": "**",
+        "staticPath": "static"
+      },
+      {
+        "outDirPattern": "**/dist-ru",
+        "staticPath": "static-ru"
+      },
+      {
+        "outDirPattern": "**/dist-en",
+        "staticPath": "static-en"
+      }
+    ]
   }
 }

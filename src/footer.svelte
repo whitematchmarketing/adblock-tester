@@ -1,13 +1,10 @@
 <script>
+  import { version } from '../package.json';
   import { t } from "./i18n";
-
-  let host = process.env.HOST_URL;
-  let version = process.env.VERSION;
 </script>
 
 <footer>
-    <a href={host}>{t('page.title')}</a>
-    <small>({t('page.version')}&nbsp;{version})</small>
+    {t('page.title')} <small>({t('page.version')}&nbsp;{version})</small>
     <br />
     {@html t("page.footerQuestion")}
     <a href="mailto:ym@ymatuhin.ru?subject=checkadblock">ym@ymatuhin.ru</a>

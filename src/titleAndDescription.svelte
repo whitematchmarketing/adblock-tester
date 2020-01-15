@@ -1,5 +1,6 @@
 <script>
   import logo from "./assets/logo.svg";
+  import { version } from '../package.json';
   import { t } from "./i18n";
 </script>
 
@@ -7,7 +8,7 @@
   <img src={logo} alt="" />
   <h1>
     <span class="heading-text">{t('page.title')}</span>
-    <small class="heading-version">({t('page.version')}&nbsp;{process.env.VERSION})</small>
+    <small class="heading-version">({t('page.version')}&nbsp;{version})</small>
   </h1>
 </div>
 

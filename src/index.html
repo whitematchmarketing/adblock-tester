@@ -1,57 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="%LANG%">
   <head>
-    <title></title>
-    <meta name="description" content="" />
+    <title>Check AdBlock</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="%HOST_URL%/favicon-32x32.png?v=qAJrlpKQ8p"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="%HOST_URL%/favicon-16x16.png?v=qAJrlpKQ8p"
-    />
-    <link rel="manifest" href="%HOST_URL%/site.webmanifest?v=qAJrlpKQ8p" />
-    <link rel="mask-icon" href="%HOST_URL%/safari-pinned-tab.svg?v=qAJrlpKQ8p" color="#fd6460" />
-    <link rel="shortcut icon" href="%HOST_URL%/favicon.ico?v=qAJrlpKQ8p" />
-    <meta name="msapplication-TileColor" content="#2d89ef" />
-    <meta name="msapplication-config" content="%HOST_URL%/browserconfig.xml?v=qAJrlpKQ8p" />
-    <meta name="theme-color" content="#ffffff" />
     <link rel="stylesheet" href="./index.scss" />
     <script src="./head.inject.ts"></script>
   </head>
   <body>
-    <div id="loader" style="display: none;">
-      <div class="lds-roller"
-        ><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div
-      ></div>
-      <div id="loader-text">
-        <p>Cтраница загружается слишком долго. <br />Возможные причины:</p>
-        <ol>
-          <li>Плохое соединение</li>
-          <li>Устаревший браузер</li>
-          <li>На сайте произошла ошибка</li>
-          <li>Блокировщик мешает работе сайта</li>
-        </ol>
-        <p>
-          Если ошибка не проходит, буду признателен если вы сообщите мне
-          <a href="mailto:ym@ymatuhin.ru?subject=Не загружается checkadblock.ru">ym@ymatuhin.ru</a>
-        </p>
-      </div>
-      <script>
-        var $loader = document.getElementById("loader");
-        $loader.style = "";
-        setTimeout(function() {
-          var $text = document.getElementById("loader-text");
-          if ($text) $text.className = "visible";
-        }, 10000);
-      </script>
-    </div>
     <script defer src="./index.ts"></script>
     <div id="app"></div>
   </body>

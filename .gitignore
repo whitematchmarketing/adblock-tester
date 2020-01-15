@@ -4,3 +4,4 @@ node_modules
 .vscode
 dev-ru
 dev-en
+dist
