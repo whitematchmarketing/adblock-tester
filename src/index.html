@@ -5,25 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./index.scss" />
     <script src="./head.inject.ts"></script>
-    <script>
-      function isInvisible(elem) {
-        return !(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
-      }
-      var showed = false;
-      setTimeout(function timer() {
-        console.log("# timer start");
-        if (showed) return;
-        if (
-          isInvisible(document.documentElement) ||
-          isInvisible(document.body) ||
-          isInvisible(document.getElementById("app"))
-        ) {
-          console.log("# invisible");
-          showed = true;
-        }
-        setTimeout(timer, 500);
-      }, 500);
-    </script>
   </head>
   <body>
     <script defer src="./index.ts"></script>

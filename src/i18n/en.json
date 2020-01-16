@@ -11,8 +11,6 @@
     "description": "Choose an ad blocker but don’t know where to test it? This site contains various advertising services and services for collecting analytics so that you can check the effectiveness of your blocker on them. <br>AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate and others.",
     "keywords": "Webite with ads, analytics trackers, metrics, error catchers. Check your blocker: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate…",
     "footerQuestion": "Hey, I'm glad you've got so far. English isn't my first language, so I'll really appreciate if you let me know about any misspelling on site. Also I'm open for your ideas about new services.<br>",
-    "blockedMessage": "Your AdBlocker uses the rules from the EasyList. An editor of this list added it to the blacklist. In this regard, the site is unavailable for you and does not work at all. You can influence this by writing in the forum. Do you want to go there?",
-    "blockedUrl": "https://forums.lanik.us/index.php"
   },
   "checkNames": {
     "script": "Script loading",
