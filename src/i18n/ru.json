@@ -10,7 +10,7 @@
     "warning": "Этот сайт добавили в список Ru AdList и он перестанет работать в ближайшее время если ваш блокировщик использует этот список. Если вы хотите как-то повлиять на это, то напишите об этом на <a href='https://forums.lanik.us/viewforum.php?f=102'>форуме EasyList</a>",
     "description": "Выбираете блокировщик рекламы, но не знаете где его протестировать? <br> На этом сайте собраны различные рекламные сервисы и сервисы для сбора аналитики, чтобы вы могли проверить на них эффективность вашего блокировщика. <br> AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate и другие.",
     "keywords": "Сайт с рекламой для проверки блокировщиков: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate AdBlock, Adblock Plus, AdGuard AdBlocker, Fair AdBlocker, Windscribe, Ghostery – Privacy Ad Blocker, AdBlocker Ultimate, uBlock Plus Adblocker, uBlock Origin…",
-    "footerQuestion": "Вопросы и замечания пишите на",
+    "footerQuestion": "Вопросы и замечания пишите на"
   },
   "checkNames": {
     "script": "Загрузка скрипта",
