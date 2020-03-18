@@ -21,9 +21,9 @@
   "statuses": {
     "pending": "⌛ checking…",
     "unknown": "🏳️ unable to check",
-    "likelyBlocked": "⚠️ test is most likely passed",
+    "likelyBlocked": "⚠️ test has most likely passed",
     "blocked": "✅ test passed",
-    "likelyUnblocked": "⚠️ test is most likely failed",
+    "likelyUnblocked": "⚠️ test has most likely failed",
     "unblocked": "❌ test failed"
   },
   "statusInfo": {
