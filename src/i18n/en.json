@@ -20,36 +20,11 @@
   },
   "statuses": {
     "pending": "⌛ checking…",
-    "unknown": "🏳️ failed to check",
-    "likelyBlocked": "🏳️ probably blocked",
-    "blocked": "✅ blocked",
-    "likelyUnblocked": "⚠️ probably successful",
-    "unblocked": "❌ was successful",
-    "script": {
-      "pending": "⌛ loading…",
-      "blocked": "✅ interrupted",
-      "likelyBlocked": "⚠️ probably interrupted",
-      "likelyUnblocked": "⚠️ probably successful",
-      "unblocked": "❌ was successful"
-    },
-    "localLoading": {
-      "pending": "⌛ loading…",
-      "likelyBlocked": "⚠️ probably interrupted",
-      "blocked": "✅ interrupted",
-      "unblocked": "❌ was successful"
-    },
-    "size": {
-      "blocked": "✅ invisible",
-      "unblocked": "❌ visible",
-      "likelyUnblocked": "⚠️ take place"
-    },
-    "eval": {
-      "pending": "⌛ waiting for script loading…",
-      "blocked": "✅ execution failed",
-      "likelyBlocked": "⚠️ probably execution failed",
-      "likelyUnblocked": "⚠️ probably executed",
-      "unblocked": "❌ executed"
-    }
+    "unknown": "🏳️ unable to check",
+    "likelyBlocked": "⚠️ test is most likely passed",
+    "blocked": "✅ test passed",
+    "likelyUnblocked": "⚠️ test is most likely failed",
+    "unblocked": "❌ test failed"
   },
   "statusInfo": {
     "script": {

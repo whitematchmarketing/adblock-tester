@@ -1,6 +1,6 @@
 import sizes from "../../sizes.json";
 import urls from "../../sizesUrls";
-import metricaGoogleHtml from "./html";
+import { ruHtml, enHtml } from "./html";
 
 export const metricaGoogle = {
   id: "metrica:google",
@@ -19,7 +19,7 @@ export const metricaGoogle = {
     {
       id: "metrica:google:eval",
       type: "eval",
-      include: metricaGoogleHtml,
+      include: process.env.LANG === "ru" ? ruHtml : enHtml,
       evals: ["ga.answer"],
       depends: "metrica:google:script",
       status: "pending",
