@@ -1,6 +1,8 @@
 import sizes from "../../sizes.json";
 import urls from "../../sizesUrls";
-import metricaYandexHtml from "./html";
+import getMetricaYandexHtml from "./html";
+
+const metricaId = process.env.LANG === "ru" ? 43211979 : 70659823;
 
 export const metricaYandex = {
   id: "metrica:yandex",
@@ -19,8 +21,8 @@ export const metricaYandex = {
     {
       id: "metrica:yandex:eval",
       type: "eval",
-      include: metricaYandexHtml,
-      evals: ["!ym", "yaCounter43211979._inited"],
+      include: getMetricaYandexHtml(metricaId),
+      evals: ["!ym", `yaCounter${metricaId}._inited`],
       depends: "metrica:yandex:script",
       status: "pending",
     },

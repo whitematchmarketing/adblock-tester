@@ -1,4 +1,4 @@
-export default `
+export default (id: number) => `
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
   (function(m, e, t, r, i, k, a) {
@@ -15,7 +15,7 @@ export default `
       a.parentNode.insertBefore(k, a);
   })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-  ym(43211979, "init", {
+  ym(${id}, "init", {
     clickmap: true,
     trackLinks: true,
     accurateTrackBounce: true
@@ -24,7 +24,7 @@ export default `
 <noscript
   ><div>
     <img
-      src="https://mc.yandex.ru/watch/43211979"
+      src="https://mc.yandex.ru/watch/${id}"
       style="position:absolute; left:-9999px;"
       alt=""
     /></div

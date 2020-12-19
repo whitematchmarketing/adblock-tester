@@ -1,4 +1,5 @@
 import { adsGoogle } from "./services/adsGoogle";
+import { adsYandex } from "./services/adsYandex";
 import { metricaGoogle } from "./services/metricaGoogle";
 import { metricaHotjar } from "./services/metricaHotjar";
 import { bannerFlash } from "./services/bannerFlash";
@@ -16,7 +17,7 @@ export default [
     priority: "critical",
     titleKey: "sections.context.title",
     descriptionKey: "sections.context.description",
-    services: [adsGoogle],
+    services: [adsGoogle, adsYandex],
   },
   {
     id: "analytics",
