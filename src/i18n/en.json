@@ -79,6 +79,9 @@
   "services": {
     "adsense": {
       "title": "Google AdSense"
+    },
+    "yametrica": {
+      "title": "Yandex Direct"
     }
   },
   "score": {
