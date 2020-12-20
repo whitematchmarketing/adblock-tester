@@ -7,6 +7,7 @@ const promises = Object.values(urls).map(url =>
     .then(res => res.text())
     .then(text => ({ url, text })),
 );
+
 Promise.all(promises).then(data => {
   let writeData = {};
   data.forEach(({ url, text }) => (writeData[url] = text.length));
