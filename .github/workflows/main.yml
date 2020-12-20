@@ -20,6 +20,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a single command using the runners shell
+      - name: Install deps
+        run: npm install
+
+      # Runs a single command using the runners shell
       - name: Update sizes
         run: node ./nodeFetchSizes.js
 
