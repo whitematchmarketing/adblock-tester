@@ -1,3 +1,5 @@
+git submodule update --init
+
 cd ./checkadblock.ru
 git add .
 git commit -m "release"
