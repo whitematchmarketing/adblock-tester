@@ -25,6 +25,10 @@ jobs:
           node-version: '15'
 
       # Runs a single command using the runners shell
+      - name: Submodule
+        run: git submodule init
+
+      # Runs a single command using the runners shell
       - name: Install deps
         run: npm install
 
