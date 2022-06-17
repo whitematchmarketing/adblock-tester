@@ -12,19 +12,19 @@
     saveTheme(isNightMode);
   }
 
-  function handleChange (event) {
+  function handleChange(event) {
     isNightMode = event.detail.checked;
   }
 </script>
 
 <div class="night-mode">
   <label>
-    <span class="text">{t('page.nightMode')}</span>
-    <Switcher bind:checked={isNightMode} on:change={handleChange} noLabel></Switcher>
+    <span class="text">{t("page.nightMode")}</span>
+    <Switcher bind:checked={isNightMode} on:change={handleChange} noLabel />
   </label>
 </div>
 
-<style lang="scss">
+<style>
   .night-mode,
   label {
     display: flex;
@@ -32,15 +32,18 @@
     align-items: center;
     user-select: none;
   }
+
   label {
     cursor: pointer;
   }
+
   .text {
     padding: 0 1rem;
     font-size: 1rem;
     line-height: 1;
-
-    @media (max-width: 768px) {
+  }
+  @media (max-width: 768px) {
+    .text {
       font-size: 0.9rem;
     }
   }

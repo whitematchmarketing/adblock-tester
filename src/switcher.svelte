@@ -1,5 +1,5 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from "svelte";
 
   export let id = "";
   export let checked = false;
@@ -8,30 +8,30 @@
 
   const dispatch = createEventDispatcher();
   function handleChange() {
-    dispatch('change', { checked: !checked });
+    dispatch("change", { checked: !checked });
   }
 </script>
 
 {#if noLabel}
-<div class="switcher" data-small={!!small}>
-  <input type="checkbox" checked={checked} on:click={handleChange} id={id} />
-  <div class="slider round" />
-</div>
+  <div class="switcher" data-small={!!small}>
+    <input type="checkbox" {checked} on:click={handleChange} {id} />
+    <div class="slider round" />
+  </div>
 {:else}
-<label class="switcher" data-small={!!small}>
-  <input type="checkbox" checked={checked} on:click={handleChange} id={id} />
-  <div class="slider round" />
-</label>
+  <label class="switcher" data-small={!!small}>
+    <input type="checkbox" {checked} on:click={handleChange} {id} />
+    <div class="slider round" />
+  </label>
 {/if}
 
-
-<style lang="scss">
+<style>
   .switcher {
     --switcher-height: 1.5rem;
     --switcher-width: calc(var(--switcher-height) * 1.8);
     --switcher-space: 3px;
     --switcher-bullet-height: calc(var(--switcher-height) - (var(--switcher-space) * 2));
   }
+
   [data-small="true"] {
     --switcher-height: 1.25rem;
     --switcher-space: 2.5px;
@@ -48,7 +48,6 @@
       --switcher-space: 2px;
     }
   }
-
   .switcher {
     display: block;
     position: relative;

@@ -1,10 +1,10 @@
 import "whatwg-fetch";
-import "@babel/polyfill";
+import "core-js/stable";
 // @ts-ignore
 import App from "./app.svelte";
 import "./model";
 
-if (!process.env.LANG) throw "process.env.LANG is undefined"
+if (!process.env.LANG) throw "process.env.LANG is undefined";
 
 const app = new App({
   target: document.getElementById("app"),

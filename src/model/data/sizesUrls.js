@@ -1,4 +1,5 @@
 module.exports = {
+  custom: "https://ymatuhin.ru/ads/ads.js",
   adsGoogle: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
   adsYandex: "https://an.yandex.ru/system/context.js",
   metricaYandex: "https://mc.yandex.ru/metrika/tag.js",

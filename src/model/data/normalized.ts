@@ -1,15 +1,18 @@
 import { normalize as libNormalize, schema } from "normalizr";
 
-const addSectionIds = data =>
-  data.map(section => ({
+const addSectionIds = (data) => {
+  console.info(`🔥 data`, data);
+  return data.map((section) => ({
     ...section,
-    services: section.services.map(service => ({
+    services: section.services.map((service) => ({
       ...service,
-      checks: service.checks.map(check => ({ ...check, sectionId: section.id })),
+      checks: service.checks.map((check) => ({ ...check, sectionId: section.id })),
     })),
   }));
+};
+export const normalize = (data) => {
+  console.info(`🔥 data`, data);
 
-export const normalize = data => {
   // Define a users schema
   const checksSchema = new schema.Entity("checks");
 

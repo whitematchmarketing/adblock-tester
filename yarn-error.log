@@ -1,30 +1,25 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js build
+  /usr/local/bin/node /usr/local/bin/yarn
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/opt/X11/bin
+  /Users/ymatuhin/Library/pnpm:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ymatuhin/Library/pnpm
 
 Yarn version: 
-  1.15.2
+  1.22.19
 
 Node version: 
-  10.8.0
+  18.0.0
 
 Platform: 
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/ym/Projects/checkadblock/package.json: Unexpected token ] in JSON at position 1696
-      at JSON.parse (<anonymous>)
-      at /usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:304:30)
-      at /usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:315:13
+  Error: ENOENT: no such file or directory, copyfile '/Users/ymatuhin/Library/Caches/Yarn/v6/npm-supports-color-6.1.0-0764abc69c63d5ac842dd4867e8d025e880df8f3-integrity/node_modules/supports-color/browser.js' -> '/Users/ymatuhin/Dev/banners/adblock-tester/node_modules/autoprefixer/node_modules/supports-color/browser.js'
 
 npm manifest: 
   {
     "name": "checkadblock",
-    "version": "2.0.10",
+    "version": "3.0.9",
     "repository": "git@github.com:ymatuhin/checkadblock.git",
     "author": "ymatuhin <ym@ymatuhin.ru>",
     "license": "MIT",
@@ -35,8 +30,7 @@ npm manifest:
       "autoprefixer": "^9.7.3",
       "http-server-ssl": "^0.0.7",
       "lodash": "^4.17.15",
-      "node-fetch": "^2.6.0",
-      "node-sass": "^4.13.0",
+      "node-fetch": "^2.6.1",
       "npm-run-all": "^4.1.5",
       "parcel-bundler": "^1.12.4",
       "parcel-plugin-interpolate-html": "^1.0.1",
@@ -45,37 +39,54 @@ npm manifest:
       "parcel-plugin-svelte": "^4.0.5",
       "postcss-load-config": "^2.1.0",
       "postcss-modules": "^1.4.1",
-      "sass": "^1.24.0",
       "svelte": "^3.16.7",
       "svelte-preprocess": "^3.3.0",
       "typescript": "^3.7.4"
     },
     "scripts": {
-      "start": "yarn dev",
-      "dev": "NODE_ENV=development LANG=ru parcel serve ./src/index.html --out-dir ./dev --https --no-cache --log-level 3",
-      "build": "NODE_ENV=production LANG=ru parcel build ./src/index.html --out-dir ./docs --no-cache --detailed-report --no-source-maps",
-      "predev": "rm -rf ./.cache/**",
-      "prebuild": "rm -rf ./docs/**",
-      "postversion": "sed \"s/VERSION=.*/VERSION=$npm_package_version/\" .env | tee .env",
-      "deploy": "./deploy.sh \"$npm_package_version\"",
-      "fixsvelte": "npm i file:./parcel-plugin-force-babel"
+      "start": "yarn dev ru",
+      "dev": "./dev.sh",
+      "build": "./build.sh",
+      "deploy": "./deploy.sh",
+      "convertHtmls": "node ./transformHtmlIcludes.js",
+      "postinstall": "node ./postinstall.js"
     },
     "dependencies": {
+      "@babel/polyfill": "^7.8.0",
+      "core-js": "^3.23.1",
       "debug": "^4.1.1",
       "effector": "^20.9.1",
       "flat": "^5.0.0",
       "loadjs": "^4.2.0",
+      "ms": "^2.1.3",
+      "node-sass": "^7.0.1",
       "normalizr": "^3.4.1",
-      "parcel-plugin-force-babel": "file:parcel-plugin-force-babel"
+      "symbol-observable": "^4.0.0",
+      "whatwg-fetch": "^3.0.0"
     },
     "prerender": {
       "routes": [
-        "/",
+        "/"
       ],
       "rendererConfig": {
-        "headless": false,
         "renderAfterDocumentEvent": "prerender-trigger"
       }
+    },
+    "staticFiles": {
+      "staticPath": [
+        {
+          "outDirPattern": "**",
+          "staticPath": "static"
+        },
+        {
+          "outDirPattern": "**/checkadblock.ru",
+          "staticPath": "static-ru"
+        },
+        {
+          "outDirPattern": "**/adblock-tester.com",
+          "staticPath": "static-en"
+        }
+      ]
     }
   }
 
@@ -683,6 +694,14 @@ Lockfile:
     dependencies:
       "@babel/helper-create-regexp-features-plugin" "^7.7.4"
       "@babel/helper-plugin-utils" "^7.0.0"
+  
+  "@babel/polyfill@^7.8.0":
+    version "7.8.0"
+    resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.8.0.tgz#5f222443c9e3ffa2eb54bfbcd89d72ed30c1eda8"
+    integrity sha512-0zTwRCrSUaP4hOt2dEHxGl80ZkxpRlhJv44fRRmbOj27pMR6n0Jti+Ti9OlbbD4ErKC5jKn89aLFqZ3r+JgWxg==
+    dependencies:
+      core-js "^2.6.5"
+      regenerator-runtime "^0.13.2"
   
   "@babel/preset-env@^7.4.4":
     version "7.7.7"
@@ -2090,7 +2109,7 @@ Lockfile:
     dependencies:
       ms "2.0.0"
   
-  debug@^3.0.0, debug@^3.1.0, debug@^3.1.1:
+  debug@^3.1.0, debug@^3.1.1:
     version "3.2.6"
     resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
     integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
@@ -2454,9 +2473,9 @@ Lockfile:
     integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
   
   eventemitter3@^4.0.0:
-    version "4.0.0"
-    resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.0.tgz#d65176163887ee59f386d64c82610b696a4a74eb"
-    integrity sha512-qerSRB0p+UDEssxTtm6EDKcE7W4OaoisfIMl4CngyEhjpYglocpNg6UEqCvemdGhosAsg4sO2dXJOdyBifPGCg==
+    version "4.0.7"
+    resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
+    integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
   
   events@^3.0.0:
     version "3.0.0"
@@ -2701,11 +2720,9 @@ Lockfile:
       is-buffer "~2.0.4"
   
   follow-redirects@^1.0.0:
-    version "1.9.0"
-    resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.9.0.tgz#8d5bcdc65b7108fe1508649c79c12d732dcedb4f"
-    integrity sha512-CRcPzsSIbXyVDl0QI01muNDu69S8trU4jArW9LpOt2WtC6LyUJetcIrmfHsRBx7/Jb6GHJUiuqyYxPooFfNt6A==
-    dependencies:
-      debug "^3.0.0"
+    version "1.13.0"
+    resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
+    integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
   
   for-in@^1.0.2:
     version "1.0.2"
@@ -3104,9 +3121,9 @@ Lockfile:
       micromatch "^3.1.9"
   
   http-proxy@^1.16.2, http-proxy@^1.8.1:
-    version "1.18.0"
-    resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.18.0.tgz#dbe55f63e75a347db7f3d99974f2692a314a6a3a"
-    integrity sha512-84I2iJM/n1d4Hdgc6y2+qY5mDaz2PUVjlg9znE9byl+q0uC3DeByqBGReQu5tpLK0TAqTIXScRUV+dg7+bUPpQ==
+    version "1.18.1"
+    resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.18.1.tgz#401541f0534884bbf95260334e72f88ee3976549"
+    integrity sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==
     dependencies:
       eventemitter3 "^4.0.0"
       follow-redirects "^1.0.0"
@@ -4048,10 +4065,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-1.7.1.tgz#cf813cd69bb8d9100f6bdca6755fc268f54ac492"
     integrity sha512-2+DuKodWvwRTrCfKOeR24KIc5unKjOh8mz17NCzVnHWfjAdDqbfbjqh7gUT+BkXBRQM52+xCHciKWonJ3CbJMQ==
   
-  node-fetch@^2.6.0:
-    version "2.6.0"
-    resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
-    integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
+  node-fetch@^2.6.1:
+    version "2.6.1"
+    resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+    integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
   
   node-forge@^0.7.1:
     version "0.7.6"
@@ -4507,9 +4524,6 @@ Lockfile:
       terser "^3.7.3"
       v8-compile-cache "^2.0.0"
       ws "^5.1.1"
-  
-  "parcel-plugin-force-babel@file:parcel-plugin-force-babel":
-    version "1.0.0"
   
   parcel-plugin-interpolate-html@^1.0.1:
     version "1.0.1"
@@ -6643,6 +6657,11 @@ Lockfile:
     integrity sha512-b5lim54JOPN9HtzvK9HFXvBma/rnfFeqsic0hSpjtDbVxR3dJKLc+KB4V6GgiGOvl7CY/KNh8rxSo9DKQrnUEw==
     dependencies:
       iconv-lite "0.4.24"
+  
+  whatwg-fetch@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz#fc804e458cc460009b1a2b966bc8817d2578aefb"
+    integrity sha512-9GSJUgz1D4MfyKU7KRqwOjXCXTqWdFNvEr7eUBYchQiVc744mqK/MzXPNR2WsPkmkOa4ywfg8C2n8h+13Bey1Q==
   
   whatwg-mimetype@^2.2.0, whatwg-mimetype@^2.3.0:
     version "2.3.0"

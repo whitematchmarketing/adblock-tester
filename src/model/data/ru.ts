@@ -1,3 +1,4 @@
+import { custom } from "./services/custom";
 import { adsGoogle } from "./services/adsGoogle";
 import { adsYandex } from "./services/adsYandex";
 import { metricaGoogle } from "./services/metricaGoogle";
@@ -18,7 +19,7 @@ export default [
     priority: "critical",
     titleKey: "sections.context.title",
     descriptionKey: "sections.context.description",
-    services: [adsGoogle, adsYandex],
+    services: [adsGoogle, adsYandex, custom],
   },
   {
     id: "analytics",

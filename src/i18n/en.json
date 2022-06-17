@@ -80,24 +80,18 @@
     "adsense": {
       "title": "Google AdSense"
     },
+    "custom": {
+      "title": "Custom"
+    },
     "yametrica": {
       "title": "Yandex Direct"
     }
   },
   "score": {
     "outOf": "out of",
-    "points": [
-      "point",
-      "points"
-    ],
-    "services": [
-      "service",
-      "services"
-    ],
-    "checks": [
-      "check",
-      "checks"
-    ]
+    "points": ["point", "points"],
+    "services": ["service", "services"],
+    "checks": ["check", "checks"]
   },
   "sizeQuestion": {
     "description": "Ad unit is not empty. Unfortunately, we can’t determine whether an ad is showing there or is it an empty block from your blocker. For an accurate final result, please specify what you see.",

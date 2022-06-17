@@ -1,49 +1,51 @@
 <script>
-  import { version } from '../package.json';
+  import { version } from "../package.json";
   import { t } from "./i18n";
 </script>
 
 <footer>
-    {t('page.title')} <small>({t('page.version')}&nbsp;{version})</small>
-    <br />
-    {@html t("page.footerQuestion")}
-    <a href="mailto:ym@ymatuhin.ru?subject={process.env.LANG}-adblock-tester">ym@ymatuhin.ru</a>
+  {t("page.title")} <small>({t("page.version")}&nbsp;{version})</small>
+  <br />
+  {@html t("page.footerQuestion")}
+  <a href="mailto:ym@ymatuhin.ru?subject={process.env.LANG}-adblock-tester">ym@ymatuhin.ru</a>
 </footer>
 
 <p class="keywords">
-  <small>{t('page.keywords')}</small>
+  <small>{t("page.keywords")}</small>
 </p>
 
-<style lang="scss">
+<style>
   footer {
     margin-top: 3.5rem;
     margin-bottom: 1.5rem;
   }
+
   .title {
     display: flex;
     align-items: center;
     margin-top: 2em;
     margin-bottom: 1.5em;
-
-    @media (min-width: 768px) {
+  }
+  @media (min-width: 768px) {
+    .title {
       flex-wrap: wrap;
       margin-top: 1.5em;
     }
-
-    h1 {
-      margin: 0;
-      margin-right: 0.25em;
-      line-height: 1;
-    }
-
-    .small {
-      display: inline-block;
-      padding-top: 0.5em;
-    }
   }
+  .title h1 {
+    margin: 0;
+    margin-right: 0.25em;
+    line-height: 1;
+  }
+  .title .small {
+    display: inline-block;
+    padding-top: 0.5em;
+  }
+
   .keywords {
     margin-bottom: 0;
   }
+
   .title svg,
   .title img {
     flex-shrink: 0;
@@ -51,8 +53,10 @@
     height: 2.5em;
     font-size: 2.5em;
     transform: translateY(-5%);
-
-    @media (max-width: 768px) {
+  }
+  @media (max-width: 768px) {
+    .title svg,
+    .title img {
       height: 2em;
       font-size: 2em;
     }
