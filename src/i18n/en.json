@@ -8,7 +8,7 @@
     "version": "version",
     "nightMode": "Night mode",
     "warning": "Using multiple ad blockers at the same time can <b> negatively </b> affect their work.",
-    "description": "Choose an ad blocker but don’t know where to test it? This site contains various advertising services and services for collecting analytics so that you can check the effectiveness of your blocker on them. <br>AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate and others.",
+    "description": "Chose an ad blocker but don’t know where to test it? This site contains various advertising and analytics services that you can test the effectiveness of your adblocker with. <br>AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate and others.",
     "keywords": "Webite with ads, analytics trackers, metrics, error catchers. Check your blocker: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate…",
     "footerQuestion": "Hey, I'm glad you've got so far. English isn't my first language, so I'll really appreciate if you let me know about any misspelling on site. Also I'm open for your ideas about new services.<br>"
   },
@@ -54,11 +54,11 @@
   "sections": {
     "context": {
       "title": "Contextual advertising",
-      "description": "This is the main and most common form of advertising on sites. It’s easy to set up and don’t have to look for advertisers yourself. These services also collect data about you in order to find the right advertisement for you."
+      "description": "This is the most common form of advertising and tracking on the internet. It’s very easy for website owners to set up. These services collect data about you in order to find the right advertisement for you."
     },
     "banners": {
       "title": "Banner advertising",
-      "description": "This type of advertising is often used on large sites that sell ad space. It is most difficult to block, because it is difficult to distinguish an advertising image from a regular one. Often the rules are written for each site separately, so this check is not entirely honest. It checks only the presence of keywords in the file path or the availability of flash.",
+      "description": "This type of advertising is often used on large websites that sell ad space. It is difficult to block because it is difficult to distinguish between an advertising image and a regular image. Often the rules are written for each site separately, so this check is not entirely accurate. It only checks for the presence of keywords in the file path and the availability of Flash.",
       "flash": "Flash banners",
       "staticImage": "Static image",
       "gifImage": "Gif image"
@@ -71,7 +71,7 @@
     },
     "errorCatchers": {
       "title": "Error Monitoring",
-      "description": "Unlike analytics Tools, developers use these services to find out about it in case of an error on the site. Services monitor almost all user actions so that the error message is as complete as possible. Most often, if you turn them off nothing will break.",
+      "description": "Unlike analytics tools, these services are used to track and measure errors on websites. Services monitor almost all user actions so that the error message is as complete as possible. Most often, if you turn these off, nothing will break.",
       "bugsnag": "Bugsnag",
       "sentry": "Sentry"
     }
