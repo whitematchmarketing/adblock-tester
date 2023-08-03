@@ -21,7 +21,7 @@
     "postcss-load-config": "^2.1.0",
     "postcss-modules": "^1.4.1",
     "sass": "^1.52.3",
-    "svelte": "^3.16.7",
+    "svelte": "^3.49.0",
     "svelte-preprocess": "^3.3.0",
     "typescript": "^3.7.4"
   },
