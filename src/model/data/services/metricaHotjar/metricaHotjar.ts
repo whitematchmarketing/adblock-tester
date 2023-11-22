@@ -20,11 +20,7 @@ export const metricaHotjar = {
       id: "metrica:hotjar:eval",
       type: "eval",
       include: metricaHotjarHtml,
-      evals: [
-        "window.hj",
-        "window.hjSiteSettings.site_id > 0",
-        "window.hjSiteSettings.features.length > 0",
-      ],
+      evals: ["window.hjSiteSettings", "window.hjBootstrap", "window.hjLazyModules"],
       depends: "metrica:hotjar:script",
       status: "pending",
     },
