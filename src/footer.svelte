@@ -7,7 +7,7 @@
   {t("page.title")} <small>({t("page.version")}&nbsp;{version})</small>
   <br />
   {@html t("page.footerQuestion")}
-  <a href="mailto:ym@ymatuhin.ru?subject={process.env.LANG}-adblock-tester">ym@ymatuhin.ru</a>
+  ym@ymatuhin.ru
 </footer>
 
 <p class="keywords">
