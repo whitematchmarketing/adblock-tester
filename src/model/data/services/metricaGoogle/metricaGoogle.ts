@@ -25,7 +25,7 @@ export const metricaGoogle = {
       evals: [
         "window.dataLayer?.length > 2",
         "window.google_tag_manager",
-        "window..google_tag_data",
+        "window.google_tag_data",
       ],
       depends: "metrica:google:script",
       status: "pending",
