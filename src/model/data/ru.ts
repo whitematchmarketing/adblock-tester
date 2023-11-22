@@ -8,7 +8,7 @@ import { bannerFlash } from "./services/bannerFlash";
 import { bannerGif } from "./services/bannerGif";
 import { bannerImage } from "./services/bannerImage";
 import { errorsSentry } from "./services/errorsSentry";
-import { errorsBugsnag } from "./services/errrorsBugsnag";
+import { errorsBugsnag } from "./services/errorsBugsnag";
 
 export default [
   {

@@ -22,7 +22,7 @@ export const metricaGoogle = {
       id: "metrica:google:eval",
       type: "eval",
       include: getHtml(id),
-      evals: ["ga.answer"],
+      evals: ["!window.gtag", "window.dataLayer.length > 0"],
       depends: "metrica:google:script",
       status: "pending",
     },

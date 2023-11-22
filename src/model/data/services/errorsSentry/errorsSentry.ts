@@ -20,7 +20,7 @@ export const errorsSentry = {
       id: "errors:sentry:eval",
       type: "eval",
       include: errorsSentryHtml,
-      evals: ["Sentry.init"],
+      evals: ["window.Sentry"],
       depends: "errors:sentry:loading",
       status: "pending",
     },

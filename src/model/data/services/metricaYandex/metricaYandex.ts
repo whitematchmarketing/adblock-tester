@@ -22,7 +22,7 @@ export const metricaYandex = {
       id: "metrica:yandex:eval",
       type: "eval",
       include: getMetricaYandexHtml(metricaId),
-      evals: ["!ym", `yaCounter${metricaId}._inited`],
+      evals: ["window.Ya", "window.ya", "window.yaads"],
       depends: "metrica:yandex:script",
       status: "pending",
     },

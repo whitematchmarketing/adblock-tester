@@ -1,12 +1,6 @@
 export default `
 <script
-  src="https://browser.sentry-cdn.com/5.10.2/bundle.min.js"
-  integrity="sha384-ssBfXiBvlVC7bdA/VX03S88B5MwXQWdnpJRbUYFPgswlOBwETwTp6F3SMUNpo9M9"
+  src="https://js.sentry-cdn.com/98eefed2636036c3bdb8377b11ff28fe.min.js"
   crossorigin="anonymous"
 ></script>
-<script>
-  Sentry.init({
-    dsn: "https://ffc72fc335374c8eb41a742afe0c2eec@sentry.io/1868260"
-  });
-</script>
 `;
