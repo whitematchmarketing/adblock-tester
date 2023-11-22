@@ -16,7 +16,7 @@ export default [
     visible: true,
     prevVisible: true,
     active: true,
-    priority: "critical",
+    priority: "medium",
     titleKey: "sections.context.title",
     descriptionKey: "sections.context.description",
     services: [adsGoogle, adsYandex, custom],

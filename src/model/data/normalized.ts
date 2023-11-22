@@ -1,7 +1,6 @@
 import { normalize as libNormalize, schema } from "normalizr";
 
 const addSectionIds = (data) => {
-  console.info(`🔥 data`, data);
   return data.map((section) => ({
     ...section,
     services: section.services.map((service) => ({
@@ -11,8 +10,6 @@ const addSectionIds = (data) => {
   }));
 };
 export const normalize = (data) => {
-  console.info(`🔥 data`, data);
-
   // Define a users schema
   const checksSchema = new schema.Entity("checks");
 

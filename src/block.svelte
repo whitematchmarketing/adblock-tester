@@ -46,7 +46,7 @@
   </div>
   <div class="content" class:visuallyHidden={!data.visible}>
     {#if t(data.descriptionKey)}
-      <p class="description">{t(data.descriptionKey)}</p>
+      <p class="description">{@html t(data.descriptionKey)}</p>
     {/if}
     <slot />
   </div>
@@ -65,7 +65,9 @@
 
   .block {
     padding: 1.5rem 2rem;
-    transition: background var(--speed-quick) ease, opacity var(--speed-quick) ease;
+    transition:
+      background var(--speed-quick) ease,
+      opacity var(--speed-quick) ease;
   }
 
   .block.inactive {
@@ -173,7 +175,9 @@
     background: transparent;
     font-size: 0.8em;
     cursor: pointer;
-    transition: color var(--speed-quick) ease, opacity var(--speed-quick) ease;
+    transition:
+      color var(--speed-quick) ease,
+      opacity var(--speed-quick) ease;
   }
 
   @media (max-width: 768px) {

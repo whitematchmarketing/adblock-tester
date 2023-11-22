@@ -55,7 +55,7 @@
   "sections": {
     "context": {
       "title": "Contextual advertising",
-      "description": "This is the most common form of advertising and tracking on the internet. It’s very easy for website owners to set up. These services collect data about you in order to find the right advertisement for you."
+      "description": "Usually this is the most important type of ADS, but ADS providers blocks this website, so right now it's not reliable way of testing it.<br><br>This is the most common form of advertising and tracking on the internet. It’s very easy for website owners to set up. These services collect data about you in order to find the right advertisement for you."
     },
     "banners": {
       "title": "Banner advertising",
