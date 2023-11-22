@@ -8,7 +8,7 @@
     "version": "version",
     "release": "from",
     "nightMode": "Night mode",
-    "warning": "Using multiple ad blockers at the same time can <b> negatively </b> affect their work.",
+    "warning": "Using multiple ad blockers at the same time can <b> negatively </b> affect their work.<br><br>Due to caching when refreshing the page, the results of the previous check may still be visible. To avoid this, try <a href='https://www.google.com/search?q=how+to+refresh+a+page+with+clearing+cache'>refreshing the page with clearing cache</a>.",
     "description": "Choosing an ad blocker but don't know where to test it? This site contains various advertising and analytic services you can use to test the effectiveness of your Adblocker. Some examples of Adblockers you can test are:  <br>AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate and others.",
     "keywords": "Website with ads, analytics trackers, metrics, error catchers. Check your blocker: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate…",
     "footerQuestion": "Hey, I'm glad you've got so far. English isn't my first language, so I'd really appreciate your letting me know if you come across any words that are misspelled on this site. Also I'm open for your ideas about new services.<br>"
