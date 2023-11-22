@@ -106,12 +106,13 @@ checks.on(checkEval, (state, check) => {
   let status = EStatus.unknown;
   const results = check.evals.map(safeEval);
   const countTrues = results.filter(Boolean).length;
+  const halfCount = Math.round(results.length / 2);
 
   if (ifDependedCheckBlocked(state, check)) status = EStatus.blocked;
   else if (countTrues === 0) status = EStatus.blocked;
   else if (countTrues === results.length) status = EStatus.unblocked;
-  else if (countTrues <= results.length / 2) status = EStatus.likelyBlocked;
-  else if (countTrues > results.length / 2) status = EStatus.likelyUnblocked;
+  else if (countTrues >= halfCount) status = EStatus.likelyUnblocked;
+  else if (countTrues <= halfCount) status = EStatus.likelyBlocked;
   return produce(state, (draftState) => (draftState[check.id].status = status));
 });
 // checks.on(merge([checkSize, proveSize]), (state, { check }) => {});
