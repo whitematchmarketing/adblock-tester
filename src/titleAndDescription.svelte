@@ -1,6 +1,6 @@
 <script>
   import logo from "./assets/logo.svg";
-  import { version } from "../package.json";
+  import { version, releaseDate } from "../package.json";
   import { t } from "./i18n";
 </script>
 
@@ -8,7 +8,10 @@
   <img src={logo} alt="" />
   <h1>
     <span class="heading-text">{t("page.title")}</span>
-    <small class="heading-version">({t("page.version")}&nbsp;{version})</small>
+    <small class="heading-version"
+      >({t("page.version")}&nbsp;{version}
+      {t("page.release")}&nbsp;{new Date(+releaseDate).toLocaleDateString(process.env.LANG)})</small
+    >
   </h1>
 </div>
 

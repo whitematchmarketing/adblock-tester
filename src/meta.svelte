@@ -1,12 +1,16 @@
 <script>
   import { t } from "./i18n";
-  import { hostUrl } from "./utils";
+  import { hostUrl, alternateUrls } from "./utils/env";
 </script>
 
 <svelte:head>
   <title>{t("meta.title")}</title>
-  <meta name="description" content="{t("meta.description")}" />
-  <link rel="canonical" href="{hostUrl}" />
+  <meta name="description" content={t("meta.description")} />
+  <link rel="canonical" href={hostUrl} />
+  {#each alternateUrls as alternate}
+    <link rel="alternate" hreflang={alternate.locale} href={alternate.url} />
+  {/each}
+
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=qAJrlpKQ8p" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=qAJrlpKQ8p" />
   <link rel="manifest" href="/site.webmanifest?v=qAJrlpKQ8p" />

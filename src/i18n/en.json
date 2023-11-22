@@ -6,6 +6,7 @@
   "page": {
     "title": "AdBlock Tester",
     "version": "version",
+    "release": "from",
     "nightMode": "Night mode",
     "warning": "Using multiple ad blockers at the same time can <b> negatively </b> affect their work.",
     "description": "Choosing an ad blocker but don't know where to test it? This site contains various advertising and analytic services you can use to test the effectiveness of your Adblocker. Some examples of Adblockers you can test are:  <br>AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate and others.",

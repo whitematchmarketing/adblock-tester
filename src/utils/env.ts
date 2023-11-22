@@ -1,4 +1,4 @@
-let hostUrl = "";
+export let hostUrl = "";
 
 if (process.env.LANG === "ru") {
   hostUrl = `https://checkadblock.ru`;
@@ -6,4 +6,7 @@ if (process.env.LANG === "ru") {
   hostUrl = `https://adblock-tester.com`;
 }
 
-export default { hostUrl };
+export const alternateUrls = [
+  { locale: "ru", url: "https://checkadblock.ru" },
+  { locale: "en", url: "https://adblock-tester.com" },
+].filter(({ url }) => url !== hostUrl);
