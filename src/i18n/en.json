@@ -1,16 +1,16 @@
 {
   "meta": {
     "title": "AdBlock Tester: test your AdBlock extensions",
-    "description": "Webite with ads, analytics trackers, metrics, error catchers. Check your blocker: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate…"
+    "description": "Website with ads, analytics trackers, metrics, error catchers. Check your blocker: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate…"
   },
   "page": {
     "title": "AdBlock Tester",
     "version": "version",
     "nightMode": "Night mode",
     "warning": "Using multiple ad blockers at the same time can <b> negatively </b> affect their work.",
-    "description": "Chose an ad blocker but don’t know where to test it? This site contains various advertising and analytics services that you can test the effectiveness of your adblocker with. <br>AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate and others.",
-    "keywords": "Webite with ads, analytics trackers, metrics, error catchers. Check your blocker: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate…",
-    "footerQuestion": "Hey, I'm glad you've got so far. English isn't my first language, so I'll really appreciate if you let me know about any misspelling on site. Also I'm open for your ideas about new services.<br>"
+    "description": "Choosing an ad blocker but don't know where to test it? This site contains various advertising and analytic services you can use to test the effectiveness of your Adblocker. Some examples of Adblockers you can test are:  <br>AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate and others.",
+    "keywords": "Website with ads, analytics trackers, metrics, error catchers. Check your blocker: AdBlock, AdBlock Plus, AdGuard, Ghostery, uBlock Origin, AdBlocker Ultimate…",
+    "footerQuestion": "Hey, I'm glad you've got so far. English isn't my first language, so I'd really appreciate your letting me know if you come across any words that are misspelled on this site. Also I'm open for your ideas about new services.<br>"
   },
   "checkNames": {
     "script": "Script loading",
@@ -65,7 +65,7 @@
     },
     "analytics": {
       "title": "Analytics Tools",
-      "description": "These services monitor your actions on the site and collect information about you. They are needed only by the owner of the site, for the user it is only unnecessary requests and the code that needs to be executed. Unfortunately, blocking them sometimes can completely break the site.",
+      "description": "These services monitor your actions on the site and collect information about you. They are only useful to the sites' owners. Unfortunately, blocking them sometimes can completely break the site.",
       "google": "Google Analytics",
       "hotjar": "Hotjar"
     },
