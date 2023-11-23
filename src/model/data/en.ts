@@ -3,6 +3,7 @@ import { custom } from "./services/custom";
 import { adsYandex } from "./services/adsYandex";
 import { metricaGoogle } from "./services/metricaGoogle";
 import { metricaHotjar } from "./services/metricaHotjar";
+import { metricaYandex } from "./services/metricaYandex";
 import { bannerFlash } from "./services/bannerFlash";
 import { bannerGif } from "./services/bannerGif";
 import { bannerImage } from "./services/bannerImage";
@@ -28,7 +29,7 @@ export default [
     priority: "medium",
     titleKey: "sections.analytics.title",
     descriptionKey: "sections.analytics.description",
-    services: [metricaGoogle, metricaHotjar],
+    services: [metricaGoogle, metricaHotjar, metricaYandex],
   },
   {
     id: "banners",
