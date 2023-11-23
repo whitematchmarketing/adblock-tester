@@ -68,7 +68,8 @@
       "title": "Analytics Tools",
       "description": "These services monitor your actions on the site and collect information about you. They are only useful to the sites' owners. Unfortunately, blocking them sometimes can completely break the site.",
       "google": "Google Analytics",
-      "hotjar": "Hotjar"
+      "hotjar": "Hotjar",
+      "yandex": "Yandex.Metrica"
     },
     "errorCatchers": {
       "title": "Error Monitoring",
