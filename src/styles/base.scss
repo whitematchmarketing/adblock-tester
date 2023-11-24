@@ -1,7 +1,18 @@
 @import "./variables.scss";
 
 body {
-  font: #{$base-font-size}/#{$base-line-height} #{$base-font-family};
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  line-height: $base-line-height;
   color: var(--text-color);
   background: var(--background-color);
+  padding: calc(24px + 2vh) calc(10px + 2vw);
+  transition: background $transition-quick ease, color $transition-quick ease;
+}
+
+.container {
+  max-width: 100%;
+  width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
 }

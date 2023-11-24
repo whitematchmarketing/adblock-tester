@@ -1,8 +1,20 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Hero } from "@/components/hero/hero";
+import { Test } from "@/components/test";
 ---
 
+calming
+
 <Layout title="Welcome to Astro.">
-  <Hero />
+  <div class="container">
+    <nav>
+      <b>Home</b> / <a>Comments</a> / <a>FAQ</a>
+    </nav>
+
+    <div>v4.0 &nbsp; dark/light</div>
+
+    <Hero />
+    <Test client:load />
+  </div>
 </Layout>

@@ -3,6 +3,8 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/check': ^0.3.1
   '@astrojs/preact': ^3.0.1
+  '@types/lodash': ^4.14.202
+  '@types/node': ^20.10.0
   astro: ^3.6.0
   lodash: ^4.17.21
   preact: ^10.6.5
@@ -11,12 +13,14 @@ specifiers:
 
 dependencies:
   '@astrojs/preact': 3.0.1_preact@10.19.2
-  astro: 3.6.0_vndyc2o3ktg322dfwuhpsccmou
+  astro: 3.6.0_wwe6gcinfrdve3x77b2ccjlmba
   lodash: 4.17.21
   preact: 10.19.2
 
 devDependencies:
   '@astrojs/check': 0.3.1_typescript@5.3.2
+  '@types/lodash': 4.14.202
+  '@types/node': 20.10.0
   sass: 1.69.5
   typescript: 5.3.2
 
@@ -94,7 +98,7 @@ packages:
       astro: ^3.0.0
     dependencies:
       '@astrojs/prism': 3.0.0
-      astro: 3.6.0_vndyc2o3ktg322dfwuhpsccmou
+      astro: 3.6.0_wwe6gcinfrdve3x77b2ccjlmba
       github-slugger: 2.0.0
       import-meta-resolve: 3.1.1
       mdast-util-definitions: 6.0.0
@@ -993,6 +997,10 @@ packages:
       '@types/unist': 3.0.2
     dev: false
 
+  /@types/lodash/4.14.202:
+    resolution: {integrity: sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==}
+    dev: true
+
   /@types/mdast/3.0.15:
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
     dependencies:
@@ -1014,6 +1022,11 @@ packages:
     dependencies:
       '@types/unist': 2.0.10
     dev: false
+
+  /@types/node/20.10.0:
+    resolution: {integrity: sha512-D0WfRmU9TQ8I9PFx9Yc+EBHw+vSpIub4IDvQivcp26PtPrdMGAq5SDcpXEo/epqa/DXotVpekHiLNTg3iaKXBQ==}
+    dependencies:
+      undici-types: 5.26.5
 
   /@types/parse5/6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -1162,7 +1175,7 @@ packages:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
     dev: false
 
-  /astro/3.6.0_vndyc2o3ktg322dfwuhpsccmou:
+  /astro/3.6.0_wwe6gcinfrdve3x77b2ccjlmba:
     resolution: {integrity: sha512-mRDzWXsaSBaN+juvunO4Ukq8HQ1WqrULlcZfKzaKEZEXvxiWmMKN9tH0onQH0EaQ7+f4nNR4VN9kYTM26uMrXQ==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
@@ -1220,7 +1233,7 @@ packages:
       tsconfck: 3.0.0_typescript@5.3.2
       unist-util-visit: 4.1.2
       vfile: 5.3.7
-      vite: 4.5.0_sass@1.69.5
+      vite: 4.5.0_sq4jgn52aaumjx4eyvsjlow54i
       vitefu: 0.2.5_vite@4.5.0
       which-pm: 2.1.1
       yargs-parser: 21.1.1
@@ -3603,6 +3616,9 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  /undici-types/5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
   /unherit/3.0.1:
     resolution: {integrity: sha512-akOOQ/Yln8a2sgcLj4U0Jmx0R5jpIg2IUyRrWOzmEbjBtGzBdHtSeFKgoEcoH4KYIG/Pb8GQ/BwtYm0GCq1Sqg==}
     dev: false
@@ -3773,7 +3789,7 @@ packages:
       vfile-message: 4.0.2
     dev: false
 
-  /vite/4.5.0_sass@1.69.5:
+  /vite/4.5.0_sq4jgn52aaumjx4eyvsjlow54i:
     resolution: {integrity: sha512-ulr8rNLA6rkyFAlVWw2q5YJ91v098AFQ2R0PRFwPzREXOUJQPtFUG0t+/ZikhaOCDqFoDhN6/v8Sq0o4araFAw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -3801,6 +3817,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.10.0
       esbuild: 0.18.20
       postcss: 8.4.31
       rollup: 3.29.4
@@ -3817,7 +3834,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.5.0_sass@1.69.5
+      vite: 4.5.0_sq4jgn52aaumjx4eyvsjlow54i
     dev: false
 
   /volar-service-css/0.0.16_zn4ks6lotgotle2ok3wx3jdqyy:
