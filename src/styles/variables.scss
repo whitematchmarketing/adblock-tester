@@ -1,0 +1,78 @@
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif !default;
+$base-font-size: 18px !default;
+$base-line-height: 1.65 !default;
+
+$brand-color-light: #c0392b !default;
+$brand-color-dark: #e74c3c !default;
+
+$background-color-light: hsl(228, 33%, 97%) !default;
+$background-color-dark: hsl(215, 15%, 18%) !default;
+
+$text-color-light: hsl(221, 15%, 15%) !default;
+$text-color-dark: hsl(221, 15%, 85%) !default;
+
+$heading-color-light: hsl(221, 15%, 15%) !default;
+$heading-color-dark: hsl(221, 15%, 85%) !default;
+
+$warning-color-light: #f39c12 !default;
+$warning-color-dark: #e67e22 !default;
+$success-color-light: #2ecc71 !default;
+$success-color-dark: #2ecc71 !default;
+$info-color-light: #2980b9 !default;
+$info-color-dark: #3498db !default;
+$error-color-light: #c0392b !default;
+$error-color-dark: #e74c3c !default;
+
+$transition-quick: 0.15s;
+
+// theme-based variables
+:root {
+  --brand-color: #{$brand-color-light};
+  --background-color: #{$background-color-light};
+  --text-color: #{$text-color-light};
+  --heading-color: #{$heading-color-light};
+  --error-color: #{$error-color-light};
+  --info-color: #{$info-color-light};
+  --success-color: #{$success-color-light};
+  --warning-color: #{$warning-color-light};
+}
+:root.dark-mode {
+  --brand-color: #{$brand-color-dark};
+  --background-color: #{$background-color-dark};
+  --text-color: #{$text-color-dark};
+  --heading-color: #{$heading-color-dark};
+  --error-color: #{$error-color-dark};
+  --info-color: #{$info-color-dark};
+  --success-color: #{$success-color-dark};
+  --warning-color: #{$warning-color-dark};
+}
+
+// :root {
+//   --color-aquamarine: #16a085;
+//   --color-green: #27ae60;
+//   --color-blue: #2980b9;
+//   --color-violet: #8e44ad;
+//   --color-gray: #7f8c8d;
+//   --color-dark-gray: #2c3e50;
+//   --color-light-gray: #bdc3c7;
+//   --color-orange: #f39c12;
+//   --color-pumpkin: #d35400;
+//   --color-red: #c0392b;
+//   --color-text: var(--color-dark-gray);
+// }
+
+// :root.night-mode-on {
+//   --color-aquamarine: #1abc9c;
+//   --color-green: #2ecc71;
+//   --color-blue: #3498db;
+//   --color-violet: #9b59b6;
+//   --color-gray: #95a5a6;
+//   --color-dark-gray: #34495e;
+//   --color-light-gray: #ecf0f1;
+//   --color-orange: #f1c40f;
+//   --color-pumpkin: #e67e22;
+//   --color-red: #e74c3c;
+//   --color-text: var(--color-light-gray);
+// }
