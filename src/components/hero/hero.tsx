@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
-import { t } from "../i18n";
-import { version, releaseDate } from "../../package.json";
+import { t } from "@/i18n";
+import { version, releaseDate } from "@/../package.json";
 
 export const Hero = () => {
   return (
